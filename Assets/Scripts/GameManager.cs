@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     Dictionary<string, string[]> repasArray = new Dictionary<string, string[]>();
     Dictionary<string, float> timersArray = new Dictionary<string, float>();
     Dictionary<string, GameObject> objectsArray = new Dictionary<string, GameObject>();
+    List<string> nomsRepas = new List<string>();
 
     
     private string[] burgerIngredients = new string[] {"fromage", "pain", "viande", "laitue", "tomate"};
@@ -72,6 +73,9 @@ public class GameManager : MonoBehaviour
     private bool tempsGlobalEnCours = false;
     [Header("Score et timer")]
     public Text timerText;
+    public Text recetteTimerText;
+    public Text scoreText;
+    public Text repasText;
 
     void Start() {
         //Scenes
@@ -82,36 +86,45 @@ public class GameManager : MonoBehaviour
             repasArray.Add("burger", burgerIngredients);
             timersArray.Add("burger", burgerTimer);
             objectsArray.Add("burger", burgerObject);
+            nomsRepas.Add("Burger");
 
             repasArray.Add("platViande", platViandeIngredients);
             timersArray.Add("platViande", platViandeTimer);
             objectsArray.Add("platViande", platViandeObject);
+            nomsRepas.Add("Plat de viande");
 
             repasArray.Add("brochette", brochetteIngredients);
             timersArray.Add("brochette", brochetteTimer);
             objectsArray.Add("brochette", brochetteObject);
+            nomsRepas.Add("Brochette");
 
             repasArray.Add("sandwich", sandwichIngredients);
             timersArray.Add("sandwich", sandwichTimer);
             objectsArray.Add("sandwich", sandwichObject);
+            nomsRepas.Add("Sandwich");
 
             repasArray.Add("salade", saladeIngredients);
             timersArray.Add("salade", saladeTimer);
             objectsArray.Add("salade", saladeObject);
+            nomsRepas.Add("Salade");
 
             repasArray.Add("croqueMonsieur", croqueMonsieurIngredients);
             timersArray.Add("croqueMonsieur", croqueMonsieurTimer);
             objectsArray.Add("croqueMonsieur", croqueMonsieurObject);
+            nomsRepas.Add("Croque-monsieur");
 
             repasArray.Add("jello", jelloIngredients);
             timersArray.Add("jello", jelloTimer);
             objectsArray.Add("jello", jelloObject);
+            nomsRepas.Add("Jello");
 
             //Timer partie
             tempsGlobalEnCours = true;
 
             genererAssiette();
             choisirRepas();
+
+            scoreText.text = "0";
         }
     }
 
@@ -123,7 +136,7 @@ public class GameManager : MonoBehaviour
         timerRecette = timersArray.ElementAt(repasChoisi).Value;
         recetteTimerTotal = timerRecette;
         tempsRecetteEnCours = true;
-        Debug.Log(repasArray.ElementAt(repasChoisi).Key);
+        repasText.text = nomsRepas[repasChoisi];
         ingredientsChoisis.Clear();
     }
 
@@ -236,6 +249,7 @@ public class GameManager : MonoBehaviour
 
             player.GetComponent<Objets>().SendMessage("clearHand");
             hotspotAssiette.GetComponent<Hotspot_assiette>().SendMessage("clearAssiette");
+            scoreText.text = scoreTotal.ToString();
             prochainRepas();
         }
 
@@ -267,7 +281,7 @@ public class GameManager : MonoBehaviour
             }
 
             if (timerGlobal > 0) {
-                DisplayTime(timerGlobal);
+                DisplayTime(timerGlobal, timerText);
             }
         }
 
@@ -277,6 +291,7 @@ public class GameManager : MonoBehaviour
             if (timerRecette> 0)
             {
                 timerRecette -= Time.deltaTime;
+                DisplayTime(timerRecette, recetteTimerText);
             }
             else {
                 timerRecette = 0;
@@ -287,13 +302,13 @@ public class GameManager : MonoBehaviour
     }
 
     
-    void DisplayTime(float timeToDisplay)
+    void DisplayTime(float timeToDisplay, Text target)
     {
         timeToDisplay += 1;
         float minutes = Mathf.FloorToInt(timeToDisplay / 60);
         float seconds = Mathf.FloorToInt(timeToDisplay % 60);
 
-        timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        target.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 
     //Scene change
