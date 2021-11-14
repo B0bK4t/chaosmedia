@@ -69,13 +69,15 @@ public class GameManager : MonoBehaviour
     //Score global
     private float scoreTotal = 0f;
     private float timerGlobal = 300f;
-    private float debutDisco = 60f;
+    // private float debutDisco = 60f;
+    private float debutDisco = 300f;
     private bool tempsGlobalEnCours = false;
     [Header("Score et timer")]
     public Text timerText;
     public Text recetteTimerText;
     public Text scoreText;
     public Text repasText;
+    public GameObject disco;
 
     void Start() {
         //Scenes
@@ -118,7 +120,8 @@ public class GameManager : MonoBehaviour
             objectsArray.Add("jello", jelloObject);
             nomsRepas.Add("Jello");
 
-            this.GetComponent<GameStart>().SendMessage("startGame");
+            // this.GetComponent<GameStart>().SendMessage("startGame");
+            debut(); //Bypass le décompte et la cinématique, à enlever
         }
     }
 
@@ -266,6 +269,7 @@ public class GameManager : MonoBehaviour
         if (tempsGlobalEnCours) {
             if (timerGlobal <= debutDisco) {
                 discoMultiplicateur = 3f;
+                bouleDisco();
             }
             if (timerGlobal> 0)
             {
@@ -317,6 +321,16 @@ public class GameManager : MonoBehaviour
     public void debutCuisine()
     {
         SceneManager.LoadScene(gameScene);
+    }
+
+    void bouleDisco() {
+        var pos = disco.transform.position;
+        float height;
+        height = pos.y;
+        if (height > 4.254f) {
+            height -= 0.01f;
+            disco.transform.position = new Vector3(pos.x, height, pos.z);
+        }
     }
 
 }
