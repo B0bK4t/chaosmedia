@@ -3773,23 +3773,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c6f595bd875611c4fa969be04e98bfcb, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.008003179
+      value: 0.11244392
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c6f595bd875611c4fa969be04e98bfcb, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.7070615
+      value: 0.69810915
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c6f595bd875611c4fa969be04e98bfcb, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.008003179
+      value: -0.11244392
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c6f595bd875611c4fa969be04e98bfcb, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.7070615
+      value: 0.69810915
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c6f595bd875611c4fa969be04e98bfcb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 178.703
+      value: 161.7
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c6f595bd875611c4fa969be04e98bfcb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -5622,6 +5622,25 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -1064429455135939908, guid: 5bd05b7a1ebfac3499e3a0401c30874b, type: 3}
+--- !u!95 &1057864096
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1057864094}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5ee9c76f11ec02844bef03af1cdffec3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1060899069
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7321,6 +7340,30 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: bc6ab7d581a7cc14daa3558043dea1f3, type: 3}
   m_PrefabInstance: {fileID: 1329885405}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1341219514 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 38c498020c757cb48801849f95327452, type: 3}
+  m_PrefabInstance: {fileID: 1608048606}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1341219515
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1341219514}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 38cfebca091087e45893cd1453e769d1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1341985464
 GameObject:
   m_ObjectHideFlags: 0
@@ -9785,6 +9828,30 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1654884384 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c6f595bd875611c4fa969be04e98bfcb, type: 3}
+  m_PrefabInstance: {fileID: 761404815}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1654884385
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1654884384}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4a66a31e6995494448854033721e553f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1657370922
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11846,6 +11913,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 515b27119ee127b4a92bc8ffca384e39, type: 3}
+--- !u!1 &1970033394 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c6f595bd875611c4fa969be04e98bfcb, type: 3}
+  m_PrefabInstance: {fileID: 1883717353}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1970033397
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1970033394}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4a66a31e6995494448854033721e553f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1976858579
 GameObject:
   m_ObjectHideFlags: 0
@@ -12393,7 +12484,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 95cc147f28c208246af988e5906e6c09, type: 3}
       propertyPath: m_LocalScale.z
-      value: 199.99992
+      value: 202.09
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 95cc147f28c208246af988e5906e6c09, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12473,6 +12564,25 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -3265112390806631506, guid: 95cc147f28c208246af988e5906e6c09, type: 3}
+--- !u!95 &2111513019
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2111513017}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d256274f98c54b344bf04ef7746b0d98, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &2124338122
 PrefabInstance:
   m_ObjectHideFlags: 0
