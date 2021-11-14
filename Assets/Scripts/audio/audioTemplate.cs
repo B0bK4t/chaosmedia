@@ -10,10 +10,17 @@ public class audioTemplate : MonoBehaviour
     *   Voir programmeurs pour savoir où mettre les appels exactements
     */
     public GameObject musiqueFond; //Mettre ici tous les Game Ojects des sons
+    public GameObject cuissonViande;
+    public GameObject Toaster;
+    public GameObject deposerAssiette;
+    public GameObject deposerJello;
+    public GameObject Frigo;
+    public GameObject personnage;
 
     void Méthode()
     {
         //Utiliser la ligne suivant pour appeller un son
         musiqueFond.SendMessage("Jouer"); //Répéter pour chaque Game Object
+        cuissonViande.SendMessage("Jouer");
     }
 }
