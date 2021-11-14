@@ -2,11 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class Mouvement : MonoBehaviour
 {
 
+    //Scene
+    [Header("Général")]
+    public Scene scene;
+    string gameScene = "scene_beta"; 
     
+    public GameManager GameManager;
     private CharacterController controller;
     private PlayerInput playerInput;
     private Vector3 playerVelocity;
@@ -45,6 +51,7 @@ public class Mouvement : MonoBehaviour
 
      void Start()
     {
+        scene = SceneManager.GetActiveScene();
         playerInput = GetComponent<PlayerInput>();
         controller = gameObject.AddComponent<CharacterController>();
         rb_perso = GetComponent<Rigidbody>();
@@ -57,11 +64,7 @@ public class Mouvement : MonoBehaviour
 
     void FixedUpdate()
     {
-        
-            
-        
-                
-            
+          if (scene.name == gameScene) {
             groundedPlayer = controller.isGrounded;
             if (groundedPlayer && playerVelocity.y < 0)
             {
@@ -110,7 +113,16 @@ public class Mouvement : MonoBehaviour
             } else {
                 animatorPerso.SetBool("marcher", false);
             }
-      
+          }
+
+          else {
+              float click = playerInput.actions["Ouvrir"].ReadValue<float>();
+                if (click == 1) {
+                    if (scene.name == "Accueil") {
+                    GameManager.SendMessage("debutCuisine");
+                }
+            }
+          }
     }
 
     // void OnEnable(){

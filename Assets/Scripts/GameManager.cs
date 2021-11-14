@@ -118,14 +118,15 @@ public class GameManager : MonoBehaviour
             objectsArray.Add("jello", jelloObject);
             nomsRepas.Add("Jello");
 
-            //Timer partie
-            tempsGlobalEnCours = true;
-
-            genererAssiette();
-            choisirRepas();
-
-            scoreText.text = "0";
+            this.GetComponent<GameStart>().SendMessage("startGame");
         }
+    }
+
+    void debut() {
+        tempsGlobalEnCours = true;
+        // genererAssiette();
+        choisirRepas();
+        scoreText.text = "0";
     }
 
     void choisirRepas() {
@@ -172,9 +173,6 @@ public class GameManager : MonoBehaviour
 
     void verifierRepas()
     {
-      
-    //    for (int i = 0; i < repasArray.Count; i++)
-    //    {
             repas = repasArray.ElementAt(repasChoisi).Key;
             string[] ingredientsNeeded = repasArray.ElementAt(repasChoisi).Value;
             List<string> allNeeded = new List<string>();
@@ -220,11 +218,10 @@ public class GameManager : MonoBehaviour
                 Debug.Log(repas + "est terminé"); //Changer pour output
                 repasEstTermine = true;
             }
-        // }
-
     }
 
-    void Juger() {
+    void Juger() 
+    {
         float tempsCourant = timerRecette/recetteTimerTotal;
 
         if (repasEstTermine) {
