@@ -94,13 +94,14 @@ public class Hotspot_assiette : MonoBehaviour
 
     public void clearAssiette() {
         if (nbIngredients > 0) {
-            canAdd = true;
             for (int i = 0; i < ingredients.Count; i++)
             {
                 Destroy(ingredients[i]);
             }
-            ingredients.Clear();
-            nbIngredients = 0;
-        }
+                ingredients.Clear();
+            }
+        
+        canAdd = true;
+        nbIngredients = 0;
     }
 }
