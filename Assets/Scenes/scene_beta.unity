@@ -412,6 +412,7 @@ MonoBehaviour:
   recetteTimerText: {fileID: 394732045}
   scoreText: {fileID: 834495772}
   repasText: {fileID: 2068698457}
+  disco: {fileID: 2053403184}
 --- !u!114 &46840872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13154,6 +13155,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2039410918}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &2053403184 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 9d8cf64c0d686e248a101a93ea432f5b, type: 3}
+  m_PrefabInstance: {fileID: 1756756503}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2068698455
 GameObject:
   m_ObjectHideFlags: 0

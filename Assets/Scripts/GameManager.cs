@@ -279,6 +279,7 @@ public class GameManager : MonoBehaviour
                 timerGlobal = 0;
                 tempsGlobalEnCours = false;
                 Debug.Log("fin de la partie");
+                finCuisine();
             }
 
             if (timerGlobal > 0) {
@@ -321,6 +322,11 @@ public class GameManager : MonoBehaviour
     public void debutCuisine()
     {
         SceneManager.LoadScene(gameScene);
+    }
+
+    public void finCuisine()
+    {
+        SceneManager.LoadScene("Accueil");
     }
 
     void bouleDisco() {
