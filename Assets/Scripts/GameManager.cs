@@ -8,8 +8,12 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     //Scene
+    [Header("Général")]
     public Scene scene;
     string gameScene = "scene_beta"; 
+
+    public GameObject player;
+    public GameObject hotspotAssiette;
     
     //pain, viande, fromage, tomate, laitue, jus
     //ingrédients dispo beta: viande, laitue, pain, fromage => plat de viande, croque monsieur
@@ -18,9 +22,10 @@ public class GameManager : MonoBehaviour
     Dictionary<string, float> timersArray = new Dictionary<string, float>();
     Dictionary<string, GameObject> objectsArray = new Dictionary<string, GameObject>();
 
-    [Header("Ingrédients des repas")]
+    
     private string[] burgerIngredients = new string[] {"fromage", "pain", "viande", "laitue", "tomate"};
     private float burgerTimer = 30f;
+    [Header("Game Objects des repas")]
     public GameObject burgerObject;
 
     private string[] platViandeIngredients = new string[] {"viande","laitue"};
@@ -47,6 +52,7 @@ public class GameManager : MonoBehaviour
     private float jelloTimer = 30f;
     public GameObject jelloObject;
 
+    [Header("Utilitaires pour les autres scripts")]
     [ShowOnly] public GameObject objectRepasChoisi;
 
     //Score global
@@ -173,12 +179,14 @@ public class GameManager : MonoBehaviour
         if (done == "false")
             {
                 Debug.Log(repas + " ne peut pas être fait"); //Changer pour output
+                repasEstTermine = false;
             } else if (done == "pasComplete") {
                 
                 Debug.Log(repas + " n'est pas terminé, il manque:");
                 foreach (var item in allNeeded)
                 {
                     Debug.Log(item); //Changer pour output
+                    repasEstTermine = false;
                 }
             } else if (done == "true") {
                 Debug.Log(repas + "est terminé"); //Changer pour output
@@ -211,6 +219,10 @@ public class GameManager : MonoBehaviour
                 Debug.Log(scoreTotal);
             }
         }
+
+        player.GetComponent<Objets>().SendMessage("clearHand");
+        hotspotAssiette.GetComponent<Hotspot_assiette>().SendMessage("clearAssiette");
+
     }
 
 
@@ -241,9 +253,9 @@ public class GameManager : MonoBehaviour
                 timerRecette -= Time.deltaTime;
             }
             else {
-                Juger();
                 timerRecette = 0;
                 tempsRecetteEnCours = false;
+                Juger();
             }
         }
     }

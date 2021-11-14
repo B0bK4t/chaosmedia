@@ -27,7 +27,7 @@ public class Hotspot_assiette : MonoBehaviour
         if (other.tag == "Player" && other.GetComponent<Objets>().click && canInteract) {
             canInteract = false;
             var man = GameManager.GetComponent<GameManager>();
-            if (other.GetComponent<Objets>().isCarrying && !man.repasEstTermine && canAdd) {
+            if (other.GetComponent<Objets>().isCarrying && canAdd) {
                 ingredient = other.GetComponent<Objets>().ingredient;
                 ajoutIngredient(ingredient);
                 other.GetComponent<Objets>().isCarrying = false;
@@ -72,9 +72,11 @@ public class Hotspot_assiette : MonoBehaviour
             canAdd = false;
             for (int i = 0; i < ingredients.Count; i++)
             {
-                Debug.Log(ingredients[i]);
+                Destroy(ingredients[i]);
             }
-        } else if (nbIngredients > 0 && canAdd) {
+            ingredients.Clear();
+            nbIngredients = 0;
+        } else if (nbIngredients > 0 && canAdd) { 
             var lastElement = ingredients.Count - 1;
             var o = originals[lastElement];
             ingredientCarry = Instantiate(ingredients[lastElement], new Vector3(0, 0, 0), Quaternion.identity);
@@ -87,6 +89,18 @@ public class Hotspot_assiette : MonoBehaviour
             ingredients.RemoveAt(lastElement);
             nbIngredients--;
             GameManager.SendMessage("enleverIngredient");
+        }
+    }
+
+    public void clearAssiette() {
+        if (nbIngredients > 0) {
+            canAdd = true;
+            for (int i = 0; i < ingredients.Count; i++)
+            {
+                Destroy(ingredients[i]);
+            }
+            ingredients.Clear();
+            nbIngredients = 0;
         }
     }
 }
