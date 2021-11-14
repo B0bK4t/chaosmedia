@@ -19,4 +19,9 @@ public class Objets : MonoBehaviour
             ingredient.transform.position = main.transform.position + offset;
         }
     }
+
+    public void clearHand() {
+        Destroy(ingredient);
+        isCarrying = false;
+    }
 }

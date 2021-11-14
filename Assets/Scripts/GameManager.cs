@@ -3,13 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 
 public class GameManager : MonoBehaviour
 {
     //Scene
+    [Header("Général")]
     public Scene scene;
     string gameScene = "scene_beta"; 
+
+    public GameObject player;
+    public GameObject hotspotAssiette;
     
     //pain, viande, fromage, tomate, laitue, jus
     //ingrédients dispo beta: viande, laitue, pain, fromage => plat de viande, croque monsieur
@@ -18,9 +23,10 @@ public class GameManager : MonoBehaviour
     Dictionary<string, float> timersArray = new Dictionary<string, float>();
     Dictionary<string, GameObject> objectsArray = new Dictionary<string, GameObject>();
 
-    [Header("Ingrédients des repas")]
+    
     private string[] burgerIngredients = new string[] {"fromage", "pain", "viande", "laitue", "tomate"};
     private float burgerTimer = 30f;
+    [Header("Game Objects des repas")]
     public GameObject burgerObject;
 
     private string[] platViandeIngredients = new string[] {"viande","laitue"};
@@ -47,15 +53,9 @@ public class GameManager : MonoBehaviour
     private float jelloTimer = 30f;
     public GameObject jelloObject;
 
-    [ShowOnly] public GameObject objectRepasChoisi;
-
-    //Score global
-    private float scoreTotal = 0f;
-    private float timerGlobal = 300f;
-    private float debutDisco = 60f;
-    private bool tempsGlobalEnCours = false;
-
     //Recette courante
+    [Header("Utilitaires pour les autres scripts")]
+    [ShowOnly] public GameObject objectRepasChoisi;
     private int repasChoisi;
     private float timerRecette;
     private float recetteTimerTotal;
@@ -64,6 +64,14 @@ public class GameManager : MonoBehaviour
     [ShowOnly] public bool repasEstTermine = false;
     [ShowOnly] public string repas;
     private float discoMultiplicateur = 1f;
+
+    //Score global
+    private float scoreTotal = 0f;
+    private float timerGlobal = 300f;
+    private float debutDisco = 60f;
+    private bool tempsGlobalEnCours = false;
+    [Header("Score et timer")]
+    public Text timerText;
 
     void Start() {
         //Scenes
@@ -110,11 +118,24 @@ public class GameManager : MonoBehaviour
     void choisirRepas() {
         //Choix du repas
         // repasChoisi = Random.Range(1, repasArray.Count);
-        repasChoisi = 1;
+        randomBeta();
         scoreRepas = timersArray.ElementAt(repasChoisi).Value;
         timerRecette = timersArray.ElementAt(repasChoisi).Value;
         recetteTimerTotal = timerRecette;
         tempsRecetteEnCours = true;
+        Debug.Log(repasArray.ElementAt(repasChoisi).Key);
+        ingredientsChoisis.Clear();
+    }
+
+    void randomBeta() {
+        var nb = Random.Range(1, 3);
+        if (nb == 1)
+        {
+            repasChoisi = 1;
+        } else if (nb == 2) 
+        {
+            repasChoisi = 5;
+        }
     }
 
     void genererAssiette() {
@@ -173,12 +194,14 @@ public class GameManager : MonoBehaviour
         if (done == "false")
             {
                 Debug.Log(repas + " ne peut pas être fait"); //Changer pour output
+                repasEstTermine = false;
             } else if (done == "pasComplete") {
                 
                 Debug.Log(repas + " n'est pas terminé, il manque:");
                 foreach (var item in allNeeded)
                 {
                     Debug.Log(item); //Changer pour output
+                    repasEstTermine = false;
                 }
             } else if (done == "true") {
                 Debug.Log(repas + "est terminé"); //Changer pour output
@@ -210,9 +233,19 @@ public class GameManager : MonoBehaviour
                 repasEstTermine = false;
                 Debug.Log(scoreTotal);
             }
+
+            player.GetComponent<Objets>().SendMessage("clearHand");
+            hotspotAssiette.GetComponent<Hotspot_assiette>().SendMessage("clearAssiette");
+            prochainRepas();
         }
+
     }
 
+    void prochainRepas() {
+        if (tempsGlobalEnCours) {
+            choisirRepas();
+        }
+    }
 
     void Update()
     {
@@ -232,7 +265,12 @@ public class GameManager : MonoBehaviour
                 tempsGlobalEnCours = false;
                 Debug.Log("fin de la partie");
             }
+
+            if (timerGlobal > 0) {
+                DisplayTime(timerGlobal);
+            }
         }
+
         //Timer recette
         if (tempsRecetteEnCours)
         {
@@ -241,11 +279,21 @@ public class GameManager : MonoBehaviour
                 timerRecette -= Time.deltaTime;
             }
             else {
-                Juger();
                 timerRecette = 0;
                 tempsRecetteEnCours = false;
+                Juger();
             }
         }
+    }
+
+    
+    void DisplayTime(float timeToDisplay)
+    {
+        timeToDisplay += 1;
+        float minutes = Mathf.FloorToInt(timeToDisplay / 60);
+        float seconds = Mathf.FloorToInt(timeToDisplay % 60);
+
+        timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 
     //Scene change
