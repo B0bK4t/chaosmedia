@@ -116,11 +116,23 @@ public class GameManager : MonoBehaviour
     void choisirRepas() {
         //Choix du repas
         // repasChoisi = Random.Range(1, repasArray.Count);
-        repasChoisi = 1;
+        randomBeta();
         scoreRepas = timersArray.ElementAt(repasChoisi).Value;
         timerRecette = timersArray.ElementAt(repasChoisi).Value;
         recetteTimerTotal = timerRecette;
         tempsRecetteEnCours = true;
+        Debug.Log(repasArray.ElementAt(repasChoisi).Key);
+    }
+
+    void randomBeta() {
+        var nb = Random.Range(1, 3);
+        if (nb == 1)
+        {
+            repasChoisi = 1;
+        } else if (nb == 2) 
+        {
+            repasChoisi = 5;
+        }
     }
 
     void genererAssiette() {
@@ -245,6 +257,7 @@ public class GameManager : MonoBehaviour
                 Debug.Log("fin de la partie");
             }
         }
+        
         //Timer recette
         if (tempsRecetteEnCours)
         {
