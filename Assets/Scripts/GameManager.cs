@@ -120,7 +120,7 @@ public class GameManager : MonoBehaviour
             nomsRepas.Add("Jello");
 
             this.GetComponent<GameStart>().SendMessage("startGame");
-            debut(); //Bypass le décompte et la cinématique, à enlever
+            // this.GetComponent<GameStart>().SendMessage("bypass");
         }
     }
 
@@ -144,11 +144,12 @@ public class GameManager : MonoBehaviour
     }
 
     void randomBeta() {
-        var nb = Random.Range(1, 3);
-        if (nb == 1)
+        var nb = Random.Range(1, 4);
+        Debug.Log(nb);
+        if (nb < 3)
         {
             repasChoisi = 1;
-        } else if (nb == 2) 
+        } else if (nb == 3) 
         {
             repasChoisi = 5;
         }
