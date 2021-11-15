@@ -337,5 +337,4 @@ public class GameManager : MonoBehaviour
             disco.transform.position = new Vector3(pos.x, height, pos.z);
         }
     }
-
 }
