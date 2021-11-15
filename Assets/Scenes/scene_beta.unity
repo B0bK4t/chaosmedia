@@ -4863,7 +4863,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 797174836}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 6.4, y: 7.22, z: 7.2}
+  m_LocalPosition: {x: 6.4, y: 7.22, z: 6.44}
   m_LocalScale: {x: 19.3, y: 0.3, z: 16.97}
   m_Children: []
   m_Father: {fileID: 886947172}
@@ -8198,6 +8198,7 @@ MonoBehaviour:
   scene:
     m_Handle: 0
   GameManager: {fileID: 0}
+  playerInput: {fileID: 0}
   peutBouger: 1
   input: {x: 0, y: 0}
   move: {x: 0, y: 0, z: 0}
