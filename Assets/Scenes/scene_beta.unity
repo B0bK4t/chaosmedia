@@ -508,7 +508,7 @@ MonoBehaviour:
   scene:
     m_Handle: 0
   player: {fileID: 1299025826}
-  hotspotAssiette: {fileID: 1711986328}
+  hotspotAssiette: {fileID: 94818100}
   burgerObject: {fileID: 435124259}
   platViandeObject: {fileID: 1081012401}
   brochetteObject: {fileID: 906945314}
