@@ -5,12 +5,13 @@ using UnityEngine.InputSystem;
 public class Hotspot_station : MonoBehaviour
 {
     [ShowOnly] public GameObject ingredient;
-    [ShowOnly] public Collider player;
+    [ShowOnly] public GameObject player;
 
     public string ingredientNeeded;
     public GameObject ingredientOutput;
     private GameObject ingredientCarry;
     public Vector3 offset;
+    public Animator anim;
 
     private bool partie1viande;
 
@@ -25,14 +26,29 @@ public class Hotspot_station : MonoBehaviour
     private bool waitForOutput = false;
     public bool miniJeuReussi = true; //Résultat du mini-jeu, false par défaut mais true pour tester
         
+    
+    void Awake() {
+        player = GameObject.Find("Dona disco");
+        if (anim == GameObject.Find("Toaster").GetComponent<Animator>()) {
+            anim.SetBool("cuire", true);
+            anim.SetBool("griller", false);
+            anim.SetBool("toaster", false);
+        }
+    }
+
     void OnTriggerStay(Collider other) {
         if (other.tag == "Player" && other.GetComponent<Objets>().isCarrying) {
-            player = other;
+            
             ingredient = other.GetComponent<Objets>().ingredient;
             
             if (ingredient.tag == ingredientNeeded) {
                 if (other.GetComponent<Objets>().click) {
                     other.GetComponent<Objets>().isCarrying = false;
+                    if (anim == GameObject.Find("Toaster").GetComponent<Animator>()) {
+                        anim.SetBool("cuire", false);
+                        anim.SetBool("griller", true);
+                        anim.SetBool("toaster", false);
+                    }
                     Destroy(ingredient);
                     MiniJeux();
                     output();
@@ -59,6 +75,11 @@ public class Hotspot_station : MonoBehaviour
                 waitForOutput = false;
                 player.GetComponent<Mouvement>().peutBouger = true;
                 ingredientCuit();
+                if (anim == GameObject.Find("Toaster").GetComponent<Animator>()) {
+                    anim.SetBool("cuire", false);
+                    anim.SetBool("griller", false);
+                    anim.SetBool("toaster", true);
+                }
             } else {
                 waitForOutput = true;
                 player.GetComponent<Mouvement>().peutBouger = false;
