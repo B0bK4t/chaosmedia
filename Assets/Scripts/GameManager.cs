@@ -120,7 +120,7 @@ public class GameManager : MonoBehaviour
             objectsArray.Add("jello", jelloObject);
             nomsRepas.Add("Jello");
 
-            // this.GetComponent<GameStart>().SendMessage("startGame");
+            this.GetComponent<GameStart>().SendMessage("startGame");
             debut(); //Bypass le décompte et la cinématique, à enlever
         }
     }

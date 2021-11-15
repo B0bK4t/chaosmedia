@@ -14,10 +14,18 @@ public class Hotspot_station : MonoBehaviour
 
     private bool partie1viande;
 
+    private bool jeuLaitue = false;
+
     private float boutonJeuxGauche;
 
     private bool partie2viande; 
 
+    private bool partie1pain; 
+    private bool partie2pain; 
+
+    private bool partie1fromage;
+
+    private bool partie2fromage;
     private float boutonJeuxGaucheOui;
 
     private float nombreDefoisButtonGauche;
@@ -47,11 +55,18 @@ public class Hotspot_station : MonoBehaviour
 
     void Update() {
         check();
+        
         Debug.Log(nombreDefoisButtonGauche);
         boutonJeuxGauche = player.GetComponent<Mouvement>().playerInput.actions["interactionJeuxGauche"].ReadValue<float>();
+
         
  
-        Debug.Log(boutonJeuxGauche);
+        
+        if(nombreDefoisButtonGauche == 5){
+                miniJeuReussi = true;
+                nombreDefoisButtonGauche = 0;
+        }
+        
         
         if (waitForOutput) {
             if (miniJeuReussi) {
@@ -63,6 +78,7 @@ public class Hotspot_station : MonoBehaviour
                 waitForOutput = true;
                 player.GetComponent<Mouvement>().peutBouger = false;
                 Debug.Log("En attente");
+                jeuLaitue = true;
             }
         }
     }
@@ -80,6 +96,18 @@ public class Hotspot_station : MonoBehaviour
     void check(){
         if( partie1viande == true && partie2viande == true){
             miniJeuReussi = true;
+            partie1viande = false;
+            partie2viande = false;
+        }
+        else if( partie1pain == true && partie2pain == true){
+            miniJeuReussi = true;
+            partie1pain = false;
+            partie2pain = false;
+        }
+        else if( partie1fromage == true && partie2fromage == true){
+            miniJeuReussi = true;
+            partie1fromage = false;
+            partie2fromage = false;
         }
     }
     
@@ -89,12 +117,13 @@ public class Hotspot_station : MonoBehaviour
 
     public void interactionJeuxBas(InputAction.CallbackContext context)
     {   
-
-        if (context.performed)
+        if (partie1pain == true){
+            partie2pain = true;
+        }   
+         if (context.performed)
         {
             partie1viande = true;
-            Debug.Log("1");
-        }   
+        }
         
     }
 
@@ -104,19 +133,50 @@ public class Hotspot_station : MonoBehaviour
             if (context.performed)
             {
                 partie2viande = true;
-                Debug.Log("2");
+                
             }
+         if (context.performed)
+            {
+                partie1pain = true;
+            }
+         
         }
+       
+            
     }
+    
 
     public void interactionJeuxGauche(InputAction.CallbackContext context)
     {   
-            
+            if( jeuLaitue == true){
             if (context.performed)
             {
-               nombreDefoisButtonGauche = nombreDefoisButtonGauche + 1f;
+                
+                    nombreDefoisButtonGauche++;
+                
                 
             }
+            }
+            if(context.performed){
+                partie1fromage = true;
+            }
+            
+        
+    }
+
+    public void interactionJeuxDroite(InputAction.CallbackContext context)
+    {   
+            if(partie1fromage == true){
+                if (context.performed)
+            {
+                
+                    partie2fromage = true;
+            
+            }
+            }
+            
+            
+            
         
     }
 }

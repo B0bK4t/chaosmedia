@@ -68,7 +68,7 @@ public class @PlayerControlsBeta : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""interactionJeuxGauche"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""bad51680-e3f1-4ddb-b9b2-94930633b928"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
