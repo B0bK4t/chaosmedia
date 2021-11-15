@@ -14,7 +14,13 @@ public class Hotspot_station : MonoBehaviour
 
     private bool partie1viande;
 
+    private float boutonJeuxGauche;
+
     private bool partie2viande; 
+
+    private float boutonJeuxGaucheOui;
+
+    private float nombreDefoisButtonGauche;
 
     private bool waitForOutput = false;
     public bool miniJeuReussi = true; //Résultat du mini-jeu, false par défaut mais true pour tester
@@ -28,7 +34,7 @@ public class Hotspot_station : MonoBehaviour
                 if (other.GetComponent<Objets>().click) {
                     other.GetComponent<Objets>().isCarrying = false;
                     Destroy(ingredient);
-                    // MiniJeux();
+                    MiniJeux();
                     output();
                 }
             }
@@ -41,6 +47,12 @@ public class Hotspot_station : MonoBehaviour
 
     void Update() {
         check();
+        Debug.Log(nombreDefoisButtonGauche);
+        boutonJeuxGauche = player.GetComponent<Mouvement>().playerInput.actions["interactionJeuxGauche"].ReadValue<float>();
+        
+ 
+        Debug.Log(boutonJeuxGauche);
+        
         if (waitForOutput) {
             if (miniJeuReussi) {
                 Debug.Log("Réussi!");
@@ -95,6 +107,17 @@ public class Hotspot_station : MonoBehaviour
                 Debug.Log("2");
             }
         }
+    }
+
+    public void interactionJeuxGauche(InputAction.CallbackContext context)
+    {   
+            
+            if (context.performed)
+            {
+               nombreDefoisButtonGauche = nombreDefoisButtonGauche + 1f;
+                
+            }
+        
     }
 }
 

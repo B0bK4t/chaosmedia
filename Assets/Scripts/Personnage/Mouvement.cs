@@ -14,7 +14,7 @@ public class Mouvement : MonoBehaviour
     
     public GameManager GameManager;
     private CharacterController controller;
-    private PlayerInput playerInput;
+    public PlayerInput playerInput;
     private Vector3 playerVelocity;
     private bool groundedPlayer;
     private float playerSpeed = 3f;
@@ -70,7 +70,9 @@ public class Mouvement : MonoBehaviour
             {
                 playerVelocity.y = 0f;
             }
-            float boutonJeuxBas = playerInput.actions["interactionJeuxBas"].ReadValue<float>();
+            
+
+
             input = playerInput.actions["Move"].ReadValue<Vector2>();
             move = new Vector3(input.x, 0, input.y);
 
