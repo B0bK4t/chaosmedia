@@ -26,32 +26,32 @@ public class GameManager : MonoBehaviour
 
     
     private string[] burgerIngredients = new string[] {"fromage", "pain", "viande", "laitue", "tomate"};
-    private float burgerTimer = 30f;
+    private float burgerTimer = 45f;
     [Header("Game Objects des repas")]
     public GameObject burgerObject;
 
     private string[] platViandeIngredients = new string[] {"viande","laitue"};
-    private float platViandeTimer = 30f;
+    private float platViandeTimer = 45f;
     public GameObject platViandeObject;
 
     private string[] brochetteIngredients = new string[] {"viande", "laitue", "tomate"};
-    private float brochetteTimer = 30f;
+    private float brochetteTimer = 45f;
     public GameObject brochetteObject;
 
     private string[] sandwichIngredients = new string[] {"pain", "viande", "tomate", "laitue"};
-    private float sandwichTimer = 30f;
+    private float sandwichTimer = 45f;
     public GameObject sandwichObject;
 
     private string[] saladeIngredients = new string[] {"laitue", "tomate", "fromage"};
-    private float saladeTimer = 30f;
+    private float saladeTimer = 45f;
     public GameObject saladeObject;
 
     private string[] croqueMonsieurIngredients = new string[] {"fromage", "pain", "viande"};
-    private float croqueMonsieurTimer = 30f;
+    private float croqueMonsieurTimer = 45f;
     public GameObject croqueMonsieurObject;
 
     private string[] jelloIngredients = new string[] {"jus"};
-    private float jelloTimer = 30f;
+    private float jelloTimer = 45f;
     public GameObject jelloObject;
 
     //Recette courante
