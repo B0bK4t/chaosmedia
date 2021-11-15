@@ -43,4 +43,13 @@ public class GameStart : MonoBehaviour
     void send() {
         this.GetComponent<GameManager>().SendMessage("debut");
     }
+
+    void bypass() {
+        trois.enabled = false;
+        deux.enabled = false;
+        un.enabled = false;
+        actionBig.enabled = false;
+        actionSmall.enabled = false;
+        this.GetComponent<GameManager>().SendMessage("debut");
+    }
 }
