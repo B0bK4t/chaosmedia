@@ -24,7 +24,6 @@ public class GameManager : MonoBehaviour
     Dictionary<string, GameObject> objectsArray = new Dictionary<string, GameObject>();
     List<string> nomsRepas = new List<string>();
 
-    
     private string[] burgerIngredients = new string[] {"fromage", "pain", "viande", "laitue", "tomate"};
     private float burgerTimer = 45f;
     [Header("Game Objects des repas")]
@@ -119,8 +118,8 @@ public class GameManager : MonoBehaviour
             objectsArray.Add("jello", jelloObject);
             nomsRepas.Add("Jello");
 
-            this.GetComponent<GameStart>().SendMessage("startGame");
-            // this.GetComponent<GameStart>().SendMessage("bypass");
+            // this.GetComponent<GameStart>().SendMessage("startGame");
+            this.GetComponent<GameStart>().SendMessage("bypass");
         }
     }
 
@@ -223,11 +222,11 @@ public class GameManager : MonoBehaviour
             }
     }
 
-    void Juger() 
+    void Juger(bool finished) 
     {
         float tempsCourant = timerRecette/recetteTimerTotal;
 
-        if (repasEstTermine) {
+        if (repasEstTermine || finished) {
             if (tempsCourant > 0.5) {
                 tempsRecetteEnCours = false;
                 scoreTotal += scoreRepas*110*discoMultiplicateur;
@@ -298,7 +297,7 @@ public class GameManager : MonoBehaviour
             else {
                 timerRecette = 0;
                 tempsRecetteEnCours = false;
-                Juger();
+                Juger(true);
             }
         }
     }
@@ -338,4 +337,5 @@ public class GameManager : MonoBehaviour
             disco.transform.position = new Vector3(pos.x, height, pos.z);
         }
     }
+
 }
