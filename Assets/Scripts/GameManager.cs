@@ -24,34 +24,33 @@ public class GameManager : MonoBehaviour
     Dictionary<string, GameObject> objectsArray = new Dictionary<string, GameObject>();
     List<string> nomsRepas = new List<string>();
 
-    
     private string[] burgerIngredients = new string[] {"fromage", "pain", "viande", "laitue", "tomate"};
-    private float burgerTimer = 30f;
+    private float burgerTimer = 45f;
     [Header("Game Objects des repas")]
     public GameObject burgerObject;
 
     private string[] platViandeIngredients = new string[] {"viande","laitue"};
-    private float platViandeTimer = 30f;
+    private float platViandeTimer = 45f;
     public GameObject platViandeObject;
 
     private string[] brochetteIngredients = new string[] {"viande", "laitue", "tomate"};
-    private float brochetteTimer = 30f;
+    private float brochetteTimer = 45f;
     public GameObject brochetteObject;
 
     private string[] sandwichIngredients = new string[] {"pain", "viande", "tomate", "laitue"};
-    private float sandwichTimer = 30f;
+    private float sandwichTimer = 45f;
     public GameObject sandwichObject;
 
     private string[] saladeIngredients = new string[] {"laitue", "tomate", "fromage"};
-    private float saladeTimer = 30f;
+    private float saladeTimer = 45f;
     public GameObject saladeObject;
 
     private string[] croqueMonsieurIngredients = new string[] {"fromage", "pain", "viande"};
-    private float croqueMonsieurTimer = 30f;
+    private float croqueMonsieurTimer = 45f;
     public GameObject croqueMonsieurObject;
 
     private string[] jelloIngredients = new string[] {"jus"};
-    private float jelloTimer = 30f;
+    private float jelloTimer = 45f;
     public GameObject jelloObject;
 
     //Recette courante
@@ -76,6 +75,7 @@ public class GameManager : MonoBehaviour
     public Text recetteTimerText;
     public Text scoreText;
     public Text repasText;
+    public GameObject disco;
 
     void Start() {
         //Scenes
@@ -118,7 +118,8 @@ public class GameManager : MonoBehaviour
             objectsArray.Add("jello", jelloObject);
             nomsRepas.Add("Jello");
 
-            this.GetComponent<GameStart>().SendMessage("startGame");
+            // this.GetComponent<GameStart>().SendMessage("startGame");
+            this.GetComponent<GameStart>().SendMessage("bypass");
         }
     }
 
@@ -142,11 +143,12 @@ public class GameManager : MonoBehaviour
     }
 
     void randomBeta() {
-        var nb = Random.Range(1, 3);
-        if (nb == 1)
+        var nb = Random.Range(1, 4);
+        Debug.Log(nb);
+        if (nb < 3)
         {
             repasChoisi = 1;
-        } else if (nb == 2) 
+        } else if (nb == 3) 
         {
             repasChoisi = 5;
         }
@@ -220,11 +222,11 @@ public class GameManager : MonoBehaviour
             }
     }
 
-    void Juger() 
+    void Juger(bool finished) 
     {
         float tempsCourant = timerRecette/recetteTimerTotal;
 
-        if (repasEstTermine) {
+        if (repasEstTermine || finished) {
             if (tempsCourant > 0.5) {
                 tempsRecetteEnCours = false;
                 scoreTotal += scoreRepas*110*discoMultiplicateur;
@@ -266,6 +268,7 @@ public class GameManager : MonoBehaviour
         if (tempsGlobalEnCours) {
             if (timerGlobal <= debutDisco) {
                 discoMultiplicateur = 3f;
+                bouleDisco();
             }
             if (timerGlobal> 0)
             {
@@ -275,6 +278,7 @@ public class GameManager : MonoBehaviour
                 timerGlobal = 0;
                 tempsGlobalEnCours = false;
                 Debug.Log("fin de la partie");
+                finCuisine();
             }
 
             if (timerGlobal > 0) {
@@ -293,7 +297,7 @@ public class GameManager : MonoBehaviour
             else {
                 timerRecette = 0;
                 tempsRecetteEnCours = false;
-                Juger();
+                Juger(true);
             }
         }
     }
@@ -317,6 +321,21 @@ public class GameManager : MonoBehaviour
     public void debutCuisine()
     {
         SceneManager.LoadScene(gameScene);
+    }
+
+    public void finCuisine()
+    {
+        SceneManager.LoadScene("Accueil");
+    }
+
+    void bouleDisco() {
+        var pos = disco.transform.position;
+        float height;
+        height = pos.y;
+        if (height > 4.254f) {
+            height -= 0.01f;
+            disco.transform.position = new Vector3(pos.x, height, pos.z);
+        }
     }
 
 }
