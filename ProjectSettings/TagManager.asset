@@ -15,6 +15,7 @@ TagManager:
   - laitueCrue
   - painCru
   - fromageCru
+  - jusCru
   layers:
   - Default
   - TransparentFX
