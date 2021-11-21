@@ -812,6 +812,7 @@ MonoBehaviour:
   recetteTimerText: {fileID: 0}
   scoreText: {fileID: 0}
   repasText: {fileID: 0}
+  disco: {fileID: 0}
 --- !u!1 &919266396
 GameObject:
   m_ObjectHideFlags: 0
@@ -1394,7 +1395,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1489,6 +1490,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musiqueFond: {fileID: 0}
+  cuissonViande: {fileID: 0}
+  Toaster: {fileID: 0}
+  deposerAssiette: {fileID: 0}
+  deposerJello: {fileID: 0}
+  Frigo: {fileID: 0}
+  personnage: {fileID: 0}
 --- !u!1 &1349762049
 GameObject:
   m_ObjectHideFlags: 0
