@@ -121,10 +121,17 @@ public class Mouvement : MonoBehaviour
               float click = playerInput.actions["Ouvrir"].ReadValue<float>();
                 if (click == 1) {
                     if (scene.name == "Accueil") {
-                    GameManager.SendMessage("debutCuisine");
+                        GameManager.SendMessage("debutCuisine");
+                    }
+                    else if (scene.name == "Post_credit") {
+                        Invoke("sendRetourHome",1.0f);
+                    }
                 }
-            }
           }
+    }
+
+    void sendRetourHome() {
+GameManager.SendMessage("retourHome");
     }
 
     // void OnEnable(){

@@ -173,17 +173,7 @@ public class GameManager : MonoBehaviour
 
     void enleverIngredient(string ingredient) {
         // ingredientsChoisis.RemoveAt(ingredientsChoisis.Count - 1);
-        Debug.Log("pre");
-        foreach (var x in ingredientsChoisis)
-        {
-            Debug.Log(x);
-        }
         ingredientsChoisis.Remove(ingredient);
-        Debug.Log("post");
-        foreach (var x in ingredientsChoisis)
-        {
-            Debug.Log(x);
-        }
         verifierRepas();
     }
 
@@ -350,6 +340,11 @@ public class GameManager : MonoBehaviour
     }
 
     public void finCuisine()
+    {
+        SceneManager.LoadScene("Post_credit");
+    }
+
+    public void retourHome()
     {
         SceneManager.LoadScene("Accueil");
     }
