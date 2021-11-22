@@ -30,9 +30,14 @@ public class Hotspot_assiette : MonoBehaviour
             var man = GameManager.GetComponent<GameManager>();
             if (other.GetComponent<Objets>().isCarrying && canAdd) {
                 ingredient = other.GetComponent<Objets>().ingredient;
-                ajoutIngredient(ingredient);
-                other.GetComponent<Objets>().isCarrying = false;
-                Destroy(ingredient);
+                GameManager.SendMessage("ajoutIngredient", player.GetComponent<Objets>().ingredient.tag);
+                if (man.canBeAdded) {
+                    ajoutIngredient(ingredient);
+                    other.GetComponent<Objets>().isCarrying = false;
+                    Destroy(ingredient);
+                } else {
+                   GameManager.SendMessage("enleverIngredient", player.GetComponent<Objets>().ingredient.tag);
+                }
             } else {
                 enleverIngredient();
             }
@@ -44,7 +49,6 @@ public class Hotspot_assiette : MonoBehaviour
     }
 
     void ajoutIngredient(GameObject ingredient) {
-        GameManager.SendMessage("ajoutIngredient", player.GetComponent<Objets>().ingredient.tag);
         var originalScale = new Vector3(ingredient.transform.localScale.x, ingredient.transform.localScale.y, ingredient.transform.localScale.z);
         ingredientClone = Instantiate(ingredient, new Vector3(0, 0, 0), Quaternion.identity, plate.transform);
         ingredientClone.transform.localPosition = new Vector3(0,0, 0.017f*(nbIngredients+1));
@@ -97,18 +101,11 @@ public class Hotspot_assiette : MonoBehaviour
             Destroy(ingredients[lastElement]);
             ingredients.RemoveAt(lastElement);
             nbIngredients--;
-            GameManager.SendMessage("enleverIngredient");
+            GameManager.SendMessage("enleverIngredient", player.GetComponent<Objets>().ingredient.tag);
             if (audio != null)
             {
                 audio.SendMessage("Jouer");
             }
-        }
-    }
-
-    public void Update() {
-        foreach (var ingredient in ingredients)
-        {   
-            Debug.Log(ingredient);
         }
     }
 
