@@ -64,6 +64,7 @@ public class GameManager : MonoBehaviour
     [ShowOnly] public bool repasEstTermine = false;
     [ShowOnly] public string repas;
     private float discoMultiplicateur = 1f;
+    [ShowOnly] public bool canBeAdded = false;
 
     //Score global
     private float scoreTotal = 0f;
@@ -76,6 +77,8 @@ public class GameManager : MonoBehaviour
     public Text scoreText;
     public Text repasText;
     public GameObject disco;
+    
+    public GameObject audio;
 
     void Start() {
         //Scenes
@@ -143,15 +146,15 @@ public class GameManager : MonoBehaviour
     }
 
     void randomBeta() {
-        var nb = Random.Range(1, 4);
-        Debug.Log(nb);
-        if (nb < 3)
-        {
-            repasChoisi = 1;
-        } else if (nb == 3) 
-        {
-            repasChoisi = 5;
-        }
+        // var nb = Random.Range(1, 4);
+        // if (nb < 3)
+        // {
+        //     repasChoisi = 1;
+        // } else if (nb == 3) 
+        // {
+        //     repasChoisi = 5;
+        // }
+        repasChoisi = 1;
     }
 
     void genererAssiette() {
@@ -168,8 +171,19 @@ public class GameManager : MonoBehaviour
         verifierRepas();
     }
 
-    void enleverIngredient() {
-        ingredientsChoisis.RemoveAt(ingredientsChoisis.Count - 1);
+    void enleverIngredient(string ingredient) {
+        // ingredientsChoisis.RemoveAt(ingredientsChoisis.Count - 1);
+        Debug.Log("pre");
+        foreach (var x in ingredientsChoisis)
+        {
+            Debug.Log(x);
+        }
+        ingredientsChoisis.Remove(ingredient);
+        Debug.Log("post");
+        foreach (var x in ingredientsChoisis)
+        {
+            Debug.Log(x);
+        }
         verifierRepas();
     }
 
@@ -190,8 +204,10 @@ public class GameManager : MonoBehaviour
                     {
                     if (!ingredientsNeeded.Contains(ingredient)) {
                             done = "false";
+                            canBeAdded = false;
                             break;
                         } else {
+                            canBeAdded = true;
                             done = "pasComplete";
                             allNeeded.Remove(ingredient);
                             if (allNeeded.Count == 0) {
@@ -204,21 +220,23 @@ public class GameManager : MonoBehaviour
             done = "pasComplete";
             }
 
-        if (done == "false")
+            if (done == "false")
             {
-                Debug.Log(repas + " ne peut pas être fait"); //Changer pour output
+                // Debug.Log(repas + " ne peut pas être fait"); //Changer pour output
                 repasEstTermine = false;
+                canBeAdded = false;
             } else if (done == "pasComplete") {
-                
-                Debug.Log(repas + " n'est pas terminé, il manque:");
+                canBeAdded = true;
+                // Debug.Log(repas + " n'est pas terminé, il manque:");
                 foreach (var item in allNeeded)
                 {
-                    Debug.Log(item); //Changer pour output
+                    // Debug.Log(item); //Changer pour output
                     repasEstTermine = false;
                 }
             } else if (done == "true") {
-                Debug.Log(repas + "est terminé"); //Changer pour output
+                // Debug.Log(repas + "est terminé"); //Changer pour output
                 repasEstTermine = true;
+                canBeAdded = false;
             }
     }
 
@@ -232,12 +250,20 @@ public class GameManager : MonoBehaviour
                 scoreTotal += scoreRepas*110*discoMultiplicateur;
                 repasEstTermine = false;
                 Debug.Log(scoreTotal);
+                if (audio != null)
+                {
+                    audio.SendMessage("Jouer");
+                }
             } 
             else if (tempsCourant > 0) {
                 tempsRecetteEnCours = false;
                 scoreTotal += scoreRepas*50*discoMultiplicateur;
                 repasEstTermine = false;
                 Debug.Log(scoreTotal);
+                if (audio != null)
+                {
+                    audio.SendMessage("Jouer");
+                }
             } 
             else {
                 tempsRecetteEnCours = false;

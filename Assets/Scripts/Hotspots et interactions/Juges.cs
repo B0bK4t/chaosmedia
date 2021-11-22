@@ -9,6 +9,7 @@ public class Juges : MonoBehaviour
     void OnTriggerEnter(Collider other){
         if(other.tag == "Player"){
            GameManager.SendMessage("Juger", false);
+            
         }
     }
 }

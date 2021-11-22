@@ -33,6 +33,7 @@ public class Hotspot_station : MonoBehaviour
 
     private bool waitForOutput = false;
     public bool miniJeuReussi = true; //Résultat du mini-jeu, false par défaut mais true pour tester
+    public GameObject audio;
         
     
     void Awake() {
@@ -58,6 +59,10 @@ public class Hotspot_station : MonoBehaviour
                         anim.SetBool("toaster", false);
                     }
                     Destroy(ingredient);
+                    if (audio != null)
+                    {
+                        audio.SendMessage("Jouer");
+                    }
                     MiniJeux();
                     output();
                 }
@@ -72,7 +77,6 @@ public class Hotspot_station : MonoBehaviour
     void Update() {
         check();
         
-        Debug.Log(nombreDefoisButtonGauche);
         boutonJeuxGauche = player.GetComponent<Mouvement>().playerInput.actions["interactionJeuxGauche"].ReadValue<float>();
 
         
@@ -81,15 +85,25 @@ public class Hotspot_station : MonoBehaviour
         if(nombreDefoisButtonGauche == 5){
                 miniJeuReussi = true;
                 nombreDefoisButtonGauche = 0;
+                
+                    if (audio != null)
+                    {
+                        audio.SendMessage("Jouer");
+                    }
         }
         
         
         if (waitForOutput) {
             if (miniJeuReussi) {
-                Debug.Log("Réussi!");
+                // Debug.Log("Réussi!");
                 waitForOutput = false;
                 player.GetComponent<Mouvement>().peutBouger = true;
                 ingredientCuit();
+                
+                    if (audio != null)
+                    {
+                        audio.SendMessage("Jouer");
+                    }
                 if (anim == GameObject.Find("Toaster").GetComponent<Animator>()) {
                     anim.SetBool("cuire", false);
                     anim.SetBool("griller", false);
@@ -98,7 +112,7 @@ public class Hotspot_station : MonoBehaviour
             } else {
                 waitForOutput = true;
                 player.GetComponent<Mouvement>().peutBouger = false;
-                Debug.Log("En attente");
+                // Debug.Log("En attente");
                 jeuLaitue = true;
             }
         }
@@ -107,7 +121,7 @@ public class Hotspot_station : MonoBehaviour
     void ingredientCuit() {
         var pos = player.transform.position;
         ingredientCarry = Instantiate(ingredientOutput, new Vector3(pos.x, pos.y, pos.z), Quaternion.identity);
-        ingredientCarry.SetActive(true);
+        ingredientCarry.SetActive(false);
         player.GetComponent<Objets>().isCarrying = true;
         player.GetComponent<Objets>().ingredient = ingredientCarry;
         player.GetComponent<Objets>().offset = offset;
@@ -201,6 +215,5 @@ public class Hotspot_station : MonoBehaviour
         
     }
 }
-
 
 
