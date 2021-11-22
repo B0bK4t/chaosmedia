@@ -21,6 +21,8 @@ public class Hotspot_station : MonoBehaviour
 
     private bool partie2viande; 
 
+    private bool partie1jus; 
+    private bool partie2jus;
     private bool partie1pain; 
     private bool partie2pain; 
 
@@ -144,6 +146,11 @@ public class Hotspot_station : MonoBehaviour
             partie1fromage = false;
             partie2fromage = false;
         }
+        else if( partie1jus == true && partie2jus == true ){
+            miniJeuReussi = true;
+            partie1jus = false;
+            partie2jus = false;
+        }
     }
     
     void MiniJeux(){
@@ -196,7 +203,10 @@ public class Hotspot_station : MonoBehaviour
                 partie1fromage = true;
             }
             
-        
+        if(context.performed){
+                partie1fromage = true;
+                partie1jus = true;
+            }
     }
 
     public void interactionJeuxDroite(InputAction.CallbackContext context)
@@ -210,7 +220,13 @@ public class Hotspot_station : MonoBehaviour
             }
             }
             
-            
+            if(partie1jus == true){
+                if (context.performed)
+            {
+                    partie2jus = true;
+                    partie1fromage = false;
+            }
+            }
             
         
     }
