@@ -105,6 +105,13 @@ public class Hotspot_assiette : MonoBehaviour
         }
     }
 
+    public void Update() {
+        foreach (var ingredient in ingredients)
+        {   
+            Debug.Log(ingredient);
+        }
+    }
+
     public void clearAssiette() {
         if (nbIngredients > 0) {
             for (int i = 0; i < ingredients.Count; i++)
