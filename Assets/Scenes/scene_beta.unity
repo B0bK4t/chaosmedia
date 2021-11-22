@@ -410,6 +410,7 @@ MonoBehaviour:
   objectRepasChoisi: {fileID: 0}
   repasEstTermine: 0
   repas: 
+  canBeAdded: 0
   timerText: {fileID: 1746054332}
   recetteTimerText: {fileID: 394732045}
   scoreText: {fileID: 834495772}
@@ -3966,6 +3967,8 @@ MonoBehaviour:
   rotationX: 0
   rotationY: 0
   rotationZ: 0
+  personnage: {fileID: 0}
+  sprite: {fileID: 0}
 --- !u!1 &520402986 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -1599826595754709761, guid: 7ecd7e9ff522eee47858a35dfb2a1424, type: 3}
@@ -5864,6 +5867,8 @@ MonoBehaviour:
   rotationX: 0
   rotationY: 0
   rotationZ: 0
+  personnage: {fileID: 0}
+  sprite: {fileID: 0}
 --- !u!114 &792762635
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6302,6 +6307,8 @@ MonoBehaviour:
   rotationX: 0
   rotationY: 0
   rotationZ: 0
+  personnage: {fileID: 0}
+  sprite: {fileID: 0}
 --- !u!1 &834495770
 GameObject:
   m_ObjectHideFlags: 0
@@ -7260,6 +7267,8 @@ MonoBehaviour:
   rotationX: 0
   rotationY: 0
   rotationZ: 0
+  personnage: {fileID: 0}
+  sprite: {fileID: 0}
 --- !u!114 &993659456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7524,6 +7533,8 @@ MonoBehaviour:
   rotationX: 0
   rotationY: 0
   rotationZ: 0
+  personnage: {fileID: 0}
+  sprite: {fileID: 0}
 --- !u!1 &1008155494
 GameObject:
   m_ObjectHideFlags: 0
@@ -8025,6 +8036,8 @@ MonoBehaviour:
   rotationX: 0
   rotationY: 0
   rotationZ: 0
+  personnage: {fileID: 0}
+  sprite: {fileID: 0}
 --- !u!1001 &1043845539
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9180,6 +9193,8 @@ MonoBehaviour:
   rotationX: 90
   rotationY: 0
   rotationZ: 0
+  personnage: {fileID: 0}
+  sprite: {fileID: 0}
 --- !u!1001 &1222002261
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11976,6 +11991,8 @@ MonoBehaviour:
   rotationX: 0
   rotationY: 0
   rotationZ: 0
+  personnage: {fileID: 0}
+  sprite: {fileID: 0}
 --- !u!1 &1557267823
 GameObject:
   m_ObjectHideFlags: 0
@@ -13936,7 +13953,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 9d8cf64c0d686e248a101a93ea432f5b, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9d8cf64c0d686e248a101a93ea432f5b, type: 3}
       propertyPath: m_LocalScale.x
@@ -14166,6 +14183,8 @@ MonoBehaviour:
   rotationX: 90
   rotationY: 0
   rotationZ: 0
+  personnage: {fileID: 0}
+  sprite: {fileID: 0}
 --- !u!114 &1770474946
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16511,6 +16530,8 @@ MonoBehaviour:
   rotationX: 0
   rotationY: 0
   rotationZ: 0
+  personnage: {fileID: 0}
+  sprite: {fileID: 0}
 --- !u!1001 &2027839295
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16794,6 +16815,8 @@ MonoBehaviour:
   rotationX: 0
   rotationY: 0
   rotationZ: 0
+  personnage: {fileID: 0}
+  sprite: {fileID: 0}
 --- !u!1 &2039410918
 GameObject:
   m_ObjectHideFlags: 0
@@ -16915,6 +16938,25 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 9d8cf64c0d686e248a101a93ea432f5b, type: 3}
   m_PrefabInstance: {fileID: 1756756503}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &2053403185
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2053403184}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 913459a39dddae14e826451cbdd8020e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &2063042150
 PrefabInstance:
   m_ObjectHideFlags: 0

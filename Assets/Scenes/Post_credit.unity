@@ -1260,7 +1260,6 @@ GameObject:
   - component: {fileID: 1194526316}
   - component: {fileID: 1194526315}
   - component: {fileID: 1194526318}
-  - component: {fileID: 1194526320}
   - component: {fileID: 1194526319}
   m_Layer: 0
   m_Name: Main Camera
@@ -1462,23 +1461,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1194526320
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1194526314}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f95dc4ddf1114124486ccadfc0a615ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cuissonViande: {fileID: 0}
-  Toaster: {fileID: 0}
-  deposerAssiette: {fileID: 0}
-  Frigo: {fileID: 0}
-  personnage: {fileID: 0}
 --- !u!1 &1332859397
 GameObject:
   m_ObjectHideFlags: 0
