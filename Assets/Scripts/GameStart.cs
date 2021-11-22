@@ -12,6 +12,10 @@ public class GameStart : MonoBehaviour
     public RawImage actionSmall;
 
     void startGame() {
+        Invoke("cinematique", 0f);
+    }
+
+    void cinematique() {
         Invoke("hideThree", 1.0f);
     }
 

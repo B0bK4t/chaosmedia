@@ -15,7 +15,7 @@ public class Hotspot_ingredient : MonoBehaviour
             var pos = other.transform.position;
             if (other.GetComponent<Objets>().click) {
                 ingredientCarry = Instantiate(ingredient, new Vector3(pos.x, pos.y, pos.z), Quaternion.identity);
-                ingredientCarry.SetActive(true);
+                ingredientCarry.SetActive(false);
                 other.GetComponent<Objets>().isCarrying = true;
                 other.GetComponent<Objets>().ingredient = ingredientCarry;
                 other.GetComponent<Objets>().offset = offset;
