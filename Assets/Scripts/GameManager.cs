@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
     public GameObject burgerObject;
 
     private string[] platViandeIngredients = new string[] {"viande","laitue"};
-    private float platViandeTimer = 45f;
+    private float platViandeTimer = 500f;
     public GameObject platViandeObject;
 
     private string[] brochetteIngredients = new string[] {"viande", "laitue", "tomate"};
@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
     public GameObject saladeObject;
 
     private string[] croqueMonsieurIngredients = new string[] {"fromage", "pain", "viande"};
-    private float croqueMonsieurTimer = 45f;
+    private float croqueMonsieurTimer = 500f;
     public GameObject croqueMonsieurObject;
 
     private string[] jelloIngredients = new string[] {"jus"};
