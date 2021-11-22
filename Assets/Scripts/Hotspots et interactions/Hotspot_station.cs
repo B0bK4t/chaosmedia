@@ -121,7 +121,7 @@ public class Hotspot_station : MonoBehaviour
     void ingredientCuit() {
         var pos = player.transform.position;
         ingredientCarry = Instantiate(ingredientOutput, new Vector3(pos.x, pos.y, pos.z), Quaternion.identity);
-        ingredientCarry.SetActive(true);
+        ingredientCarry.SetActive(false);
         player.GetComponent<Objets>().isCarrying = true;
         player.GetComponent<Objets>().ingredient = ingredientCarry;
         player.GetComponent<Objets>().offset = offset;

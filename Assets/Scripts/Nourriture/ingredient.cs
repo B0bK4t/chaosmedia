@@ -14,7 +14,7 @@ public class ingredient : MonoBehaviour
     public float rotationY;
     public float rotationZ;
 
-    public GameObject personnage;
+    [ShowOnly] public GameObject personnage;
     //Steak: scale 0.5 0.5 5.055319; rotation 0 0 0
     //Laitue: scale 0.007036 0.07761271 0.007036; rotation 90 0 0
     //Pain: scale 0.68405 0.7142314 1.68583; rotation 0 0 0
