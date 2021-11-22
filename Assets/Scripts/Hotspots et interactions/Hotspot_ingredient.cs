@@ -7,6 +7,7 @@ public class Hotspot_ingredient : MonoBehaviour
     public GameObject ingredient;
     private GameObject ingredientCarry;
     public Vector3 offset;
+    public GameObject audio;
 
     void OnTriggerStay(Collider other) {
         if (other.tag == "Player" && !other.GetComponent<Objets>().isCarrying)
@@ -19,6 +20,10 @@ public class Hotspot_ingredient : MonoBehaviour
                 other.GetComponent<Objets>().ingredient = ingredientCarry;
                 other.GetComponent<Objets>().offset = offset;
                 other.GetComponent<Objets>().currentParent = this.gameObject;
+                if (audio != null)
+                {
+                    audio.SendMessage("Jouer");
+                }
             }
         }
     }

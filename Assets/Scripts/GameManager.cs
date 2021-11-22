@@ -77,6 +77,9 @@ public class GameManager : MonoBehaviour
     public Text repasText;
     public GameObject disco;
 
+
+    public GameObject audio;
+
     void Start() {
         //Scenes
         scene = SceneManager.GetActiveScene();
@@ -232,12 +235,20 @@ public class GameManager : MonoBehaviour
                 scoreTotal += scoreRepas*110*discoMultiplicateur;
                 repasEstTermine = false;
                 Debug.Log(scoreTotal);
+                if (audio != null)
+                {
+                    audio.SendMessage("Jouer");
+                }
             } 
             else if (tempsCourant > 0) {
                 tempsRecetteEnCours = false;
                 scoreTotal += scoreRepas*50*discoMultiplicateur;
                 repasEstTermine = false;
                 Debug.Log(scoreTotal);
+                if (audio != null)
+                {
+                    audio.SendMessage("Jouer");
+                }
             } 
             else {
                 tempsRecetteEnCours = false;

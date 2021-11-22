@@ -33,6 +33,8 @@ public class Hotspot_station : MonoBehaviour
 
     private bool waitForOutput = false;
     public bool miniJeuReussi = true; //Résultat du mini-jeu, false par défaut mais true pour tester
+
+    public GameObject audio;
         
     
     void Awake() {
@@ -58,6 +60,10 @@ public class Hotspot_station : MonoBehaviour
                         anim.SetBool("toaster", false);
                     }
                     Destroy(ingredient);
+                    if (audio != null)
+                    {
+                        audio.SendMessage("Jouer");
+                    }
                     MiniJeux();
                     output();
                 }
@@ -81,6 +87,10 @@ public class Hotspot_station : MonoBehaviour
         if(nombreDefoisButtonGauche == 5){
                 miniJeuReussi = true;
                 nombreDefoisButtonGauche = 0;
+            if (audio != null)
+            {
+                audio.SendMessage("Pause");
+            }
         }
         
         
@@ -90,6 +100,10 @@ public class Hotspot_station : MonoBehaviour
                 waitForOutput = false;
                 player.GetComponent<Mouvement>().peutBouger = true;
                 ingredientCuit();
+                if (audio != null)
+                {
+                    audio.SendMessage("Pause");
+                }
                 if (anim == GameObject.Find("Toaster").GetComponent<Animator>()) {
                     anim.SetBool("cuire", false);
                     anim.SetBool("griller", false);

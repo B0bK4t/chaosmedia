@@ -17,6 +17,7 @@ public class Hotspot_assiette : MonoBehaviour
     private GameObject carryPlate;
     public Vector3 offset;
     private bool canAdd = true;
+    public GameObject audio;
 
     void Awake() {
         plate = GameObject.Find("Plate");
@@ -53,6 +54,10 @@ public class Hotspot_assiette : MonoBehaviour
         nbIngredients ++;
         ingredients.Add(ingredientClone);
         originals.Add(originalScale);
+        if (audio != null)
+        {
+            audio.SendMessage("Jouer");
+        }
     }
 
     void enleverIngredient() {
@@ -70,6 +75,10 @@ public class Hotspot_assiette : MonoBehaviour
             player.GetComponent<Objets>().offset = offset;
             player.GetComponent<Objets>().currentParent = this.gameObject;
             canAdd = false;
+            if (audio != null)
+            {
+                audio.SendMessage("Jouer");
+            }
             for (int i = 0; i < ingredients.Count; i++)
             {
                 Destroy(ingredients[i]);
@@ -89,6 +98,10 @@ public class Hotspot_assiette : MonoBehaviour
             ingredients.RemoveAt(lastElement);
             nbIngredients--;
             GameManager.SendMessage("enleverIngredient");
+            if (audio != null)
+            {
+                audio.SendMessage("Jouer");
+            }
         }
     }
 
