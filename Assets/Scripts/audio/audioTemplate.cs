@@ -9,18 +9,21 @@ public class audioTemplate : MonoBehaviour
     *   Mouvement.cs pour les sons générés par le personnage
     *   Voir programmeurs pour savoir où mettre les appels exactements
     */
-    public GameObject musiqueFond; //Mettre ici tous les Game Ojects des sons
-    public GameObject cuissonViande;
-    public GameObject Toaster;
-    public GameObject deposerAssiette;
-    public GameObject deposerJello;
-    public GameObject Frigo;
-    public GameObject personnage;
+   
+     public GameObject cuissonViande; 
+     public GameObject Toaster;
+     public GameObject deposerAssiette;
+     public GameObject Frigo;
+     public GameObject personnage;
 
+         
     void Méthode()
-    {
-        //Utiliser la ligne suivant pour appeller un son
-        musiqueFond.SendMessage("Jouer"); //Répéter pour chaque Game Object
-        cuissonViande.SendMessage("Jouer");
+ {
+     //Utiliser la ligne suivant pour appeller un son
+     cuissonViande.SendMessage("Jouer");
+     Toaster.SendMessage("Jouer");
+     deposerAssiette.SendMessage("Jouer");
+     Frigo.SendMessage("Jouer");
+     personnage.SendMessage("Jouer");
     }
 }
