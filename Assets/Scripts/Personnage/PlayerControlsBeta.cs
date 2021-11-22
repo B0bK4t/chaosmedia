@@ -73,6 +73,14 @@ public class @PlayerControlsBeta : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": ""Press""
+                },
+                {
+                    ""name"": ""secondaryInput"",
+                    ""type"": ""Button"",
+                    ""id"": ""2c163173-3f76-46b4-9a8c-2451de1f4af6"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press""
                 }
             ],
             ""bindings"": [
@@ -317,6 +325,28 @@ public class @PlayerControlsBeta : IInputActionCollection, IDisposable
                     ""action"": ""interactionJeuxGauche"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f0678a02-6b4e-4315-8838-ca221853c594"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""secondaryInput"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""53a3d9eb-66b2-4338-aecb-19110d85aca6"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""secondaryInput"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -378,6 +408,7 @@ public class @PlayerControlsBeta : IInputActionCollection, IDisposable
         m_Player_interactionJeuxHaut = m_Player.FindAction("interactionJeuxHaut", throwIfNotFound: true);
         m_Player_interactionJeuxDroite = m_Player.FindAction("interactionJeuxDroite", throwIfNotFound: true);
         m_Player_interactionJeuxGauche = m_Player.FindAction("interactionJeuxGauche", throwIfNotFound: true);
+        m_Player_secondaryInput = m_Player.FindAction("secondaryInput", throwIfNotFound: true);
         // Touch
         m_Touch = asset.FindActionMap("Touch", throwIfNotFound: true);
         m_Touch_PrimaryContact = m_Touch.FindAction("PrimaryContact", throwIfNotFound: true);
@@ -438,6 +469,7 @@ public class @PlayerControlsBeta : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_interactionJeuxHaut;
     private readonly InputAction m_Player_interactionJeuxDroite;
     private readonly InputAction m_Player_interactionJeuxGauche;
+    private readonly InputAction m_Player_secondaryInput;
     public struct PlayerActions
     {
         private @PlayerControlsBeta m_Wrapper;
@@ -449,6 +481,7 @@ public class @PlayerControlsBeta : IInputActionCollection, IDisposable
         public InputAction @interactionJeuxHaut => m_Wrapper.m_Player_interactionJeuxHaut;
         public InputAction @interactionJeuxDroite => m_Wrapper.m_Player_interactionJeuxDroite;
         public InputAction @interactionJeuxGauche => m_Wrapper.m_Player_interactionJeuxGauche;
+        public InputAction @secondaryInput => m_Wrapper.m_Player_secondaryInput;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -479,6 +512,9 @@ public class @PlayerControlsBeta : IInputActionCollection, IDisposable
                 @interactionJeuxGauche.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteractionJeuxGauche;
                 @interactionJeuxGauche.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteractionJeuxGauche;
                 @interactionJeuxGauche.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteractionJeuxGauche;
+                @secondaryInput.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSecondaryInput;
+                @secondaryInput.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSecondaryInput;
+                @secondaryInput.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSecondaryInput;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -504,6 +540,9 @@ public class @PlayerControlsBeta : IInputActionCollection, IDisposable
                 @interactionJeuxGauche.started += instance.OnInteractionJeuxGauche;
                 @interactionJeuxGauche.performed += instance.OnInteractionJeuxGauche;
                 @interactionJeuxGauche.canceled += instance.OnInteractionJeuxGauche;
+                @secondaryInput.started += instance.OnSecondaryInput;
+                @secondaryInput.performed += instance.OnSecondaryInput;
+                @secondaryInput.canceled += instance.OnSecondaryInput;
             }
         }
     }
@@ -558,6 +597,7 @@ public class @PlayerControlsBeta : IInputActionCollection, IDisposable
         void OnInteractionJeuxHaut(InputAction.CallbackContext context);
         void OnInteractionJeuxDroite(InputAction.CallbackContext context);
         void OnInteractionJeuxGauche(InputAction.CallbackContext context);
+        void OnSecondaryInput(InputAction.CallbackContext context);
     }
     public interface ITouchActions
     {
