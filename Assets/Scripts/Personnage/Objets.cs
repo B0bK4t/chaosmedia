@@ -24,4 +24,5 @@ public class Objets : MonoBehaviour
         Destroy(ingredient);
         isCarrying = false;
     }
+
 }
