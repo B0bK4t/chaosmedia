@@ -17,4 +17,9 @@ public class tempAudio : MonoBehaviour
    void Jouer() {
      audioData.Play(0);
    }
+
+    void Pause()
+    {
+        audioData.Pause();
+    }
 }
