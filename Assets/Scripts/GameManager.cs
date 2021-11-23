@@ -79,6 +79,8 @@ public class GameManager : MonoBehaviour
     public GameObject disco;
     
     public GameObject audio;
+    public AudioSource voixFini;
+    private bool voixAppel = false;
 
     void Start() {
         //Scenes
@@ -297,10 +299,18 @@ public class GameManager : MonoBehaviour
                 finCuisine();
             }
 
+
             if (timerGlobal > 0) {
                 DisplayTime(timerGlobal, timerText);
             }
-        }
+            
+          
+        } 
+        if (timerGlobal < 3f && voixAppel == false)
+            {
+                voixFini.Play(0);
+            voixAppel = true;
+            }
 
         //Timer recette
         if (tempsRecetteEnCours)

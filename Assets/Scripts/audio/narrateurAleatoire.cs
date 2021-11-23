@@ -40,7 +40,6 @@ public class narrateurAleatoire : MonoBehaviour
 
     void TempsAleatoire()
     {
-        Debug.Log("Temps" + temps);
         temps = Random.Range(60.0f, 200.0f);
     }
 

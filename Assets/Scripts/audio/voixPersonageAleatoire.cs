@@ -31,7 +31,6 @@ public class voixPersonageAleatoire : MonoBehaviour
             TempsAleatoire();
             timer = 0;
             voix = Mathf.Floor(Random.Range(0f, 5f));
-            Debug.Log(voix);
             Play();
         }
 
