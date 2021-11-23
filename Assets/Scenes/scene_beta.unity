@@ -501,11 +501,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c402c2e9527ac5478fd4eda77d7a00e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trois: {fileID: 0}
-  deux: {fileID: 0}
-  un: {fileID: 0}
-  actionBig: {fileID: 0}
-  actionSmall: {fileID: 0}
+  trois: {fileID: 117668762}
+  deux: {fileID: 1125928540}
+  un: {fileID: 929138341}
+  actionBig: {fileID: 1570285294}
+  actionSmall: {fileID: 1523986792}
 --- !u!1 &47905238
 GameObject:
   m_ObjectHideFlags: 0
@@ -777,7 +777,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &79500285
 RectTransform:
   m_ObjectHideFlags: 0
