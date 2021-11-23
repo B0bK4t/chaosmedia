@@ -49,7 +49,10 @@ public class Mouvement : MonoBehaviour
     private float limiteZPos = 4.8f;
     private float limiteZNeg = -4.8f;
 
-     void Start()
+
+    public GameObject audio;
+
+    void Start()
     {
         scene = SceneManager.GetActiveScene();
         playerInput = GetComponent<PlayerInput>();
@@ -112,8 +115,16 @@ public class Mouvement : MonoBehaviour
 
             if (input.x != 0 || input.y != 0) {
                 animatorPerso.SetBool("marcher", true);
+                if (audio != null)
+                {
+                    audio.SendMessage("Jouer");
+                }
             } else {
                 animatorPerso.SetBool("marcher", false);
+                if (audio != null)
+                {
+                    audio.SendMessage("Pause");
+                }
             }
           }
 

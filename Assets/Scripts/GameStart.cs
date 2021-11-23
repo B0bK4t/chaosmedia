@@ -11,32 +11,43 @@ public class GameStart : MonoBehaviour
     public RawImage actionBig;
     public RawImage actionSmall;
 
+
+    public AudioSource decompte;
+    public AudioSource alarmeDebut;
+    public AudioSource voixNarrateur;
+
     void startGame() {
         Invoke("cinematique", 0f);
+        decompte.Play(0);
     }
 
     void cinematique() {
         Invoke("hideThree", 1.0f);
+        decompte.Play(0);
     }
 
     void hideThree() {
         trois.enabled = false;
         Invoke("hideTwo", 1.0f);
+        decompte.Play(0);
     }
 
     void hideTwo() {
         deux.enabled = false;
         Invoke("hideOne", 1.0f);
+        decompte.Play(0);
     }
 
     void hideOne() {
         un.enabled = false;
         Invoke("hideActionBig", 1.0f);
+        alarmeDebut.Play(0);
     }
 
     void hideActionBig() {
         actionBig.enabled = false;
         Invoke("hideActionSmall", 0.5f);
+        
     }
 
     void hideActionSmall() {
@@ -46,6 +57,7 @@ public class GameStart : MonoBehaviour
 
     void send() {
         this.GetComponent<GameManager>().SendMessage("debut");
+        voixNarrateur.Play(0);
     }
 
     void bypass() {

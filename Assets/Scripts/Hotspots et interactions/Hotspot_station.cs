@@ -90,7 +90,7 @@ public class Hotspot_station : MonoBehaviour
                 
                     if (audio != null)
                     {
-                        audio.SendMessage("Jouer");
+                        audio.SendMessage("Pause");
                     }
         }
         
@@ -104,7 +104,7 @@ public class Hotspot_station : MonoBehaviour
                 
                     if (audio != null)
                     {
-                        audio.SendMessage("Jouer");
+                        audio.SendMessage("Pause");
                     }
                 if (anim == GameObject.Find("Toaster").GetComponent<Animator>()) {
                     anim.SetBool("cuire", false);
