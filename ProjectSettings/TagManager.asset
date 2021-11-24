@@ -16,6 +16,7 @@ TagManager:
   - painCru
   - fromageCru
   - jusCru
+  - HotspotPoele
   layers:
   - Default
   - TransparentFX

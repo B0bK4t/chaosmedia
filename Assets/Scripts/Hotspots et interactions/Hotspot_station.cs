@@ -19,6 +19,12 @@ public class Hotspot_station : MonoBehaviour
 
     private float boutonJeuxGauche;
 
+    public GameObject flecheHaut;
+
+    public GameObject flecheBas;
+
+    public GameObject flecheDroit;
+    public GameObject flecheIdle;
     private bool partie2viande; 
 
     private bool partie1jus; 
@@ -36,16 +42,22 @@ public class Hotspot_station : MonoBehaviour
     private bool waitForOutput = false;
     public bool miniJeuReussi = true; //Résultat du mini-jeu, false par défaut mais true pour tester
     public GameObject audio;
-        
-    
     void Awake() {
+        
+        
         player = GameObject.Find("Dona disco");
         if (anim == GameObject.Find("Toaster").GetComponent<Animator>()) {
             anim.SetBool("cuire", true);
             anim.SetBool("griller", false);
             anim.SetBool("toaster", false);
         }
+    }    
+    void Start() {
+        flecheHaut.SetActive(false);
+        flecheDroit.SetActive(false);
+        flecheBas.SetActive(false);
     }
+    
 
     void OnTriggerStay(Collider other) {
         if (other.tag == "Player" && other.GetComponent<Objets>().isCarrying) {
@@ -65,6 +77,7 @@ public class Hotspot_station : MonoBehaviour
                     {
                         audio.SendMessage("Jouer");
                     }
+                    
                     MiniJeux();
                     output();
                 }
@@ -101,7 +114,11 @@ public class Hotspot_station : MonoBehaviour
                 waitForOutput = false;
                 player.GetComponent<Mouvement>().peutBouger = true;
                 ingredientCuit();
-                
+                if(this.gameObject.tag == "HotspotPoele"){
+                    
+                        flecheIdle.SetActive(true);
+                        flecheBas.SetActive(false);
+                }
                     if (audio != null)
                     {
                         audio.SendMessage("Pause");
@@ -116,6 +133,11 @@ public class Hotspot_station : MonoBehaviour
                 player.GetComponent<Mouvement>().peutBouger = false;
                 // Debug.Log("En attente");
                 jeuLaitue = true;
+                if(this.gameObject.tag == "HotspotPoele"){
+                    
+                        flecheIdle.SetActive(false);
+                        flecheBas.SetActive(true);
+                }
             }
         }
     }
@@ -165,6 +187,8 @@ public class Hotspot_station : MonoBehaviour
          if (context.performed)
         {
             partie1viande = true;
+            flecheBas.SetActive(false);
+            flecheHaut.SetActive(true);
         }
         
     }
@@ -175,7 +199,8 @@ public class Hotspot_station : MonoBehaviour
             if (context.performed)
             {
                 partie2viande = true;
-                
+                flecheIdle.SetActive(true);
+                flecheHaut.SetActive(false);
             }
          if (context.performed)
             {
