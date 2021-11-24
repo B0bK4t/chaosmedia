@@ -154,7 +154,23 @@ GameManager.SendMessage("retourHome");
     // }
 
 
-    
+    public void Ouvrir(InputAction.CallbackContext context)
+
+    {  
+
+     
+
+         if (context.performed)
+
+        {
+
+        Debug.Log("click");
+
+        }
+
+       
+
+    }
 
 
 }
