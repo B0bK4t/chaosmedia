@@ -28,7 +28,7 @@ public class Mouvement : MonoBehaviour
 
     public Vector3 move;
 
-    
+    public bool click;
 
     public Rigidbody rb_perso;
 
@@ -79,12 +79,9 @@ public class Mouvement : MonoBehaviour
             input = playerInput.actions["Move"].ReadValue<Vector2>();
             move = new Vector3(input.x, 0, input.y);
 
-            float click = playerInput.actions["Ouvrir"].ReadValue<float>();
-            if (click == 1) {
-                this.GetComponent<Objets>().click = true;   
-            } else {
-                this.GetComponent<Objets>().click = false;   
-            }
+            // float click = playerInput.actions["Ouvrir"].ReadValue<float>();
+
+            this.GetComponent<Objets>().click = click;
             
            if( peutBouger == true){
             controller.Move(move * Time.deltaTime * playerSpeed);
@@ -155,22 +152,7 @@ GameManager.SendMessage("retourHome");
 
 
     public void Ouvrir(InputAction.CallbackContext context)
-
     {  
-
-     
-
-         if (context.performed)
-
-        {
-
-        Debug.Log("click");
-
-        }
-
-       
-
+        click = context.performed;
     }
-
-
 }

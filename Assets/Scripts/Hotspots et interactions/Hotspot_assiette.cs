@@ -75,7 +75,7 @@ public class Hotspot_assiette : MonoBehaviour
             player.GetComponent<Objets>().ingredient = carryPlate;
             player.GetComponent<Objets>().offset = offset;
             player.GetComponent<Objets>().currentParent = this.gameObject;
-            canAdd = false;
+            canAdd = true;
             if (audio != null)
             {
                 audio.SendMessage("Jouer");
