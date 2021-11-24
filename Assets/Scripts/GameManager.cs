@@ -242,6 +242,9 @@ public class GameManager : MonoBehaviour
                 scoreTotal += scoreRepas*110*discoMultiplicateur;
                 repasEstTermine = false;
                 Debug.Log(scoreTotal);
+                if(scoreTotal <= 0){
+                    scoreTotal = 0;
+                }
                 if (audio != null)
                 {
                     audio.SendMessage("Jouer");
@@ -252,6 +255,9 @@ public class GameManager : MonoBehaviour
                 scoreTotal += scoreRepas*50*discoMultiplicateur;
                 repasEstTermine = false;
                 Debug.Log(scoreTotal);
+                if(scoreTotal <= 0){
+                    scoreTotal = 0;
+                }
                 if (audio != null)
                 {
                     audio.SendMessage("Jouer");
@@ -262,6 +268,9 @@ public class GameManager : MonoBehaviour
                 scoreTotal -= scoreRepas*110*discoMultiplicateur;
                 repasEstTermine = false;
                 Debug.Log(scoreTotal);
+                if(scoreTotal <= 0){
+                    scoreTotal = 0;
+                }
             }
 
             player.GetComponent<Objets>().SendMessage("clearHand");
@@ -309,7 +318,7 @@ public class GameManager : MonoBehaviour
         if (timerGlobal < 3f && voixAppel == false)
             {
                 voixFini.Play(0);
-            voixAppel = true;
+                voixAppel = true;
             }
 
         //Timer recette
