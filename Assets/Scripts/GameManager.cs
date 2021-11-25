@@ -124,7 +124,7 @@ public class GameManager : MonoBehaviour
             nomsRepas.Add("Jello");
 
             // this.GetComponent<GameStart>().SendMessage("startGame");
-            this.GetComponent<GameStart>().SendMessage("bypass");
+            this.GetComponent<GameStart>().SendMessage("startGame");
         }
     }
 
@@ -315,7 +315,7 @@ public class GameManager : MonoBehaviour
             
           
         } 
-        if (timerGlobal < 3f && voixAppel == false)
+        if (timerGlobal < 5f && voixAppel == false)
             {
                 voixFini.Play(0);
                 voixAppel = true;
