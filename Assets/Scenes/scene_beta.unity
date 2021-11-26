@@ -17953,7 +17953,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredient: {fileID: 0}
-  player: {fileID: 0}
+  player: {fileID: 1299025830}
   audio: {fileID: 598629899}
 --- !u!65 &1605425866
 BoxCollider:
