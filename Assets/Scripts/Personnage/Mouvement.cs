@@ -49,6 +49,7 @@ public class Mouvement : MonoBehaviour
     private float limiteZPos = 4.8f;
     private float limiteZNeg = -4.8f;
 
+    public GameObject recettesMenuCanvas;
 
     public GameObject audio;
 
@@ -154,5 +155,23 @@ GameManager.SendMessage("retourHome");
     public void Ouvrir(InputAction.CallbackContext context)
     {  
         click = context.performed;
+    }
+
+    public void menuInput(InputAction.CallbackContext context)
+    {  
+        if (context.performed) {
+            Debug.Log("Menu");
+        }
+    }
+
+    public void boutonB(InputAction.CallbackContext context)
+    {  
+        if (context.performed) {
+           if (recettesMenuCanvas.activeSelf) {
+               recettesMenuCanvas.SetActive(false);
+           } else {
+               recettesMenuCanvas.SetActive(true);               
+           }
+        }
     }
 }

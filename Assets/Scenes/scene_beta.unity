@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17282034, g: 0.21596503, b: 0.29790962, a: 1}
+  m_IndirectSpecularColor: {r: 0.17282064, g: 0.21596566, b: 0.2979106, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -492,8 +492,8 @@ MonoBehaviour:
   repasEstTermine: 0
   repas: 
   canBeAdded: 0
-  timerText: {fileID: 0}
-  recetteTimerText: {fileID: 501464907}
+  timerText: {fileID: 1693451175}
+  recetteTimerText: {fileID: 0}
   scoreText: {fileID: 2082752390}
   repasText: {fileID: 56227391}
   disco: {fileID: 2053403184}
@@ -11657,7 +11657,7 @@ GameObject:
   - component: {fileID: 1098301506}
   - component: {fileID: 1098301505}
   m_Layer: 5
-  m_Name: beta
+  m_Name: canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11749,6 +11749,7 @@ RectTransform:
   - {fileID: 222546215}
   - {fileID: 1659246302}
   - {fileID: 79500285}
+  - {fileID: 1693451177}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -13646,6 +13647,7 @@ MonoBehaviour:
   move: {x: 0, y: 0, z: 0}
   click: 0
   rb_perso: {fileID: 0}
+  recettesMenuCanvas: {fileID: 1659246301}
   audio: {fileID: 1299025826}
 --- !u!114 &1299025829
 MonoBehaviour:
@@ -13805,9 +13807,37 @@ MonoBehaviour:
     m_ActionId: bad51680-e3f1-4ddb-b9b2-94930633b928
     m_ActionName: Player/interactionJeuxGauche[/XInputControllerWindows/dpad/left]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1299025828}
+        m_TargetAssemblyTypeName: Mouvement, Assembly-CSharp
+        m_MethodName: menuInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 2c163173-3f76-46b4-9a8c-2451de1f4af6
     m_ActionName: Player/secondaryInput[/Keyboard/tab,/DualShock4GamepadHID/start]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1299025828}
+        m_TargetAssemblyTypeName: Mouvement, Assembly-CSharp
+        m_MethodName: boutonB
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 980283b4-9f67-4318-9daf-bb229a2c4a2c
+    m_ActionName: Player/boutonB[/Keyboard/b]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -18301,16 +18331,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1693451174}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 4.247}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 6.0961723}
+  m_LocalScale: {x: 1.4354067, y: 1.4354067, z: 1.4354067}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_Father: {fileID: 1098301508}
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -7.032, y: 6.119}
+  m_AnchoredPosition: {x: -543.34735, y: -291.21677}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1698584650

@@ -62,9 +62,17 @@
                     "interactions": "Press"
                 },
                 {
-                    "name": "secondaryInput",
+                    "name": "menuInput",
                     "type": "Button",
                     "id": "2c163173-3f76-46b4-9a8c-2451de1f4af6",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press"
+                },
+                {
+                    "name": "boutonB",
+                    "type": "Button",
+                    "id": "980283b4-9f67-4318-9daf-bb229a2c4a2c",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "Press"
@@ -320,7 +328,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "secondaryInput",
+                    "action": "menuInput",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -331,7 +339,29 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "secondaryInput",
+                    "action": "menuInput",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ffd250f3-8b61-429d-8604-7474a6dde991",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "boutonB",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bdb838bf-203e-4eb2-acf9-1cdd88070b19",
+                    "path": "<Keyboard>/b",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "boutonB",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
