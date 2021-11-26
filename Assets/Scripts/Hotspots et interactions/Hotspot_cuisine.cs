@@ -7,7 +7,7 @@ public class Hotspot_cuisine : MonoBehaviour
     public Collider player;
     public Animator camera_zoom;
 
-    void OnTriggerStay(Collider other)
+    void OnTriggerEnter(Collider other)
     {
 
         Debug.Log(other.tag);
@@ -17,11 +17,13 @@ public class Hotspot_cuisine : MonoBehaviour
             Debug.Log("zoom la caméra");
             camera_zoom.GetComponent<Animator>().SetBool("zoomer", true);
         }
-        else
-        {
+    }
+
+    void OnTriggerExit(Collider other)
+    {
             // On entre jamais dans cette partie du code
             Debug.Log("dezoom la caméra");
             camera_zoom.GetComponent<Animator>().SetBool("zoomer", false);
-        }
+
     }
 }
