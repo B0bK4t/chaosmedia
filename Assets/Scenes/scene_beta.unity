@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17282034, g: 0.21596503, b: 0.29790962, a: 1}
+  m_IndirectSpecularColor: {r: 0.17282064, g: 0.21596566, b: 0.2979106, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -492,6 +492,7 @@ MonoBehaviour:
   repasEstTermine: 0
   repas: 
   canBeAdded: 0
+  enPause: 0
   timerText: {fileID: 1693451175}
   recetteTimerText: {fileID: 0}
   scoreText: {fileID: 2082752390}
@@ -13789,8 +13790,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scene:
     m_Handle: 0
-  GameManager: {fileID: 0}
-  playerInput: {fileID: 0}
+  GameManager: {fileID: 46840871}
+  playerInput: {fileID: 1299025829}
   peutBouger: 1
   input: {x: 0, y: 0}
   move: {x: 0, y: 0, z: 0}

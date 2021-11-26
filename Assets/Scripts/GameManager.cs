@@ -73,6 +73,7 @@ public class GameManager : MonoBehaviour
     private float debutDisco = 60f;
     private bool tempsGlobalEnCours = false;
     [Header("Score et timer")]
+    [ShowOnly] public bool enPause = false;
     // public Text timerText;
     public TextMeshPro timerText;
     public TextMeshPro recetteTimerText;
@@ -125,8 +126,8 @@ public class GameManager : MonoBehaviour
             objectsArray.Add("jello", jelloObject);
             nomsRepas.Add("Jello");
 
-            this.GetComponent<GameStart>().SendMessage("startGame");
-            // this.GetComponent<GameStart>().SendMessage("bypass");
+            // this.GetComponent<GameStart>().SendMessage("startGame");
+            this.GetComponent<GameStart>().SendMessage("bypass");
         }
     }
 
@@ -293,8 +294,10 @@ public class GameManager : MonoBehaviour
     {
         // genererAssiette();
 
+        Debug.Log(enPause);
+
         //Timer global
-        if (tempsGlobalEnCours) {
+        if (tempsGlobalEnCours && !enPause) {
             if (timerGlobal <= debutDisco) {
                 discoMultiplicateur = 3f;
                 bouleDisco();
@@ -317,6 +320,7 @@ public class GameManager : MonoBehaviour
             
           
         } 
+
         if (timerGlobal < 5f && voixAppel == false)
             {
                 voixFini.Play(0);
@@ -324,7 +328,7 @@ public class GameManager : MonoBehaviour
             }
 
         //Timer recette
-        if (tempsRecetteEnCours)
+        if (tempsRecetteEnCours && !enPause)
         {
             if (timerRecette> 0)
             {

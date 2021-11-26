@@ -17,7 +17,6 @@ public class Objets : MonoBehaviour
     void Update() {
         if (isCarrying) {
             ingredient.transform.position = main.transform.position + offset;
-            Debug.Log(ingredient.tag); 
         }
     }
 
