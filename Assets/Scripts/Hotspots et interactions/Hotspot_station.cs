@@ -68,6 +68,7 @@ public class Hotspot_station : MonoBehaviour
             if (ingredient.tag == ingredientNeeded) {
                 if (other.GetComponent<Objets>().click) {
                     other.GetComponent<Objets>().isCarrying = false;
+            player.GetComponent<Objets>().SendMessage("checkCarry");
                     if (anim == GameObject.Find("Toaster").GetComponent<Animator>()) {
                         anim.SetBool("cuire", false);
                         anim.SetBool("griller", true);

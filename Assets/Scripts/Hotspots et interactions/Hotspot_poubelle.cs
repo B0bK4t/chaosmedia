@@ -5,13 +5,14 @@ using UnityEngine;
 public class Hotspot_poubelle : MonoBehaviour
 {
     [ShowOnly] public GameObject ingredient;
-    [ShowOnly] public Collider player;
+    public Collider player;
     public GameObject audio;
 
     void OnTriggerStay(Collider other) {
         if (other.tag == "Player" && other.GetComponent<Objets>().isCarrying) {
             if (other.GetComponent<Objets>().click) {
                 other.GetComponent<Objets>().isCarrying = false;
+            player.GetComponent<Objets>().SendMessage("checkCarry");
                 ingredient = other.GetComponent<Objets>().ingredient;
                 Destroy(ingredient);
                 if (audio != null)

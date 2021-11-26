@@ -54,6 +54,7 @@ public class Objets : MonoBehaviour
         canvases.Add(salade);
         canvases.Add(croqueMonsieur);
         canvases.Add(jello);
+        clear();
     }
 
     void Update() {
@@ -68,17 +69,23 @@ public class Objets : MonoBehaviour
     }
 
     public void checkCarry() {
-        // foreach (var c in canvases)
-        // {
-        //     if (c != null) {
-        //     c.enabled = false;
-        // }}
+        clear();
         switch (ingredient.tag)
         {
             case "viandeCrue":
             viandeCrue.enabled = true;
             break;
+            default:
+            break;
         }
+    }
+
+    public void clear() {
+        foreach (var c in canvases)
+        {
+            if (c != null) {
+            c.enabled = false;
+        }}
     }
 
 }

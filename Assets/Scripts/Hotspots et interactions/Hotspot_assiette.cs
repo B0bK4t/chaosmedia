@@ -33,6 +33,7 @@ public class Hotspot_assiette : MonoBehaviour
                 GameManager.SendMessage("ajoutIngredient", player.GetComponent<Objets>().ingredient.tag);
                     ajoutIngredient(ingredient);
                     other.GetComponent<Objets>().isCarrying = false;
+            player.GetComponent<Objets>().SendMessage("checkCarry");
                     Destroy(ingredient);
             } else {
                 enleverIngredient();
