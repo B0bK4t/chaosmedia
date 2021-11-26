@@ -17,6 +17,8 @@ TagManager:
   - fromageCru
   - jusCru
   - HotspotPoele
+  - titre_instructions
+  - canvas_instructions_accueil
   layers:
   - Default
   - TransparentFX
