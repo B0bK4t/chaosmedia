@@ -33,6 +33,7 @@ public class Hotspot_assiette : MonoBehaviour
                 GameManager.SendMessage("ajoutIngredient", player.GetComponent<Objets>().ingredient.tag);
                     ajoutIngredient(ingredient);
                     other.GetComponent<Objets>().isCarrying = false;
+            player.GetComponent<Objets>().SendMessage("checkCarry");
                     Destroy(ingredient);
             } else {
                 enleverIngredient();
@@ -71,11 +72,13 @@ public class Hotspot_assiette : MonoBehaviour
             }
             carryPlate.transform.localRotation = Quaternion.Euler(new Vector3(-45,-90,-45));
             carryPlate.SetActive(false);
+            Debug.Log(carryPlate.tag);
             player.GetComponent<Objets>().isCarrying = true;
             player.GetComponent<Objets>().ingredient = carryPlate;
+            player.GetComponent<Objets>().SendMessage("checkCarry");
             player.GetComponent<Objets>().offset = offset;
             player.GetComponent<Objets>().currentParent = this.gameObject;
-            canAdd = true;
+            canAdd = false;
             if (audio != null)
             {
                 audio.SendMessage("Jouer");
@@ -94,6 +97,7 @@ public class Hotspot_assiette : MonoBehaviour
             ingredientCarry.SetActive(false);
             player.GetComponent<Objets>().isCarrying = true;
             player.GetComponent<Objets>().ingredient = ingredientCarry;
+            player.GetComponent<Objets>().SendMessage("checkCarry");
             player.GetComponent<Objets>().offset = offset;
             player.GetComponent<Objets>().currentParent = this.gameObject;
             Destroy(ingredients[lastElement]);

@@ -50,7 +50,6 @@ public class Mouvement : MonoBehaviour
     private float limiteZNeg = -4.8f;
 
     public GameObject recettesMenuCanvas;
-
     public GameObject audio;
 
     void Start()
@@ -61,9 +60,7 @@ public class Mouvement : MonoBehaviour
         rb_perso = GetComponent<Rigidbody>();
         animatorPerso = GetComponent<Animator>();
         controller.height = controllerHeight;
-        
         controller.center = new Vector3(0, controllerCenter, 0);
-       
     }
 
     void FixedUpdate()
@@ -75,8 +72,6 @@ public class Mouvement : MonoBehaviour
                 playerVelocity.y = 0f;
             }
             
-
-
             input = playerInput.actions["Move"].ReadValue<Vector2>();
             move = new Vector3(input.x, 0, input.y);
 
@@ -84,7 +79,7 @@ public class Mouvement : MonoBehaviour
 
             this.GetComponent<Objets>().click = click;
             
-           if( peutBouger == true){
+           if( peutBouger){
             controller.Move(move * Time.deltaTime * playerSpeed);
             rb_perso.freezeRotation = true;
             } 
@@ -169,8 +164,10 @@ GameManager.SendMessage("retourHome");
         if (context.performed) {
            if (recettesMenuCanvas.activeSelf) {
                recettesMenuCanvas.SetActive(false);
+               GameManager.GetComponent<GameManager>().enPause = false;
            } else {
-               recettesMenuCanvas.SetActive(true);               
+               recettesMenuCanvas.SetActive(true);       
+               GameManager.GetComponent<GameManager>().enPause = true;        
            }
         }
     }

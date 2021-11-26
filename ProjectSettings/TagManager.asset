@@ -17,6 +17,15 @@ TagManager:
   - fromageCru
   - jusCru
   - HotspotPoele
+  - titre_instructions
+  - canvas_instructions_accueil
+  - platViande
+  - burger
+  - brochette
+  - sandwich
+  - salade
+  - croqueMonsieur
+  - jello
   layers:
   - Default
   - TransparentFX

@@ -18,6 +18,7 @@ public class Hotspot_ingredient : MonoBehaviour
                 ingredientCarry.SetActive(false);
                 other.GetComponent<Objets>().isCarrying = true;
                 other.GetComponent<Objets>().ingredient = ingredientCarry;
+                 other.GetComponent<Objets>().SendMessage("checkCarry");
                 other.GetComponent<Objets>().offset = offset;
                 other.GetComponent<Objets>().currentParent = this.gameObject;
                 if (audio != null)
