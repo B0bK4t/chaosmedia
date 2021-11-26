@@ -71,11 +71,12 @@ public class Hotspot_assiette : MonoBehaviour
             }
             carryPlate.transform.localRotation = Quaternion.Euler(new Vector3(-45,-90,-45));
             carryPlate.SetActive(false);
+            Debug.Log(carryPlate.tag);
             player.GetComponent<Objets>().isCarrying = true;
             player.GetComponent<Objets>().ingredient = carryPlate;
             player.GetComponent<Objets>().offset = offset;
             player.GetComponent<Objets>().currentParent = this.gameObject;
-            canAdd = true;
+            canAdd = false;
             if (audio != null)
             {
                 audio.SendMessage("Jouer");

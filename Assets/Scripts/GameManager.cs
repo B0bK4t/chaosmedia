@@ -294,8 +294,6 @@ public class GameManager : MonoBehaviour
     {
         // genererAssiette();
 
-        Debug.Log(enPause);
-
         //Timer global
         if (tempsGlobalEnCours && !enPause) {
             if (timerGlobal <= debutDisco) {
