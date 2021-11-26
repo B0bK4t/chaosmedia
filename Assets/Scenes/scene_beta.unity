@@ -12080,7 +12080,7 @@ GameObject:
   - component: {fileID: 1099046961}
   - component: {fileID: 1099046960}
   m_Layer: 5
-  m_Name: tomate
+  m_Name: trancheTomate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14404,6 +14404,24 @@ MonoBehaviour:
   main: {fileID: 965518338}
   offset: {x: 0, y: 0, z: 0}
   click: 0
+  repas: 
+  viandeCrue: {fileID: 490978421}
+  viandeCuite: {fileID: 2091973657}
+  laitue: {fileID: 2078979087}
+  laitueEssoree: {fileID: 0}
+  painCru: {fileID: 1472052622}
+  painCuit: {fileID: 418249476}
+  tomate: {fileID: 0}
+  trancheTomate: {fileID: 1099046960}
+  jus: {fileID: 1942919582}
+  trancheFromage: {fileID: 1343653327}
+  burger: {fileID: 1214042612}
+  platDeViande: {fileID: 849121487}
+  brochette: {fileID: 1178886137}
+  sandwich: {fileID: 1520806067}
+  salade: {fileID: 246252902}
+  croqueMonsieur: {fileID: 1924661503}
+  jello: {fileID: 1923140639}
 --- !u!82 &1299025832
 AudioSource:
   m_ObjectHideFlags: 0
@@ -22122,7 +22140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1923140638
 RectTransform:
   m_ObjectHideFlags: 0

@@ -152,6 +152,7 @@ public class Hotspot_station : MonoBehaviour
         ingredientCarry.SetActive(false);
         player.GetComponent<Objets>().isCarrying = true;
         player.GetComponent<Objets>().ingredient = ingredientCarry;
+            player.GetComponent<Objets>().SendMessage("checkCarry");
         player.GetComponent<Objets>().offset = offset;
         player.GetComponent<Objets>().currentParent = this.gameObject;
     }

@@ -74,6 +74,7 @@ public class Hotspot_assiette : MonoBehaviour
             Debug.Log(carryPlate.tag);
             player.GetComponent<Objets>().isCarrying = true;
             player.GetComponent<Objets>().ingredient = carryPlate;
+            player.GetComponent<Objets>().SendMessage("checkCarry");
             player.GetComponent<Objets>().offset = offset;
             player.GetComponent<Objets>().currentParent = this.gameObject;
             canAdd = false;
@@ -95,6 +96,7 @@ public class Hotspot_assiette : MonoBehaviour
             ingredientCarry.SetActive(false);
             player.GetComponent<Objets>().isCarrying = true;
             player.GetComponent<Objets>().ingredient = ingredientCarry;
+            player.GetComponent<Objets>().SendMessage("checkCarry");
             player.GetComponent<Objets>().offset = offset;
             player.GetComponent<Objets>().currentParent = this.gameObject;
             Destroy(ingredients[lastElement]);
