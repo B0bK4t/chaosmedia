@@ -22,11 +22,12 @@ public class Hotspot_station : MonoBehaviour
     public GameObject flecheHaut;
 
     public GameObject flecheBas;
-
+    public GameObject flecheGauche;
     public GameObject flecheDroit;
     public GameObject flecheIdle;
     private bool partie2viande; 
 
+    
     private bool partie1jus; 
     private bool partie2jus;
     private bool partie1pain; 
@@ -94,7 +95,10 @@ public class Hotspot_station : MonoBehaviour
         
         boutonJeuxGauche = player.GetComponent<Mouvement>().playerInput.actions["interactionJeuxGauche"].ReadValue<float>();
 
-        
+        if(partie1viande == true && waitForOutput){
+            flecheBas.SetActive(false);
+            flecheHaut.SetActive(true);
+        }
  
         
         if(nombreDefoisButtonGauche == 5){
@@ -187,8 +191,7 @@ public class Hotspot_station : MonoBehaviour
          if (context.performed)
         {
             partie1viande = true;
-            flecheBas.SetActive(false);
-            flecheHaut.SetActive(true);
+            
         }
         
     }
