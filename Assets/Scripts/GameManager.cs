@@ -4,6 +4,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 
 public class GameManager : MonoBehaviour
@@ -72,8 +73,9 @@ public class GameManager : MonoBehaviour
     private float debutDisco = 60f;
     private bool tempsGlobalEnCours = false;
     [Header("Score et timer")]
-    public Text timerText;
-    public Text recetteTimerText;
+    // public Text timerText;
+    public TextMeshPro timerText;
+    public TextMeshPro recetteTimerText;
     public Text scoreText;
     public Text repasText;
     public GameObject disco;
@@ -124,7 +126,7 @@ public class GameManager : MonoBehaviour
             nomsRepas.Add("Jello");
 
             // this.GetComponent<GameStart>().SendMessage("startGame");
-            this.GetComponent<GameStart>().SendMessage("startGame");
+            this.GetComponent<GameStart>().SendMessage("bypass");
         }
     }
 
@@ -327,7 +329,9 @@ public class GameManager : MonoBehaviour
             if (timerRecette> 0)
             {
                 timerRecette -= Time.deltaTime;
-                DisplayTime(timerRecette, recetteTimerText);
+                if (recetteTimerText !=null) {
+                    DisplayTime(timerRecette, recetteTimerText);
+                }
             }
             else {
                 timerRecette = 0;
@@ -338,7 +342,7 @@ public class GameManager : MonoBehaviour
     }
 
     
-    void DisplayTime(float timeToDisplay, Text target)
+    void DisplayTime(float timeToDisplay, TextMeshPro target)
     {
         timeToDisplay += 1;
         float minutes = Mathf.FloorToInt(timeToDisplay / 60);
