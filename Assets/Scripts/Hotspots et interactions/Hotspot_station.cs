@@ -53,7 +53,8 @@ public class Hotspot_station : MonoBehaviour
         flecheBas = GameObject.Find("croixBas");
         flecheGauche = GameObject.Find("croixGauche");
         flecheDroit = GameObject.Find("croixDroit");
-        flecheIdle = GameObject.Find("croixIdle");   
+        flecheIdle = GameObject.Find("croixIdle");
+           
         player = GameObject.Find("Dona disco");
         if (anim == GameObject.Find("Toaster").GetComponent<Animator>()) {
             anim.SetBool("cuire", true);
@@ -67,6 +68,7 @@ public class Hotspot_station : MonoBehaviour
         flecheHaut.SetActive(false);
         flecheDroit.SetActive(false);
         flecheBas.SetActive(false);
+        flecheGauche.SetActive(false);
     }
     
 
@@ -130,10 +132,14 @@ public class Hotspot_station : MonoBehaviour
                 player.GetComponent<Mouvement>().peutBouger = true;
                 ingredientCuit();
                 if(this.gameObject.tag == "HotspotPoele"){
-                    
                         flecheIdle.SetActive(true);
                         flecheBas.SetActive(false);
-                }
+                } else if(this.gameObject.tag == "Hotpost essaurage"){
+                    flecheIdle.SetActive(true);
+                    flecheGauche.SetActive(false);
+                } //else if(this.gameObject.tag == "Hotspot grillepain"){
+                    
+                // }
                     if (audio != null)
                     {
                         audio.SendMessage("Pause");
@@ -153,11 +159,15 @@ public class Hotspot_station : MonoBehaviour
                         flecheIdle.SetActive(false);
                         flecheBas.SetActive(true);
                 }
-                else if(this.gameObject.tag == "Hotspot essaurage"){
+                else if(this.gameObject.tag == "Hotpost essaurage"){
                         jeuLaitue = true;
+                        flecheIdle.SetActive(false);
+                        flecheGauche.SetActive(true);
                 }
                 else if(this.gameObject.tag == "Hotspot grillepain"){
                         jeuPain = true;
+                        flecheIdle.SetActive(false);
+                        flecheHaut.SetActive(true);
                 }
                 else if(this.gameObject.tag == "Hotspot fromage"){
                         jeuFromage = true;
@@ -172,7 +182,7 @@ public class Hotspot_station : MonoBehaviour
         ingredientCarry.SetActive(false);
         player.GetComponent<Objets>().isCarrying = true;
         player.GetComponent<Objets>().ingredient = ingredientCarry;
-            player.GetComponent<Objets>().SendMessage("checkCarry");
+        player.GetComponent<Objets>().SendMessage("checkCarry");
         player.GetComponent<Objets>().offset = offset;
         player.GetComponent<Objets>().currentParent = this.gameObject;
     }
@@ -235,6 +245,9 @@ public class Hotspot_station : MonoBehaviour
             if (context.performed)
             {
                 partie1pain = true;
+                flecheBas.SetActive(true);
+                flecheHaut.SetActive(false);
+                
             } 
         }
           
@@ -244,18 +257,20 @@ public class Hotspot_station : MonoBehaviour
     public void interactionJeuxGauche(InputAction.CallbackContext context)
     {   
             if( jeuLaitue == true){
-            if (context.performed)
-            {
+                if (context.performed)
+                {
                 
                     nombreDefoisButtonGauche++;
                 
                 
-            }
+                }
             }
             else if(jeuFromage == true){
                 if(context.performed){
+
                 partie1fromage = true;
-            }
+
+                }
             }
             
             
