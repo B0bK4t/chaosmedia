@@ -51,7 +51,7 @@ public class Hotspot_station : MonoBehaviour
     void Awake() { 
         flecheHaut = GameObject.Find("croixHaut");
         flecheBas = GameObject.Find("croixBas");
-        flecheGauche =  
+        flecheGauche = GameObject.Find("croixGauche");
         flecheDroit = GameObject.Find("croixDroit");
         flecheIdle = GameObject.Find("croixIdle");   
         player = GameObject.Find("Dona disco");
