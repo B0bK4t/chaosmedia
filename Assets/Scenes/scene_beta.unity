@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17282064, g: 0.21596566, b: 0.2979106, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0.99999905, b: 0.99999905, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -395,7 +395,7 @@ GameObject:
   - component: {fileID: 31487424}
   m_Layer: 0
   m_Name: hotspot toaster
-  m_TagString: assiette
+  m_TagString: Hotspot grillepain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -432,11 +432,6 @@ MonoBehaviour:
   ingredientOutput: {fileID: 1040690968}
   offset: {x: 0, y: 0, z: 0}
   anim: {fileID: 605377253}
-  flecheHaut: {fileID: 556557578}
-  flecheBas: {fileID: 1453673339}
-  flecheGauche: {fileID: 0}
-  flecheDroit: {fileID: 418362921}
-  flecheIdle: {fileID: 994085977}
   miniJeuReussi: 1
   audio: {fileID: 605377251}
 --- !u!65 &31487425
@@ -11217,7 +11212,7 @@ GameObject:
   - component: {fileID: 1002183060}
   m_Layer: 0
   m_Name: hotspot fromage
-  m_TagString: assiette
+  m_TagString: Hotspot fromage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11331,11 +11326,6 @@ MonoBehaviour:
   ingredientOutput: {fileID: 1555261788}
   offset: {x: 0, y: 0, z: 0}
   anim: {fileID: 0}
-  flecheHaut: {fileID: 556557578}
-  flecheBas: {fileID: 1453673339}
-  flecheGauche: {fileID: 0}
-  flecheDroit: {fileID: 418362921}
-  flecheIdle: {fileID: 994085977}
   miniJeuReussi: 1
   audio: {fileID: 948354461}
 --- !u!1 &1003248476 stripped
@@ -11415,11 +11405,6 @@ MonoBehaviour:
   ingredientOutput: {fileID: 1003248476}
   offset: {x: 0, y: 0, z: 0}
   anim: {fileID: 0}
-  flecheHaut: {fileID: 556557578}
-  flecheBas: {fileID: 1453673339}
-  flecheGauche: {fileID: 0}
-  flecheDroit: {fileID: 418362921}
-  flecheIdle: {fileID: 994085977}
   miniJeuReussi: 1
   audio: {fileID: 1953681619}
 --- !u!65 &1008155497
@@ -16642,7 +16627,7 @@ GameObject:
   - component: {fileID: 1407241060}
   m_Layer: 0
   m_Name: hotspot planche decouper
-  m_TagString: assiette
+  m_TagString: Hotspot planche
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16679,11 +16664,6 @@ MonoBehaviour:
   ingredientOutput: {fileID: 93603211}
   offset: {x: 0, y: 0, z: 0}
   anim: {fileID: 0}
-  flecheHaut: {fileID: 556557578}
-  flecheBas: {fileID: 1453673339}
-  flecheGauche: {fileID: 0}
-  flecheDroit: {fileID: 418362921}
-  flecheIdle: {fileID: 994085977}
   miniJeuReussi: 0
   audio: {fileID: 0}
 --- !u!65 &1407241061
@@ -18779,7 +18759,7 @@ GameObject:
   - component: {fileID: 1591290985}
   m_Layer: 0
   m_Name: hotspot essorage
-  m_TagString: Untagged
+  m_TagString: Hotpost essaurage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18816,11 +18796,6 @@ MonoBehaviour:
   ingredientOutput: {fileID: 1211095104}
   offset: {x: 0, y: 0, z: 0}
   anim: {fileID: 0}
-  flecheHaut: {fileID: 556557578}
-  flecheBas: {fileID: 1453673339}
-  flecheGauche: {fileID: 0}
-  flecheDroit: {fileID: 418362921}
-  flecheIdle: {fileID: 994085977}
   miniJeuReussi: 1
   audio: {fileID: 311569781}
 --- !u!65 &1591290986
@@ -25799,7 +25774,7 @@ GameObject:
   - component: {fileID: 2039410920}
   m_Layer: 0
   m_Name: hotspot frigo
-  m_TagString: assiette
+  m_TagString: Hotspot frigo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25836,11 +25811,6 @@ MonoBehaviour:
   ingredientOutput: {fileID: 1601765838}
   offset: {x: 0, y: 0, z: 0}
   anim: {fileID: 623521456}
-  flecheHaut: {fileID: 556557578}
-  flecheBas: {fileID: 1453673339}
-  flecheGauche: {fileID: 0}
-  flecheDroit: {fileID: 418362921}
-  flecheIdle: {fileID: 994085977}
   miniJeuReussi: 1
   audio: {fileID: 623521455}
 --- !u!65 &2039410921

@@ -28,6 +28,11 @@ TagManager:
   - jello
   - canvas_menu_commandes
   - tomateCrue
+  - Hotspot grillepain
+  - Hotpost essaurage
+  - Hotspot planche
+  - Hotspot frigo
+  - Hotspot fromage
   layers:
   - Default
   - TransparentFX
