@@ -124,44 +124,34 @@ public class Mouvement : MonoBehaviour
           else {
               float click = playerInput.actions["Ouvrir"].ReadValue<float>();
                 if (click == 1) {
-                    if (scene.name == "Accueil") {
-                        GameManager.SendMessage("debutCuisine");
-                    }
-                    else if (scene.name == "Post_credit") {
-                        Invoke("sendRetourHome",1.0f);
-                    }
+                    
                 }
           }
     }
 
-    void sendRetourHome() {
-GameManager.SendMessage("retourHome");
-    }
-
-    // void OnEnable(){
-    //     playerInput.Player.Enable();
-    // }
-
-    // void OnDisable(){
-    //     playerInput.Player.Disable();
-    // }
-
-
     public void Ouvrir(InputAction.CallbackContext context)
     {  
         click = context.performed;
+        if (context.performed) {
+            if (scene.name == "Accueil") {
+                GameManager.SendMessage("debutCuisine");
+            }
+            else if (scene.name == "Post_credit") {
+                GameManager.SendMessage("retourHome");
+            }
+        }
     }
 
     public void menuInput(InputAction.CallbackContext context)
     {  
-        if (context.performed) {
+        if (scene.name == gameScene && context.performed) {
             Debug.Log("Menu");
         }
     }
 
     public void boutonB(InputAction.CallbackContext context)
     {  
-        if (context.performed) {
+        if (scene.name == gameScene && context.performed) {
            if (recettesMenuCanvas.activeSelf) {
                recettesMenuCanvas.SetActive(false);
                GameManager.GetComponent<GameManager>().enPause = false;
