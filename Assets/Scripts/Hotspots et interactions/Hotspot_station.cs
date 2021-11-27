@@ -20,11 +20,11 @@ public class Hotspot_station : MonoBehaviour
     private float boutonJeuxGauche;
 
     public GameObject flecheHaut;
-
     public GameObject flecheBas;
     public GameObject flecheGauche;
     public GameObject flecheDroit;
     public GameObject flecheIdle;
+
     private bool partie2viande; 
 
     
@@ -54,6 +54,11 @@ public class Hotspot_station : MonoBehaviour
     }    
 
     void Start() {
+        flecheHaut = GameObject.Find("croixHaut");
+        flecheBas = GameObject.Find("croixBas");
+        // flecheGauche = 
+        flecheDroit = GameObject.Find("croixDroit");
+        flecheIdle = GameObject.Find("croixIdle");
         flecheHaut.SetActive(false);
         flecheDroit.SetActive(false);
         flecheBas.SetActive(false);
