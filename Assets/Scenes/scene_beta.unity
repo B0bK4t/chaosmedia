@@ -15311,10 +15311,10 @@ MonoBehaviour:
   viandeCrue: {fileID: 490978421}
   viandeCuite: {fileID: 2091973657}
   laitue: {fileID: 2078979087}
-  laitueEssoree: {fileID: 0}
+  laitueEssoree: {fileID: 1528897784}
   painCru: {fileID: 1472052622}
   painCuit: {fileID: 418249476}
-  tomate: {fileID: 0}
+  tomate: {fileID: 1420799312}
   trancheTomate: {fileID: 1099046960}
   jus: {fileID: 1942919582}
   trancheFromage: {fileID: 1343653327}
@@ -16767,7 +16767,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 3.2, y: 22.8}
+  m_AnchoredPosition: {x: 16.3, y: 29.2}
   m_SizeDelta: {x: 362, y: 238}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1420799312
