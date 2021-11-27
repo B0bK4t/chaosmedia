@@ -102,17 +102,15 @@ public class Objets : MonoBehaviour
             case "tomate":
             trancheTomate.enabled = true;
             break;
-            // Il manque le render ---
-            // case "tomateCrue":
-            // tomate.enabled = true;
-            // break;
+            case "tomateCrue":
+            tomate.enabled = true;
+            break;
             case "laitueCrue":
             laitue.enabled = true;
             break;
-            // Il manque le render ---
-            // case "laitue":
-            // laitueEssoree.enabled = true;
-            // break;
+            case "laitue":
+            laitueEssoree.enabled = true;
+            break;
             case "jus":
             jello.enabled = true;
             break;
