@@ -26,6 +26,7 @@ TagManager:
   - salade
   - croqueMonsieur
   - jello
+  - canvas_menu_commandes
   layers:
   - Default
   - TransparentFX

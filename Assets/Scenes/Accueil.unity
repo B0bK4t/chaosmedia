@@ -1694,6 +1694,7 @@ MonoBehaviour:
   repasEstTermine: 0
   repas: 
   canBeAdded: 0
+  enPause: 0
   timerText: {fileID: 0}
   recetteTimerText: {fileID: 0}
   scoreText: {fileID: 0}
