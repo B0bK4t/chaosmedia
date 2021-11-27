@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0.99999905, b: 0.99999905, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4755,7 +4755,19 @@ MonoBehaviour:
     m_ActionId: 889f177e-ef55-45ff-8961-32d436ed7e00
     m_ActionName: Player/Move[/Keyboard/w,/Keyboard/a,/Keyboard/s,/Keyboard/d]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2106962050}
+        m_TargetAssemblyTypeName: Mouvement, Assembly-CSharp
+        m_MethodName: Ouvrir
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 51b2d853-8002-4632-a444-c258315cbb6f
     m_ActionName: Player/Ouvrir
   - m_PersistentCalls:
@@ -4810,6 +4822,14 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: bad51680-e3f1-4ddb-b9b2-94930633b928
     m_ActionName: Player/interactionJeuxGauche[/XInputControllerWindows/dpad/left]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2c163173-3f76-46b4-9a8c-2451de1f4af6
+    m_ActionName: Player/menuInput[/Keyboard/tab]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 980283b4-9f67-4318-9daf-bb229a2c4a2c
+    m_ActionName: Player/boutonB[/Keyboard/b]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

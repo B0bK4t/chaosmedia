@@ -133,6 +133,7 @@ public class Mouvement : MonoBehaviour
     {  
         click = context.performed;
         if (context.performed) {
+            Debug.Log("yes!");
             if (scene.name == "Accueil") {
                 GameManager.SendMessage("debutCuisine");
             }
