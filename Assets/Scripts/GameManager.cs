@@ -18,13 +18,13 @@ public class GameManager : MonoBehaviour
     public GameObject hotspotAssiette;
     
     //pain, viande, fromage, tomate, laitue, jus
-    //ingrédients dispo beta: viande, laitue, pain, fromage => plat de viande, croque monsieur
     List<string> ingredientsChoisis = new List<string>();
     Dictionary<string, string[]> repasArray = new Dictionary<string, string[]>();
     Dictionary<string, float> timersArray = new Dictionary<string, float>();
     Dictionary<string, GameObject> objectsArray = new Dictionary<string, GameObject>();
     List<string> nomsRepas = new List<string>();
 
+    //Burger, plat de viande, brochette, sandwich, salade, jello, croque-monsieur
     private string[] burgerIngredients = new string[] {"fromage", "pain", "viande", "laitue", "tomate"};
     private float burgerTimer = 45f;
     [Header("Game Objects des repas")]
