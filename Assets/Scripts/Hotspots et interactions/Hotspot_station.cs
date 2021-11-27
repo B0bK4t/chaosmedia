@@ -51,7 +51,7 @@ public class Hotspot_station : MonoBehaviour
     void Awake() { 
         flecheHaut = GameObject.Find("croixHaut");
         flecheBas = GameObject.Find("croixBas");
-        // flecheGauche =  
+        flecheGauche =  
         flecheDroit = GameObject.Find("croixDroit");
         flecheIdle = GameObject.Find("croixIdle");   
         player = GameObject.Find("Dona disco");
@@ -103,7 +103,7 @@ public class Hotspot_station : MonoBehaviour
 
     void Update() {
         check();
-        Debug.Log(partie2viande);
+        
         boutonJeuxGauche = player.GetComponent<Mouvement>().playerInput.actions["interactionJeuxGauche"].ReadValue<float>();
 
         if(partie1viande == true && waitForOutput){
