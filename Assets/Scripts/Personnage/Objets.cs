@@ -75,6 +75,59 @@ public class Objets : MonoBehaviour
             case "viandeCrue":
             viandeCrue.enabled = true;
             break;
+            case "viande":
+            viandeCuite.enabled = true;
+            break;
+            case "pain":
+            painCuit.enabled = true;
+            break;
+            case "painCru":
+            painCru.enabled = true;
+            break;
+            case "fromage":
+            trancheFromage.enabled = true;
+            break;
+            case "tomate":
+            trancheTomate.enabled = true;
+            break;
+            // Il manque le render ---
+            // case "tomateCrue":
+            // tomate.enabled = true;
+            // break;
+            case "laitueCrue":
+            laitue.enabled = true;
+            break;
+            // Il manque le render ---
+            // case "laitue":
+            // laitueEssoree.enabled = true;
+            // break;
+            case "jus":
+            jello.enabled = true;
+            break;
+            case "jusCru":
+            jus.enabled = true;
+            break;
+            case "platViande":
+            platDeViande.enabled = true;
+            break;
+            case "burger":
+            burger.enabled = true;
+            break;
+            case "brochette":
+            brochette.enabled = true;
+            break;
+            case "sandwich":
+            sandwich.enabled = true;
+            break;
+            case "salade":
+            salade.enabled = true;
+            break;
+            case "croqueMonsieur":
+            croqueMonsieur.enabled = true;
+            break;
+            case "jello":
+            jello.enabled = true;
+            break;
             default:
             break;
         }

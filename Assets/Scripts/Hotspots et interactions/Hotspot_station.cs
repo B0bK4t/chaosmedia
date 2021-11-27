@@ -43,9 +43,8 @@ public class Hotspot_station : MonoBehaviour
     private bool waitForOutput = false;
     public bool miniJeuReussi = true; //Résultat du mini-jeu, false par défaut mais true pour tester
     public GameObject audio;
-    void Awake() {
-        
-        
+    
+    void Awake() {    
         player = GameObject.Find("Dona disco");
         if (anim == GameObject.Find("Toaster").GetComponent<Animator>()) {
             anim.SetBool("cuire", true);
@@ -53,6 +52,7 @@ public class Hotspot_station : MonoBehaviour
             anim.SetBool("toaster", false);
         }
     }    
+
     void Start() {
         flecheHaut.SetActive(false);
         flecheDroit.SetActive(false);

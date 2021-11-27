@@ -126,8 +126,8 @@ public class GameManager : MonoBehaviour
             objectsArray.Add("jello", jelloObject);
             nomsRepas.Add("Jello");
 
-            this.GetComponent<GameStart>().SendMessage("startGame");
-            // this.GetComponent<GameStart>().SendMessage("bypass");
+            // this.GetComponent<GameStart>().SendMessage("startGame");
+            this.GetComponent<GameStart>().SendMessage("bypass");
         }
     }
 
