@@ -15,7 +15,7 @@ public class Hotspot_station : MonoBehaviour
 
     private bool partie1viande;
 
-    private bool jeuLaitue = false;
+    
 
     private float boutonJeuxGauche;
 
@@ -27,7 +27,11 @@ public class Hotspot_station : MonoBehaviour
 
     private bool partie2viande; 
 
-    
+    private bool jeuLaitue = false;
+    private bool jeuViande = false;
+    private bool jeuPain = false;
+    private bool jeuFromage = false;
+
     private bool partie1jus; 
     private bool partie2jus;
     private bool partie1pain; 
@@ -143,11 +147,20 @@ public class Hotspot_station : MonoBehaviour
                 waitForOutput = true;
                 player.GetComponent<Mouvement>().peutBouger = false;
                 // Debug.Log("En attente");
-                jeuLaitue = true;
+                
                 if(this.gameObject.tag == "HotspotPoele"){
-                    
+                        jeuViande = true;
                         flecheIdle.SetActive(false);
                         flecheBas.SetActive(true);
+                }
+                else if(this.gameObject.tag == "Hotspot essaurage"){
+                        jeuLaitue = true;
+                }
+                else if(this.gameObject.tag == "Hotspot grillepain"){
+                        jeuPain = true;
+                }
+                else if(this.gameObject.tag == "Hotspot fromage"){
+                        jeuFromage = true;
                 }
             }
         }
@@ -193,15 +206,19 @@ public class Hotspot_station : MonoBehaviour
 
     public void interactionJeuxBas(InputAction.CallbackContext context)
     {   
-        if (partie1pain == true){
-            partie2pain = true;
-        }   
-         if (context.performed)
-        {
-            partie1viande = true;
-            
-        }
         
+        if(jeuViande == true) {
+
+            if (context.performed)
+
+            {
+                partie1viande = true;
+            
+            }
+        } 
+        else if (partie1pain == true){
+            partie2pain = true;
+        }
     }
 
     public void interactionJeuxHaut(InputAction.CallbackContext context)
@@ -213,14 +230,14 @@ public class Hotspot_station : MonoBehaviour
                 flecheIdle.SetActive(true);
                 flecheHaut.SetActive(false);
             }
-         if (context.performed)
+        }
+        else if(jeuPain == true){
+            if (context.performed)
             {
                 partie1pain = true;
-            }
-         
+            } 
         }
-       
-            
+          
     }
     
 
@@ -235,34 +252,28 @@ public class Hotspot_station : MonoBehaviour
                 
             }
             }
-            if(context.performed){
+            else if(jeuFromage == true){
+                if(context.performed){
                 partie1fromage = true;
+            }
             }
             
-        if(context.performed){
-                partie1fromage = true;
-                partie1jus = true;
-            }
+            
+            
     }
 
     public void interactionJeuxDroite(InputAction.CallbackContext context)
     {   
             if(partie1fromage == true){
                 if (context.performed)
-            {
+                {
                 
                     partie2fromage = true;
             
-            }
+                }
             }
             
-            if(partie1jus == true){
-                if (context.performed)
-            {
-                    partie2jus = true;
-                    partie1fromage = false;
-            }
-            }
+            
             
         
     }
