@@ -19,11 +19,11 @@ public class Hotspot_station : MonoBehaviour
 
     private float boutonJeuxGauche;
 
-    public GameObject flecheHaut;
-    public GameObject flecheBas;
-    public GameObject flecheGauche;
-    public GameObject flecheDroit;
-    public GameObject flecheIdle;
+    private GameObject flecheHaut;
+    private GameObject flecheBas;
+    private GameObject flecheGauche;
+    private GameObject flecheDroit;
+    private GameObject flecheIdle;
 
     private bool partie2viande; 
 
@@ -44,7 +44,12 @@ public class Hotspot_station : MonoBehaviour
     public bool miniJeuReussi = true; //Résultat du mini-jeu, false par défaut mais true pour tester
     public GameObject audio;
     
-    void Awake() {    
+    void Awake() { 
+        flecheHaut = GameObject.Find("croixHaut");
+        flecheBas = GameObject.Find("croixBas");
+        // flecheGauche =  
+        flecheDroit = GameObject.Find("croixDroit");
+        flecheIdle = GameObject.Find("croixIdle");   
         player = GameObject.Find("Dona disco");
         if (anim == GameObject.Find("Toaster").GetComponent<Animator>()) {
             anim.SetBool("cuire", true);
@@ -54,11 +59,7 @@ public class Hotspot_station : MonoBehaviour
     }    
 
     void Start() {
-        flecheHaut = GameObject.Find("croixHaut");
-        flecheBas = GameObject.Find("croixBas");
-        // flecheGauche = 
-        flecheDroit = GameObject.Find("croixDroit");
-        flecheIdle = GameObject.Find("croixIdle");
+        
         flecheHaut.SetActive(false);
         flecheDroit.SetActive(false);
         flecheBas.SetActive(false);
@@ -98,7 +99,7 @@ public class Hotspot_station : MonoBehaviour
 
     void Update() {
         check();
-        
+        Debug.Log(partie2viande);
         boutonJeuxGauche = player.GetComponent<Mouvement>().playerInput.actions["interactionJeuxGauche"].ReadValue<float>();
 
         if(partie1viande == true && waitForOutput){
