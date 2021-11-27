@@ -3,9 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Objets : MonoBehaviour
 {
+    //Scene
+    [Header("Général")]
+    public Scene scene;
+    string gameScene = "scene_beta"; 
+
     [ShowOnly] public bool isCarrying = false;
     [ShowOnly] public GameObject ingredient;
     [ShowOnly] public GameObject currentParent;
@@ -36,25 +42,31 @@ public class Objets : MonoBehaviour
     public RawImage jello;
     private List<RawImage> canvases = new List<RawImage>();
 
+    void Awake() {
+        scene = SceneManager.GetActiveScene();
+    }
+
     void Start() {
-        canvases.Add(viandeCrue);
-        canvases.Add(viandeCuite);
-        canvases.Add(laitue);
-        canvases.Add(laitueEssoree);
-        canvases.Add(painCru);
-        canvases.Add(painCuit);
-        canvases.Add(tomate);
-        canvases.Add(trancheTomate);
-        canvases.Add(jus);
-        canvases.Add(trancheFromage);
-        canvases.Add(burger);
-        canvases.Add(platDeViande);
-        canvases.Add(brochette);
-        canvases.Add(sandwich);
-        canvases.Add(salade);
-        canvases.Add(croqueMonsieur);
-        canvases.Add(jello);
-        clear();
+         if (scene.name == gameScene) {
+            canvases.Add(viandeCrue);
+            canvases.Add(viandeCuite);
+            canvases.Add(laitue);
+            canvases.Add(laitueEssoree);
+            canvases.Add(painCru);
+            canvases.Add(painCuit);
+            canvases.Add(tomate);
+            canvases.Add(trancheTomate);
+            canvases.Add(jus);
+            canvases.Add(trancheFromage);
+            canvases.Add(burger);
+            canvases.Add(platDeViande);
+            canvases.Add(brochette);
+            canvases.Add(sandwich);
+            canvases.Add(salade);
+            canvases.Add(croqueMonsieur);
+            canvases.Add(jello);
+            clear();
+         }
     }
 
     void Update() {

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class voixPersonageAleatoire : MonoBehaviour
 {
@@ -15,25 +16,31 @@ public class voixPersonageAleatoire : MonoBehaviour
     public AudioSource voix04;
     public AudioSource voix05;
 
+    //Scene
+    [Header("Général")]
+    public Scene scene;
+    string gameScene = "scene_beta"; 
+
 
     // Start is called before the first frame update
     void Start()
     {
+        scene = SceneManager.GetActiveScene();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-        Timer();
-        if (timer >= temps)
-        {
-            TempsAleatoire();
-            timer = 0;
-            voix = Mathf.Floor(Random.Range(0f, 5f));
-            Play();
+        if (scene.name == gameScene) {
+            Timer();
+            if (timer >= temps)
+            {
+                TempsAleatoire();
+                timer = 0;
+                voix = Mathf.Floor(Random.Range(0f, 5f));
+                Play();
+            }
         }
-
     }
 
     void Timer()
