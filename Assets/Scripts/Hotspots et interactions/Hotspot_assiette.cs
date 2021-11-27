@@ -33,7 +33,7 @@ public class Hotspot_assiette : MonoBehaviour
                 GameManager.SendMessage("ajoutIngredient", player.GetComponent<Objets>().ingredient.tag);
                     ajoutIngredient(ingredient);
                     other.GetComponent<Objets>().isCarrying = false;
-            player.GetComponent<Objets>().SendMessage("checkCarry");
+                    player.GetComponent<Objets>().SendMessage("clear");
                     Destroy(ingredient);
             } else {
                 enleverIngredient();
@@ -52,7 +52,7 @@ public class Hotspot_assiette : MonoBehaviour
         var plateData = ingredient.GetComponent<ingredient>();
         ingredientClone.transform.localScale = new Vector3(plateData.scaleX,plateData.scaleY,plateData.scaleZ);
         ingredientClone.transform.localRotation = Quaternion.Euler(new Vector3(plateData.rotationX,plateData.rotationY,plateData.rotationZ));
-        ingredientClone.SetActive(false);;
+        ingredientClone.SetActive(false);
         nbIngredients ++;
         ingredients.Add(ingredientClone);
         originals.Add(originalScale);
