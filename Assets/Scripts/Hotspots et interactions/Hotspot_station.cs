@@ -24,6 +24,16 @@ public class Hotspot_station : MonoBehaviour
     private GameObject flecheGauche;
     private GameObject flecheDroit;
     private GameObject flecheIdle;
+    private GameObject cercle1;
+    private GameObject cercle2;
+    private GameObject cercle3;
+    private GameObject cercle4;
+    private GameObject cercle5;
+    private GameObject cercle1Fini;
+    private GameObject cercle2Fini;
+    private GameObject cercle3Fini;
+    private GameObject cercle4Fini;
+    private GameObject cercle5Fini;
 
     private bool partie2viande; 
 
@@ -61,7 +71,19 @@ public class Hotspot_station : MonoBehaviour
         flecheGauche = GameObject.Find("croixGauche");
         flecheDroit = GameObject.Find("croixDroit");
         flecheIdle = GameObject.Find("croixIdle");
-           
+
+        cercle1 = GameObject.Find("circle01");
+        cercle2 = GameObject.Find("circle02");
+        cercle3 = GameObject.Find("circle03");
+        cercle4 = GameObject.Find("circle04");
+        cercle5 = GameObject.Find("circle05");
+
+        cercle1Fini = GameObject.Find("circle01Fini");
+        cercle2Fini = GameObject.Find("circle02Fini");
+        cercle3Fini = GameObject.Find("circle03Fini");
+        cercle4Fini = GameObject.Find("circle04Fini");
+        cercle5Fini = GameObject.Find("circle05Fini");
+
         player = GameObject.Find("Dona disco");
         if (anim == GameObject.Find("Toaster").GetComponent<Animator>()) {
             anim.SetBool("cuire", true);
@@ -76,6 +98,14 @@ public class Hotspot_station : MonoBehaviour
         flecheDroit.SetActive(false);
         flecheBas.SetActive(false);
         flecheGauche.SetActive(false);
+
+
+        cercle1Fini.SetActive(false);
+        cercle2Fini.SetActive(false);
+        cercle3Fini.SetActive(false);
+        cercle4Fini.SetActive(false);
+        cercle5Fini.SetActive(false);
+
     }
     
 
@@ -176,6 +206,15 @@ public class Hotspot_station : MonoBehaviour
                   else if(this.gameObject.tag == "Hotspot planche"){
                     jeuTomate = false;
                  }
+                 else if(this.gameObject.tag == "Hotspot frigo"){
+                    jeuJus = false;
+                    cercle1Fini.SetActive(false);
+                    cercle2Fini.SetActive(false);
+                    cercle3Fini.SetActive(false);
+                    cercle4Fini.SetActive(false);
+                    cercle5Fini.SetActive(false);
+
+                 }
                     if (audio != null)
                     {
                         audio.SendMessage("Pause");
@@ -262,19 +301,22 @@ public class Hotspot_station : MonoBehaviour
     }
 
     void Premier(){
-        Debug.Log("Premier");
+        cercle1Fini.SetActive(true);
     }
     void Deuxieme(){
-        Debug.Log("Deuxieme");
+       cercle2Fini.SetActive(true);
     }
     void Troisieme(){
-        Debug.Log("Troisieme");
+       cercle3Fini.SetActive(true);
     }
     void Qatrieme(){
-        Debug.Log("Quatrieme");
+        cercle4Fini.SetActive(true);
     }
     void Cinquieme(){
-        Debug.Log("Cinquieme");
+        cercle5Fini.SetActive(true);
+        miniJeuReussi = true;
+        partie1jus = false;
+        partie2jus = false;
     }
     public void interactionJeuxBas(InputAction.CallbackContext context)
     {   
