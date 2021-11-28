@@ -168,7 +168,7 @@ public class GameManager : MonoBehaviour
     }
 
     void enleverIngredient(string ingredient) {
-        // ingredientsChoisis.RemoveAt(ingredientsChoisis.Count - 1);
+        this.GetComponent<affichageRecettes>().SendMessage("removeIngredient", ingredient);
         ingredientsChoisis.Remove(ingredient);
         verifierRepas();
     }

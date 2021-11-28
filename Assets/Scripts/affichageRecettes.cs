@@ -262,6 +262,132 @@ public class affichageRecettes : MonoBehaviour
             break;
         }
     }
+    
+    public void removeIngredient(string name) {
+        switch (repas) {
+            case "Plat de viande":
+            switch (name)
+            {
+                case "viande":
+                platViandeSteak.enabled = false;
+                break;
+                case "laitue":
+                platViandeSalade.enabled = false;
+                break;
+                default:
+                break;
+            }
+            break;
+
+            case "Burger":
+            switch (name)
+            {
+                case "pain":
+                burgerPain.enabled = false;
+                break;
+                case "fromage":
+                burgerFromage.enabled = false;
+                break;
+                case "viande":
+                burgerViande.enabled = false;
+                break;
+                case "laitue":
+                burgerLaitue.enabled = false;
+                break;
+                case "tomate":
+                burgerTomate.enabled = false;
+                break;
+                default:
+                break;
+            }
+            break;
+
+            case "Brochette":
+            switch (name)
+            {
+                case "viande":
+                brochetteViande.enabled = false;
+                break;
+                case "laitue":
+                brochetteLaitue.enabled = false;
+                break;
+                case "tomate":
+                brochetteTomate.enabled = false;
+                break;
+                default:
+                break;
+            }
+            break;
+
+            case "Jello":
+            switch (name)
+            {
+                case "jus":
+                jelloJus.enabled = false;
+                break;
+                default:
+                break;
+            }
+            break;
+
+            case "Sandwich":
+            switch (name)
+            {
+                case "pain":
+                sandwichPain.enabled = false;
+                break;
+                case "viande":
+                sandwichViande.enabled = false;
+                break;
+                case "laitue":
+                sandwichLaitue.enabled = false;
+                break;
+                case "tomate":
+                sandwichTomate.enabled = false;
+                break;
+                default:
+                break;
+            }
+            break;
+
+            case "Salade":
+            switch (name)
+            {
+                case "fromage":
+                saladeFromage.enabled = false;
+                break;
+                case "laitue":
+                saladeLaitue.enabled = false;
+                break;
+                case "tomate":
+                saladeTomate.enabled = false;
+                break;
+                default:
+                break;
+            }
+            break;
+
+            case "Croque-monsieur":
+            switch (name)
+            {
+                case "fromage":
+                croqueMrFromage.enabled = false;
+                break;
+                case "viande":
+                croqueMrViande.enabled = false;
+                break;
+                case "pain":
+                croqueMrPain.enabled = false;
+                break;
+                default:
+                break;
+            }
+            break;
+
+            default:
+            break;
+        }
+    }
 
     public void clear() {
       foreach (var a in all)
