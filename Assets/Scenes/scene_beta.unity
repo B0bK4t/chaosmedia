@@ -1060,6 +1060,31 @@ MonoBehaviour:
   platViandeBon: {fileID: 244835996}
   platViandeSalade: {fileID: 1036885549}
   platViandeSteak: {fileID: 327512}
+  burgerBon: {fileID: 1956234644}
+  burgerPain: {fileID: 2114369558}
+  burgerFromage: {fileID: 1492926051}
+  burgerViande: {fileID: 424736916}
+  burgerLaitue: {fileID: 634715898}
+  burgerTomate: {fileID: 1029840863}
+  brochetteBon: {fileID: 885950412}
+  brochetteViande: {fileID: 1249241472}
+  brochetteLaitue: {fileID: 2069965772}
+  brochetteTomate: {fileID: 1593706119}
+  jelloBon: {fileID: 879288649}
+  jelloJus: {fileID: 171177055}
+  sandwichBon: {fileID: 387063950}
+  sandwichPain: {fileID: 1309174959}
+  sandwichViande: {fileID: 383865635}
+  sandwichLaitue: {fileID: 965461181}
+  sandwichTomate: {fileID: 418872681}
+  saladeBon: {fileID: 1623036264}
+  saladeFromage: {fileID: 881376324}
+  saladeLaitue: {fileID: 1934559788}
+  saladeTomate: {fileID: 563236123}
+  croqueMrBon: {fileID: 692867377}
+  croqueMrFromage: {fileID: 1271288149}
+  croqueMrViande: {fileID: 1332310511}
+  croqueMrPain: {fileID: 272516343}
 --- !u!1 &47905238
 GameObject:
   m_ObjectHideFlags: 0
@@ -2607,7 +2632,7 @@ GameObject:
   - component: {fileID: 171177056}
   - component: {fileID: 171177055}
   m_Layer: 5
-  m_Name: check
+  m_Name: checkJus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3257,7 +3282,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &244835995
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3481,7 +3506,7 @@ GameObject:
   - component: {fileID: 272516344}
   - component: {fileID: 272516343}
   m_Layer: 5
-  m_Name: check (2)
+  m_Name: checkPain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3499,7 +3524,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 692867376}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4679,7 +4704,7 @@ GameObject:
   - component: {fileID: 383865636}
   - component: {fileID: 383865635}
   m_Layer: 5
-  m_Name: check (6)
+  m_Name: checkViande
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4828,7 +4853,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &387063949
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5212,7 +5237,7 @@ GameObject:
   - component: {fileID: 418872682}
   - component: {fileID: 418872681}
   m_Layer: 5
-  m_Name: check (8)
+  m_Name: checkTomate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5377,7 +5402,7 @@ GameObject:
   - component: {fileID: 424736917}
   - component: {fileID: 424736916}
   m_Layer: 5
-  m_Name: check (6)
+  m_Name: checkViande
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6616,7 +6641,7 @@ GameObject:
   - component: {fileID: 563236124}
   - component: {fileID: 563236123}
   m_Layer: 5
-  m_Name: check (8)
+  m_Name: checkTomate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8008,7 +8033,7 @@ GameObject:
   - component: {fileID: 634715899}
   - component: {fileID: 634715898}
   m_Layer: 5
-  m_Name: check (7)
+  m_Name: checkLaitue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8735,8 +8760,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1271288148}
-  - {fileID: 272516342}
   - {fileID: 1332310510}
+  - {fileID: 272516342}
   m_Father: {fileID: 1037918345}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9840,7 +9865,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &879288648
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9908,7 +9933,7 @@ GameObject:
   - component: {fileID: 881376325}
   - component: {fileID: 881376324}
   m_Layer: 5
-  m_Name: check (4)
+  m_Name: checkFromage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9985,7 +10010,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &885950411
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10985,7 +11010,7 @@ GameObject:
   - component: {fileID: 965461182}
   - component: {fileID: 965461181}
   m_Layer: 5
-  m_Name: check (7)
+  m_Name: checkLaitue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12012,7 +12037,7 @@ GameObject:
   - component: {fileID: 1029840864}
   - component: {fileID: 1029840863}
   m_Layer: 5
-  m_Name: check (8)
+  m_Name: checkTomate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14700,7 +14725,7 @@ GameObject:
   - component: {fileID: 1249241473}
   - component: {fileID: 1249241472}
   m_Layer: 5
-  m_Name: check (1)
+  m_Name: checkViande
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14990,7 +15015,7 @@ GameObject:
   - component: {fileID: 1271288150}
   - component: {fileID: 1271288149}
   m_Layer: 5
-  m_Name: check (1)
+  m_Name: checkFromage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16225,7 +16250,7 @@ GameObject:
   - component: {fileID: 1309174960}
   - component: {fileID: 1309174959}
   m_Layer: 5
-  m_Name: check (4)
+  m_Name: checkPain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16297,7 +16322,7 @@ GameObject:
   - component: {fileID: 1332310512}
   - component: {fileID: 1332310511}
   m_Layer: 5
-  m_Name: check (3)
+  m_Name: checkViande
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16315,7 +16340,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 692867376}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -18333,7 +18358,7 @@ GameObject:
   - component: {fileID: 1492926052}
   - component: {fileID: 1492926051}
   m_Layer: 5
-  m_Name: check (5)
+  m_Name: checkFromage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19367,7 +19392,7 @@ GameObject:
   - component: {fileID: 1593706120}
   - component: {fileID: 1593706119}
   m_Layer: 5
-  m_Name: check (3)
+  m_Name: checkTomate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19807,7 +19832,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1623036263
 RectTransform:
   m_ObjectHideFlags: 0
@@ -24530,7 +24555,7 @@ GameObject:
   - component: {fileID: 1934559789}
   - component: {fileID: 1934559788}
   m_Layer: 5
-  m_Name: check (7)
+  m_Name: checkLaitue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25027,7 +25052,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1956234643
 RectTransform:
   m_ObjectHideFlags: 0
@@ -26649,7 +26674,7 @@ GameObject:
   - component: {fileID: 2069965773}
   - component: {fileID: 2069965772}
   m_Layer: 5
-  m_Name: check (2)
+  m_Name: checkLaitue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27080,7 +27105,7 @@ GameObject:
   - component: {fileID: 2114369559}
   - component: {fileID: 2114369558}
   m_Layer: 5
-  m_Name: check (4)
+  m_Name: checkPain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

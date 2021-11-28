@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
     public GameObject burgerObject;
 
     private string[] platViandeIngredients = new string[] {"viande","laitue"};
-    private float platViandeTimer = 500f;
+    private float platViandeTimer = 45f;
     public GameObject platViandeObject;
 
     private string[] brochetteIngredients = new string[] {"viande", "laitue", "tomate"};
@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour
     public GameObject saladeObject;
 
     private string[] croqueMonsieurIngredients = new string[] {"fromage", "pain", "viande"};
-    private float croqueMonsieurTimer = 500f;
+    private float croqueMonsieurTimer = 45f;
     public GameObject croqueMonsieurObject;
 
     private string[] jelloIngredients = new string[] {"jus"};
@@ -141,8 +141,9 @@ public class GameManager : MonoBehaviour
 
     void choisirRepas() {
         //Choix du repas
-        // repasChoisi = Random.Range(1, repasArray.Count);
-        randomBeta();
+        // repasChoisi = Random.Range(0, repasArray.Count);
+        // repasChoisi = Random.Range(0, 6);
+        repasChoisi = 1;
         scoreRepas = timersArray.ElementAt(repasChoisi).Value;
         timerRecette = timersArray.ElementAt(repasChoisi).Value;
         recetteTimerTotal = timerRecette;
@@ -150,18 +151,6 @@ public class GameManager : MonoBehaviour
         repasText.text = nomsRepas[repasChoisi];
         this.GetComponent<affichageRecettes>().SendMessage("newRecette", nomsRepas[repasChoisi]);
         ingredientsChoisis.Clear();
-    }
-
-    void randomBeta() {
-        // var nb = Random.Range(1, 4);
-        // if (nb < 3)
-        // {
-        //     repasChoisi = 1;
-        // } else if (nb == 3) 
-        // {
-        //     repasChoisi = 5;
-        // }
-        repasChoisi = 1;
     }
 
     void genererAssiette() {
