@@ -9,6 +9,7 @@ public class affichageRecettes : MonoBehaviour
     public GameObject GameManager;
     private List<RawImage> all = new List<RawImage>();
     private string repas;
+    [ShowOnly] public int nbIngredients = 0;
 
     [Header("Plat de viande")]
     [Header("Recettes")]

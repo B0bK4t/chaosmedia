@@ -9,7 +9,7 @@ public class Hotspot_assiette : MonoBehaviour
     [ShowOnly] public Collider player;
     public GameObject GameManager;
     public GameObject plate;
-    private int nbIngredients = 0;
+    [ShowOnly] public int nbIngredients = 0;
     private List<GameObject> ingredients = new List<GameObject>();
     private List<Vector3> originals = new List<Vector3>();
     private GameObject ingredientClone;

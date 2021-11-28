@@ -1223,6 +1223,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameManager: {fileID: 46840869}
+  nbIngredients: 0
   platViandeBon: {fileID: 244835996}
   platViandeSalade: {fileID: 1036885549}
   platViandeSteak: {fileID: 327512}
@@ -1757,6 +1758,7 @@ MonoBehaviour:
   player: {fileID: 0}
   GameManager: {fileID: 46840869}
   plate: {fileID: 2124338124}
+  nbIngredients: 0
   offset: {x: 0, y: 0, z: 0}
   audio: {fileID: 2124338124}
 --- !u!65 &94818103
@@ -15638,6 +15640,7 @@ MonoBehaviour:
   click: 0
   rb_perso: {fileID: 0}
   recettesMenuCanvas: {fileID: 1659246301}
+  canvasMenuCommandes: {fileID: 1852694729}
   audio: {fileID: 1299025826}
 --- !u!114 &1299025829
 MonoBehaviour:
@@ -21987,7 +21990,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9d8cf64c0d686e248a101a93ea432f5b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.44
+      value: 8.27
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9d8cf64c0d686e248a101a93ea432f5b, type: 3}
       propertyPath: m_LocalPosition.z
