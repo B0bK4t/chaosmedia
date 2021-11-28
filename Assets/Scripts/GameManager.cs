@@ -84,11 +84,16 @@ public class GameManager : MonoBehaviour
     public GameObject audio;
     public AudioSource voixFini;
     private bool voixAppel = false;
+    public Image fillImage;
+
+    private float timeAmt = 10;
+    private float timeTest;
 
     void Start() {
         //Scenes
         scene = SceneManager.GetActiveScene();
-
+        fillImage = fillImage.GetComponent<Image>();
+        
         if (scene.name == gameScene) {
             //Ajout repas
             repasArray.Add("burger", burgerIngredients);
@@ -284,11 +289,11 @@ public class GameManager : MonoBehaviour
             choisirRepas();
         }
     }
-
+    
     void Update()
     {
         // genererAssiette();
-
+        
         //Timer global
         if (tempsGlobalEnCours && !enPause) {
             if (timerGlobal <= debutDisco) {
@@ -309,9 +314,11 @@ public class GameManager : MonoBehaviour
 
             if (timerGlobal > 0) {
                 DisplayTime(timerGlobal, timerText);
+
+                
             }
             
-          
+
         } 
 
         if (timerGlobal < 5f && voixAppel == false)
@@ -335,6 +342,10 @@ public class GameManager : MonoBehaviour
                 tempsRecetteEnCours = false;
                 Juger(true);
             }
+        }
+        if(timerRecette > 0){
+            
+            fillImage.fillAmount = timerRecette / recetteTimerTotal;
         }
     }
 
