@@ -1020,6 +1020,7 @@ MonoBehaviour:
     m_Handle: 0
   player: {fileID: 1299025826}
   hotspotAssiette: {fileID: 94818100}
+  cloche: {fileID: 0}
   burgerObject: {fileID: 435124259}
   platViandeObject: {fileID: 1081012401}
   brochetteObject: {fileID: 906945314}
@@ -28019,11 +28020,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ingredient: {fileID: 0}
   player: {fileID: 0}
-  ingredientNeeded: jus
+  ingredientNeeded: jusCru
   ingredientOutput: {fileID: 1601765838}
   offset: {x: 0, y: 0, z: 0}
   anim: {fileID: 623521456}
-  miniJeuReussi: 1
+  miniJeuReussi: 0
   audio: {fileID: 623521455}
 --- !u!65 &2039410921
 BoxCollider:

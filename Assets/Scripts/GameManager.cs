@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject player;
     public GameObject hotspotAssiette;
+    public GameObject cloche;
     
     //pain, viande, fromage, tomate, laitue, jus
     List<string> ingredientsChoisis = new List<string>();
