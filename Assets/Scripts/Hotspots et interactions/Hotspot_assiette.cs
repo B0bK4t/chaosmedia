@@ -18,6 +18,7 @@ public class Hotspot_assiette : MonoBehaviour
     public Vector3 offset;
     private bool canAdd = true;
     public GameObject audio;
+    public Animator anim;
 
     void Awake() {
         plate = GameObject.Find("Plate");
@@ -45,6 +46,7 @@ public class Hotspot_assiette : MonoBehaviour
     }
 
     public void ajouterDansAssiette() {
+        anim.SetTrigger("lever");
         ingredient = player.GetComponent<Objets>().ingredient;
         GameManager.SendMessage("ajoutIngredient", player.GetComponent<Objets>().ingredient.tag);
         ajoutIngredient(ingredient);
@@ -71,6 +73,7 @@ public class Hotspot_assiette : MonoBehaviour
     }
 
     void enleverIngredient() {
+        anim.SetTrigger("lever");
         var man = GameManager.GetComponent<GameManager>();
         if (man.repasEstTermine && canAdd) {
             GameManager.SendMessage("clearCloche");

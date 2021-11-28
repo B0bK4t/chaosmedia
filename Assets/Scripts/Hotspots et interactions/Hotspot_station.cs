@@ -89,6 +89,11 @@ public class Hotspot_station : MonoBehaviour
             anim.SetBool("cuire", true);
             anim.SetBool("griller", false);
             anim.SetBool("toaster", false);
+        } else if (anim == GameObject.Find("Essoreuse_salade").GetComponent<Animator>()) {
+            anim.SetBool("essore", false);
+        } else if (anim == GameObject.Find("PlancheDecouper").GetComponent<Animator>()) {
+            anim.SetBool("mini-jeu_couper", false);
+            anim.SetBool("tranche", false);
         }
     }    
 
@@ -117,11 +122,17 @@ public class Hotspot_station : MonoBehaviour
             if (ingredient.tag == ingredientNeeded) {
                 if (other.GetComponent<Objets>().click) {
                     other.GetComponent<Objets>().isCarrying = false;
-            player.GetComponent<Objets>().SendMessage("checkCarry");
+                    player.GetComponent<Objets>().SendMessage("checkCarry");
                     if (anim == GameObject.Find("Toaster").GetComponent<Animator>()) {
                         anim.SetBool("cuire", false);
                         anim.SetBool("griller", true);
                         anim.SetBool("toaster", false);
+                    } else if (anim == GameObject.Find("Essoreuse_salade").GetComponent<Animator>()) {
+                        anim.SetBool("essore", true);
+                    } else if (anim == GameObject.Find("PlancheDecouper").GetComponent<Animator>()) {
+                        anim.SetBool("mini-jeu_couper", true);
+                    } else if (anim == GameObject.Find("fridge").GetComponent<Animator>()) {
+                        anim.SetTrigger("Play");
                     }
                     Destroy(ingredient);
                     if (audio != null)
@@ -166,20 +177,14 @@ public class Hotspot_station : MonoBehaviour
 
     void Update() {
         check();
-        
         boutonJeuxGauche = player.GetComponent<Mouvement>().playerInput.actions["interactionJeuxGauche"].ReadValue<float>();
-
-        
- 
-        
         if(nombreDefoisButtonGauche == 5){
-                miniJeuReussi = true;
-                nombreDefoisButtonGauche = 0;
-                
-                    if (audio != null)
-                    {
-                        audio.SendMessage("Pause");
-                    }
+            miniJeuReussi = true;
+            nombreDefoisButtonGauche = 0;
+            if (audio != null)
+            {
+                audio.SendMessage("Pause");
+            }
         }
         
         
@@ -190,8 +195,7 @@ public class Hotspot_station : MonoBehaviour
                 player.GetComponent<Mouvement>().peutBouger = true;
                 ingredientCuit();
                 if(this.gameObject.tag == "HotspotPoele"){
-                        
-                        jeuViande = false;
+                       jeuViande = false;
                 } else if(this.gameObject.tag == "Hotpost essaurage"){
                     flecheIdle.SetActive(true);
                     flecheGauche.SetActive(false);
@@ -213,7 +217,6 @@ public class Hotspot_station : MonoBehaviour
                     cercle3Fini.SetActive(false);
                     cercle4Fini.SetActive(false);
                     cercle5Fini.SetActive(false);
-
                  }
                     if (audio != null)
                     {
@@ -223,6 +226,10 @@ public class Hotspot_station : MonoBehaviour
                     anim.SetBool("cuire", false);
                     anim.SetBool("griller", false);
                     anim.SetBool("toaster", true);
+                } else if (anim == GameObject.Find("Essoreuse_salade").GetComponent<Animator>()) {
+                    anim.SetBool("false", true);
+                } else if (anim == GameObject.Find("fridge").GetComponent<Animator>()) {
+                        anim.SetTrigger("Play");
                 }
             } else {
                 waitForOutput = true;
@@ -264,22 +271,22 @@ public class Hotspot_station : MonoBehaviour
     }
 
     void check(){
-        if( partie1viande == true && partie2viande == true){
+        if( partie1viande && partie2viande){
             miniJeuReussi = true;
             partie1viande = false;
             partie2viande = false;
         }
-        else if( partie1pain == true && partie2pain == true){
+        else if( partie1pain && partie2pain){
             miniJeuReussi = true;
             partie1pain = false;
             partie2pain = false;
         }
-        else if( partie1fromage == true && partie2fromage == true){
+        else if( partie1fromage && partie2fromage){
             miniJeuReussi = true;
             partie1fromage = false;
             partie2fromage = false;
         }
-        else if( partie1jus == true && partie2jus == true ){
+        else if( partie1jus && partie2jus ){
             Invoke("Premier", 1);
             Invoke("Deuxieme", 2);
             Invoke("Troisieme", 3);
@@ -287,12 +294,16 @@ public class Hotspot_station : MonoBehaviour
             Invoke("Cinquieme", 5);
             
         }
-        else if( partie1tomate == true && partie2tomate == true && partie3tomate == true && partie4tomate == true){
+        else if( partie1tomate && partie2tomate && partie3tomate && partie4tomate){
             miniJeuReussi = true;
             partie1tomate = false;
             partie2tomate = false;
             partie3tomate = false;
             partie4tomate = false;
+            if (anim == GameObject.Find("PlancheDecouper").GetComponent<Animator>()) {
+                        anim.SetBool("tranche", true);
+                        anim.SetBool("mini-jeu_couper", false);
+            }
         }
     }
     
@@ -318,40 +329,42 @@ public class Hotspot_station : MonoBehaviour
         partie1jus = false;
         partie2jus = false;
     }
+
     public void interactionJeuxBas(InputAction.CallbackContext context)
     {   
-        
-        if(jeuViande == true) {
-
+        if(jeuViande) {
             if (context.performed)
-
             {
                 partie1viande = true;
                 flecheBas.SetActive(false);
                 flecheHaut.SetActive(true);
             }
-        } 
-        else if (partie1pain == true){
+        } else if (partie1pain){
             partie2pain = true;
             flecheBas.SetActive(false);
             flecheIdle.SetActive(true);
-        }else if (partie1tomate == true && partie2tomate == false){
+        } else if (partie1tomate && partie2tomate == false){
             partie2tomate = true;
             flecheBas.SetActive(false);
             flecheHaut.SetActive(true);
-            
-        }else if(partie3tomate == true){
+            if (anim == GameObject.Find("PlancheDecouper").GetComponent<Animator>()) {
+                    anim.SetTrigger("trancheClick");
+                }
+        }else if(partie3tomate){
             if(context.performed){
                partie4tomate = true;
                flecheBas.SetActive(false);
                flecheIdle.SetActive(true); 
+               if (anim == GameObject.Find("PlancheDecouper").GetComponent<Animator>()) {
+                    anim.SetTrigger("trancheClick");
+                }
             }
         }
     }
 
     public void interactionJeuxHaut(InputAction.CallbackContext context)
     {   
-        if(partie1viande == true){
+        if(partie1viande){
             if (context.performed)
             {   
                 flecheHaut.SetActive(false);
@@ -360,7 +373,7 @@ public class Hotspot_station : MonoBehaviour
                 
             }
         }
-        else if(jeuPain == true){
+        else if(jeuPain){
             if (context.performed)
             {   
                 flecheBas.SetActive(true);
@@ -369,19 +382,23 @@ public class Hotspot_station : MonoBehaviour
                 
             } 
         }
-        else if(jeuTomate == true && partie1tomate == false){
+        else if(jeuTomate && partie1tomate == false){
             if(context.performed){
                partie1tomate = true;
                flecheBas.SetActive(true);
                flecheHaut.SetActive(false);
-               
+               if (anim == GameObject.Find("PlancheDecouper").GetComponent<Animator>()) {
+                    anim.SetTrigger("trancheClick");
+                }
             }
-        }  else if(partie2tomate == true){
+        }  else if(partie2tomate){
             if(context.performed){
                partie3tomate = true;
                flecheBas.SetActive(true);
                flecheHaut.SetActive(false); 
-               
+               if (anim == GameObject.Find("PlancheDecouper").GetComponent<Animator>()) {
+                    anim.SetTrigger("trancheClick");
+                }
             }
         }
     }
@@ -389,7 +406,7 @@ public class Hotspot_station : MonoBehaviour
 
     public void interactionJeuxGauche(InputAction.CallbackContext context)
     {   
-            if( jeuLaitue == true){
+            if( jeuLaitue){
                 if (context.performed)
                 {
                 
@@ -398,7 +415,7 @@ public class Hotspot_station : MonoBehaviour
                 
                 }
             }
-            else if(partie1fromage == true){
+            else if(partie1fromage){
                 if (context.performed)
                 {
                     partie2fromage = true;
@@ -407,7 +424,7 @@ public class Hotspot_station : MonoBehaviour
                 }
             }
             
-            else if(jeuJus == true){
+            else if(jeuJus){
                 if (context.performed)
                 {
                     partie1jus = true;
@@ -421,14 +438,14 @@ public class Hotspot_station : MonoBehaviour
     public void interactionJeuxDroite(InputAction.CallbackContext context)
     {   
             
-            if(jeuFromage == true){
+            if(jeuFromage){
                 if(context.performed){
 
                 partie1fromage = true;
                 flecheDroit.SetActive(false);
                 flecheGauche.SetActive(true);
                 }
-            }else if(partie1jus == true){
+            }else if(partie1jus){
                 partie2jus = true;
                 flecheDroit.SetActive(false);
                 flecheIdle.SetActive(true);
