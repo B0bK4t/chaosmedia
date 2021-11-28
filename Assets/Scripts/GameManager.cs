@@ -16,7 +16,6 @@ public class GameManager : MonoBehaviour
 
     public GameObject player;
     public GameObject hotspotAssiette;
-    public GameObject cloche;
     
     //pain, viande, fromage, tomate, laitue, jus
     List<string> ingredientsChoisis = new List<string>();
@@ -164,12 +163,14 @@ public class GameManager : MonoBehaviour
 
     void ajoutIngredient(string ingredient) {
         this.GetComponent<affichageRecettes>().SendMessage("checkIngredient", ingredient);
+        this.GetComponent<affichageCloche>().SendMessage("ajouterDansCloche", ingredient);
         ingredientsChoisis.Add(ingredient);
         verifierRepas();
     }
 
     void enleverIngredient(string ingredient) {
         this.GetComponent<affichageRecettes>().SendMessage("removeIngredient", ingredient);
+        this.GetComponent<affichageCloche>().SendMessage("enleverDansCloche", ingredient);
         ingredientsChoisis.Remove(ingredient);
         verifierRepas();
     }

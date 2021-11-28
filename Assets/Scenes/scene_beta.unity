@@ -1093,7 +1093,6 @@ MonoBehaviour:
     m_Handle: 0
   player: {fileID: 1299025826}
   hotspotAssiette: {fileID: 94818100}
-  cloche: {fileID: 0}
   burgerObject: {fileID: 435124259}
   platViandeObject: {fileID: 1081012401}
   brochetteObject: {fileID: 906945314}
@@ -1581,6 +1580,7 @@ MonoBehaviour:
   jus: {fileID: 141403604}
   tomate: {fileID: 1214969686}
   tomateCrue: {fileID: 748969396}
+  parent: {fileID: 736785379}
 --- !u!1 &47905238
 GameObject:
   m_ObjectHideFlags: 0

@@ -73,6 +73,7 @@ public class Hotspot_assiette : MonoBehaviour
     void enleverIngredient() {
         var man = GameManager.GetComponent<GameManager>();
         if (man.repasEstTermine && canAdd) {
+            GameManager.SendMessage("clearCloche");
             if (man.objectRepasChoisi != null) {
                 carryPlate = Instantiate(man.objectRepasChoisi, new Vector3(0,0,0), Quaternion.identity);
             } else {
