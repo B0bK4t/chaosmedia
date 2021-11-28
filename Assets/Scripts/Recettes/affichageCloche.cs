@@ -14,6 +14,7 @@ public class affichageCloche : MonoBehaviour
     public RawImage laitue;
     public RawImage laitueCrue;
     public RawImage jus;
+    public RawImage jello;
     public RawImage tomate;
     public RawImage tomateCrue;
 
@@ -40,6 +41,7 @@ public class affichageCloche : MonoBehaviour
         all.Add(laitue);
         all.Add(laitueCrue);
         all.Add(jus);
+        all.Add(jello);
         all.Add(tomate);
         all.Add(tomateCrue);
         
@@ -56,39 +58,33 @@ public class affichageCloche : MonoBehaviour
         switch (i)
         {
             case "pain":
-                // pain.enabled = true;
                 current = pain;
             break;
             case "viande":
-                // viande.enabled = true;
                 current = viande;
             break;
             case "fromage":
-                // fromage.enabled = true;
                 current = fromage;
             break;
             case "tomate":
-                // tomate.enabled = true;
                 current = tomate;
             break;
             case "laitue":
-                // laitue.enabled = true;
                 current = laitue;
             break;
             case "jusCru":
-                // jus.enabled = true;
                 current = jus;
             break;
+            case "jus":
+                current = jello;
+            break;
             case "viandeCrue":
-                // viandeCrue.enabled = true;
                 current = viandeCrue;
             break;
             case "laitueCrue":
-                // laitueCrue.enabled = true;
                 current = laitueCrue;
             break;
             case "painCru":
-                // painCru.enabled = true;
                 current = painCru;
             break;
             default:

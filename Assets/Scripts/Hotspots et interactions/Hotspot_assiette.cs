@@ -16,7 +16,7 @@ public class Hotspot_assiette : MonoBehaviour
     private GameObject ingredientCarry;
     private GameObject carryPlate;
     public Vector3 offset;
-    private bool canAdd = true;
+    [ShowOnly] public bool canAdd = true;
     public GameObject audio;
     public Animator anim;
 
@@ -46,7 +46,9 @@ public class Hotspot_assiette : MonoBehaviour
     }
 
     public void ajouterDansAssiette() {
-        anim.SetTrigger("lever");
+        if (anim != null) {
+            anim.SetTrigger("lever");
+        }
         ingredient = player.GetComponent<Objets>().ingredient;
         GameManager.SendMessage("ajoutIngredient", player.GetComponent<Objets>().ingredient.tag);
         ajoutIngredient(ingredient);
@@ -73,7 +75,9 @@ public class Hotspot_assiette : MonoBehaviour
     }
 
     void enleverIngredient() {
-        anim.SetTrigger("lever");
+        if (anim != null) {
+            anim.SetTrigger("lever");
+        }
         var man = GameManager.GetComponent<GameManager>();
         if (man.repasEstTermine && canAdd) {
             GameManager.SendMessage("clearCloche");

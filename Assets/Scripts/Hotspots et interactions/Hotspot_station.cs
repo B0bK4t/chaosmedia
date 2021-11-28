@@ -15,7 +15,9 @@ public class Hotspot_station : MonoBehaviour
 
     private bool partie1viande;
 
-    
+    public GameObject GameManager;
+    public GameObject plate;
+    [ShowOnly] public string repas;
 
     private float boutonJeuxGauche;
 
@@ -217,6 +219,10 @@ public class Hotspot_station : MonoBehaviour
                     cercle3Fini.SetActive(false);
                     cercle4Fini.SetActive(false);
                     cercle5Fini.SetActive(false);
+                    // // if (GameManager.GetComponent<GameManager>().nomsRepas[repasChoisi] == "Jello") {
+                    //     GameManager.GetComponent<GameManager>().repasEstTermine = true;
+                    //     plate.GetComponent<Hotspot_assiette>().canAdd = false;
+                    // }
                  }
                     if (audio != null)
                     {
@@ -301,8 +307,8 @@ public class Hotspot_station : MonoBehaviour
             partie3tomate = false;
             partie4tomate = false;
             if (anim == GameObject.Find("PlancheDecouper").GetComponent<Animator>()) {
-                        anim.SetBool("tranche", true);
-                        anim.SetBool("mini-jeu_couper", false);
+                anim.SetBool("tranche", true);
+                anim.SetBool("mini-jeu_couper", false);
             }
         }
     }
@@ -401,8 +407,7 @@ public class Hotspot_station : MonoBehaviour
                 }
             }
         }
-    }
-    
+    }  
 
     public void interactionJeuxGauche(InputAction.CallbackContext context)
     {   
