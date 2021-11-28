@@ -241,9 +241,12 @@ public class Hotspot_station : MonoBehaviour
             partie2fromage = false;
         }
         else if( partie1jus == true && partie2jus == true ){
-            miniJeuReussi = true;
-            partie1jus = false;
-            partie2jus = false;
+            Invoke("Premier", 1);
+            Invoke("Deuxieme", 2);
+            Invoke("Troisieme", 3);
+            Invoke("Qatrieme", 4);
+            Invoke("Cinquieme", 5);
+            
         }
         else if( partie1tomate == true && partie2tomate == true && partie3tomate == true && partie4tomate == true){
             miniJeuReussi = true;
@@ -258,6 +261,21 @@ public class Hotspot_station : MonoBehaviour
         miniJeuReussi = false;
     }
 
+    void Premier(){
+        Debug.Log("Premier");
+    }
+    void Deuxieme(){
+        Debug.Log("Deuxieme");
+    }
+    void Troisieme(){
+        Debug.Log("Troisieme");
+    }
+    void Qatrieme(){
+        Debug.Log("Quatrieme");
+    }
+    void Cinquieme(){
+        Debug.Log("Cinquieme");
+    }
     public void interactionJeuxBas(InputAction.CallbackContext context)
     {   
         
