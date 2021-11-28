@@ -32,6 +32,8 @@ public class Hotspot_station : MonoBehaviour
     private bool jeuPain = false;
     private bool jeuFromage = false;
     private bool jeuTomate = false;
+    private bool jeuJus = false;
+
     private bool partie1jus; 
     private bool partie2jus;
     private bool partie1pain; 
@@ -119,6 +121,10 @@ public class Hotspot_station : MonoBehaviour
                         flecheIdle.SetActive(false);
                         flecheHaut.SetActive(true);
                     }
+                    else if(this.gameObject.tag == "Hotspot frigo"){
+                        flecheIdle.SetActive(false);
+                        flecheGauche.SetActive(true);
+                    }
                 }
             }
         }
@@ -199,6 +205,9 @@ public class Hotspot_station : MonoBehaviour
                 }
                 else if(this.gameObject.tag == "Hotspot planche"){
                         jeuTomate = true;
+                }
+                else if(this.gameObject.tag == "Hotspot frigo"){
+                        jeuJus = true;
                 }
             }
         }
@@ -338,7 +347,14 @@ public class Hotspot_station : MonoBehaviour
                 }
             }
             
-            
+            else if(jeuJus == true){
+                if (context.performed)
+                {
+                    partie1jus = true;
+                    flecheGauche.SetActive(false);
+                    flecheDroit.SetActive(true);
+                }
+            }
             
     }
 
@@ -352,6 +368,10 @@ public class Hotspot_station : MonoBehaviour
                 flecheDroit.SetActive(false);
                 flecheGauche.SetActive(true);
                 }
+            }else if(partie1jus == true){
+                partie2jus = true;
+                flecheDroit.SetActive(false);
+                flecheIdle.SetActive(true);
             }
             
             

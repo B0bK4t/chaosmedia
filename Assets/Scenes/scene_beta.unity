@@ -16643,6 +16643,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2039410920}
+        m_TargetAssemblyTypeName: Hotspot_station, Assembly-CSharp
+        m_MethodName: interactionJeuxDroite
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 8e6d0a77-82ca-4e29-b945-a3c87d4e3637
     m_ActionName: Player/interactionJeuxDroite[/XInputControllerWindows/dpad/right]
   - m_PersistentCalls:
@@ -16660,6 +16672,18 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1002183060}
+        m_TargetAssemblyTypeName: Hotspot_station, Assembly-CSharp
+        m_MethodName: interactionJeuxGauche
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2039410920}
         m_TargetAssemblyTypeName: Hotspot_station, Assembly-CSharp
         m_MethodName: interactionJeuxGauche
         m_Mode: 0
