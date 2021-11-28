@@ -136,6 +136,7 @@ public class GameManager : MonoBehaviour
         // genererAssiette();
         choisirRepas();
         scoreText.text = "0";
+        player.GetComponent<Mouvement>().peutBouger = true;
     }
 
     void choisirRepas() {
@@ -147,6 +148,7 @@ public class GameManager : MonoBehaviour
         recetteTimerTotal = timerRecette;
         tempsRecetteEnCours = true;
         repasText.text = nomsRepas[repasChoisi];
+        this.GetComponent<affichageRecettes>().SendMessage("newRecette", nomsRepas[repasChoisi]);
         ingredientsChoisis.Clear();
     }
 
@@ -172,6 +174,7 @@ public class GameManager : MonoBehaviour
     }
 
     void ajoutIngredient(string ingredient) {
+        this.GetComponent<affichageRecettes>().SendMessage("checkIngredient", ingredient);
         ingredientsChoisis.Add(ingredient);
         verifierRepas();
     }

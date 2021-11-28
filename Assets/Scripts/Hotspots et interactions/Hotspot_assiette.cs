@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.InputSystem;
 using UnityEngine;
 
 public class Hotspot_assiette : MonoBehaviour
@@ -8,7 +9,6 @@ public class Hotspot_assiette : MonoBehaviour
     [ShowOnly] public Collider player;
     public GameObject GameManager;
     public GameObject plate;
-    private bool canInteract = true;
     private int nbIngredients = 0;
     private List<GameObject> ingredients = new List<GameObject>();
     private List<Vector3> originals = new List<Vector3>();
@@ -24,25 +24,23 @@ public class Hotspot_assiette : MonoBehaviour
     }
 
     void OnTriggerStay(Collider other) {
+        
         player = other;
-        if (other.tag == "Player" && other.GetComponent<Objets>().click && canInteract) {
-            canInteract = false;
+        if (other.tag == "Player" && other.GetComponent<Objets>().click) {
             var man = GameManager.GetComponent<GameManager>();
             if (other.GetComponent<Objets>().isCarrying && canAdd) {
                 ingredient = other.GetComponent<Objets>().ingredient;
                 GameManager.SendMessage("ajoutIngredient", player.GetComponent<Objets>().ingredient.tag);
-                    ajoutIngredient(ingredient);
-                    other.GetComponent<Objets>().isCarrying = false;
-                    player.GetComponent<Objets>().SendMessage("clear");
-                    Destroy(ingredient);
+                ajoutIngredient(ingredient);
+                Debug.Log("reach a");
+                other.GetComponent<Objets>().isCarrying = false;
+                other.GetComponent<Objets>().SendMessage("clear");
+                Debug.Log("reach b");
+                Destroy(ingredient);
             } else {
                 enleverIngredient();
             }
         }
-    }
-
-    void OnTriggerExit(Collider other) {
-        canInteract = true;
     }
 
     void ajoutIngredient(GameObject ingredient) {

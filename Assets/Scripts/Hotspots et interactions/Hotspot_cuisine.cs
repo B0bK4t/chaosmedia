@@ -14,16 +14,12 @@ public class Hotspot_cuisine : MonoBehaviour
 
         if (other.tag == "Player")
         {
-            Debug.Log("zoom la caméra");
             camera_zoom.GetComponent<Animator>().SetBool("zoomer", true);
         }
     }
 
     void OnTriggerExit(Collider other)
     {
-            // On entre jamais dans cette partie du code
-            Debug.Log("dezoom la caméra");
-            camera_zoom.GetComponent<Animator>().SetBool("zoomer", false);
-
+        camera_zoom.GetComponent<Animator>().SetBool("zoomer", false);
     }
 }
