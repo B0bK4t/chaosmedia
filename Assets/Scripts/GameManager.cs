@@ -12,11 +12,11 @@ public class GameManager : MonoBehaviour
     //Scene
     [Header("Général")]
     public Scene scene;
-    string gameScene = "scene_beta"; 
+    string gameScene = "scene_beta";
 
     public GameObject player;
     public GameObject hotspotAssiette;
-    
+
     //pain, viande, fromage, tomate, laitue, jus
     List<string> ingredientsChoisis = new List<string>();
     Dictionary<string, string[]> repasArray = new Dictionary<string, string[]>();
@@ -25,32 +25,32 @@ public class GameManager : MonoBehaviour
     List<string> nomsRepas = new List<string>();
 
     //Burger, plat de viande, brochette, sandwich, salade, jello, croque-monsieur
-    private string[] burgerIngredients = new string[] {"fromage", "pain", "viande", "laitue", "tomate"};
+    private string[] burgerIngredients = new string[] { "fromage", "pain", "viande", "laitue", "tomate" };
     private float burgerTimer = 45f;
     [Header("Game Objects des repas")]
     public GameObject burgerObject;
 
-    private string[] platViandeIngredients = new string[] {"viande","laitue"};
+    private string[] platViandeIngredients = new string[] { "viande", "laitue" };
     private float platViandeTimer = 35f;
     public GameObject platViandeObject;
 
-    private string[] brochetteIngredients = new string[] {"viande", "laitue", "tomate"};
+    private string[] brochetteIngredients = new string[] { "viande", "laitue", "tomate" };
     private float brochetteTimer = 45f;
     public GameObject brochetteObject;
 
-    private string[] sandwichIngredients = new string[] {"pain", "viande", "tomate", "laitue"};
+    private string[] sandwichIngredients = new string[] { "pain", "viande", "tomate", "laitue" };
     private float sandwichTimer = 60f;
     public GameObject sandwichObject;
 
-    private string[] saladeIngredients = new string[] {"laitue", "tomate", "fromage"};
+    private string[] saladeIngredients = new string[] { "laitue", "tomate", "fromage" };
     private float saladeTimer = 45f;
     public GameObject saladeObject;
 
-    private string[] croqueMonsieurIngredients = new string[] {"fromage", "pain", "viande"};
+    private string[] croqueMonsieurIngredients = new string[] { "fromage", "pain", "viande" };
     private float croqueMonsieurTimer = 45f;
     public GameObject croqueMonsieurObject;
 
-    private string[] jelloIngredients = new string[] {"jus"};
+    private string[] jelloIngredients = new string[] { "jus" };
     private float jelloTimer = 30f;
     public GameObject jelloObject;
 
@@ -80,7 +80,7 @@ public class GameManager : MonoBehaviour
     public Text scoreText;
     public Text repasText;
     public GameObject disco;
-    
+
     public GameObject audio;
     public AudioSource voixFini;
     private bool voixAppel = false;
@@ -93,7 +93,7 @@ public class GameManager : MonoBehaviour
         //Scenes
         scene = SceneManager.GetActiveScene();
         fillImage = fillImage.GetComponent<Image>();
-        
+
         if (scene.name == gameScene) {
             //Ajout repas
             repasArray.Add("burger", burgerIngredients);
@@ -182,94 +182,94 @@ public class GameManager : MonoBehaviour
 
     void verifierRepas()
     {
-            repas = repasArray.ElementAt(repasChoisi).Key;
-            string[] ingredientsNeeded = repasArray.ElementAt(repasChoisi).Value;
-            List<string> allNeeded = new List<string>();
-            string done = "false";
+        repas = repasArray.ElementAt(repasChoisi).Key;
+        string[] ingredientsNeeded = repasArray.ElementAt(repasChoisi).Value;
+        List<string> allNeeded = new List<string>();
+        string done = "false";
 
-            foreach (var ingredient in ingredientsNeeded)
+        foreach (var ingredient in ingredientsNeeded)
+        {
+            allNeeded.Add(ingredient);
+        }
+
+        if (ingredientsChoisis.Count() > 0) {
+            foreach (var ingredient in ingredientsChoisis)
             {
-                allNeeded.Add(ingredient);
-            }   
-            
-            if (ingredientsChoisis.Count() > 0) {
-                foreach (var ingredient in ingredientsChoisis)
-                    {
-                    if (!ingredientsNeeded.Contains(ingredient)) {
-                            done = "false";
-                            canBeAdded = false;
-                            break;
-                        } else {
-                            canBeAdded = true;
-                            done = "pasComplete";
-                            allNeeded.Remove(ingredient);
-                            if (allNeeded.Count == 0) {
-                                done = "true";
-                                objectRepasChoisi = objectsArray.ElementAt(repasChoisi).Value;
-                            }
-                        }
+                if (!ingredientsNeeded.Contains(ingredient)) {
+                    done = "false";
+                    canBeAdded = false;
+                    break;
+                } else {
+                    canBeAdded = true;
+                    done = "pasComplete";
+                    allNeeded.Remove(ingredient);
+                    if (allNeeded.Count == 0) {
+                        done = "true";
+                        objectRepasChoisi = objectsArray.ElementAt(repasChoisi).Value;
                     }
-            } else {
-            done = "pasComplete";
-            }
-
-            if (done == "false")
-            {
-                // Debug.Log(repas + " ne peut pas être fait"); //Changer pour output
-                repasEstTermine = false;
-                canBeAdded = false;
-            } else if (done == "pasComplete") {
-                canBeAdded = true;
-                // Debug.Log(repas + " n'est pas terminé, il manque:");
-                foreach (var item in allNeeded)
-                {
-                    // Debug.Log(item); //Changer pour output
-                    repasEstTermine = false;
                 }
-            } else if (done == "true") {
-                // Debug.Log(repas + "est terminé"); //Changer pour output
-                repasEstTermine = true;
-                canBeAdded = false;
             }
+        } else {
+            done = "pasComplete";
+        }
+
+        if (done == "false")
+        {
+            // Debug.Log(repas + " ne peut pas être fait"); //Changer pour output
+            repasEstTermine = false;
+            canBeAdded = false;
+        } else if (done == "pasComplete") {
+            canBeAdded = true;
+            // Debug.Log(repas + " n'est pas terminé, il manque:");
+            foreach (var item in allNeeded)
+            {
+                // Debug.Log(item); //Changer pour output
+                repasEstTermine = false;
+            }
+        } else if (done == "true") {
+            // Debug.Log(repas + "est terminé"); //Changer pour output
+            repasEstTermine = true;
+            canBeAdded = false;
+        }
     }
 
-    void Juger(bool finished) 
+    void Juger(bool finished)
     {
-        float tempsCourant = timerRecette/recetteTimerTotal;
+        float tempsCourant = timerRecette / recetteTimerTotal;
 
         if (repasEstTermine || finished) {
             if (tempsCourant > 0.5) {
                 tempsRecetteEnCours = false;
-                scoreTotal += scoreRepas*110*discoMultiplicateur;
+                scoreTotal += scoreRepas * 110 * discoMultiplicateur;
                 repasEstTermine = false;
                 Debug.Log(scoreTotal);
-                if(scoreTotal <= 0){
+                if (scoreTotal <= 0) {
                     scoreTotal = 0;
                 }
                 if (audio != null)
                 {
                     audio.SendMessage("Jouer");
                 }
-            } 
+            }
             else if (tempsCourant > 0) {
                 tempsRecetteEnCours = false;
-                scoreTotal += scoreRepas*50*discoMultiplicateur;
+                scoreTotal += scoreRepas * 50 * discoMultiplicateur;
                 repasEstTermine = false;
                 Debug.Log(scoreTotal);
-                if(scoreTotal <= 0){
+                if (scoreTotal <= 0) {
                     scoreTotal = 0;
                 }
                 if (audio != null)
                 {
                     audio.SendMessage("Jouer");
                 }
-            } 
+            }
             else {
                 tempsRecetteEnCours = false;
-                scoreTotal -= scoreRepas*110*discoMultiplicateur;
+                scoreTotal -= scoreRepas * 110 * discoMultiplicateur;
                 repasEstTermine = false;
                 Debug.Log(scoreTotal);
-                if(scoreTotal <= 0){
+                if (scoreTotal <= 0) {
                     scoreTotal = 0;
                 }
             }
@@ -289,20 +289,20 @@ public class GameManager : MonoBehaviour
             choisirRepas();
         }
     }
-    
+
     void Update()
     {
         // genererAssiette();
-        
+
         //Timer global
         if (tempsGlobalEnCours && !enPause) {
             if (timerGlobal <= debutDisco) {
                 discoMultiplicateur = 3f;
                 bouleDisco();
             }
-            if (timerGlobal> 0)
+            if (timerGlobal > 0)
             {
-                timerGlobal-= Time.deltaTime;
+                timerGlobal -= Time.deltaTime;
             }
             else {
                 timerGlobal = 0;
@@ -315,25 +315,25 @@ public class GameManager : MonoBehaviour
             if (timerGlobal > 0) {
                 DisplayTime(timerGlobal, timerText);
 
-                
-            }
-            
 
-        } 
+            }
+
+
+        }
 
         if (timerGlobal < 5f && voixAppel == false)
-            {
-                voixFini.Play(0);
-                voixAppel = true;
-            }
+        {
+            voixFini.Play(0);
+            voixAppel = true;
+        }
 
         //Timer recette
         if (tempsRecetteEnCours && !enPause)
         {
-            if (timerRecette> 0)
+            if (timerRecette > 0)
             {
                 timerRecette -= Time.deltaTime;
-                if (recetteTimerText !=null) {
+                if (recetteTimerText != null) {
                     DisplayTime(timerRecette, recetteTimerText);
                 }
             }
@@ -343,13 +343,13 @@ public class GameManager : MonoBehaviour
                 Juger(true);
             }
         }
-        if(timerRecette > 0){
-            
+        if (timerRecette > 0) {
+
             fillImage.fillAmount = timerRecette / recetteTimerTotal;
         }
     }
 
-    
+
     void DisplayTime(float timeToDisplay, TextMeshPro target)
     {
         timeToDisplay += 1;
@@ -360,9 +360,10 @@ public class GameManager : MonoBehaviour
     }
 
     //Scene change
-    public void accueilInscription()
+    public void accueilIntro()
     {
-        SceneManager.LoadScene("Inscription");
+        SceneManager.LoadScene("Intro");
+        delaiIntro();
     }
 
     public void debutCuisine()
@@ -373,6 +374,11 @@ public class GameManager : MonoBehaviour
     public void finCuisine()
     {
         SceneManager.LoadScene("Post_credit");
+    }
+
+    public void postOutro()
+    {
+        SceneManager.LoadScene("Outro");
     }
 
     public void retourHome()
