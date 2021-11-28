@@ -26,8 +26,10 @@ public class affichageCloche : MonoBehaviour
 
     [Header("Clonage")]
     public GameObject parent;
+    private List<RawImage> clones = new List<RawImage>();
     private RawImage clone;
     private RawImage current;
+    private int currentNb;
 
     void Start() {    
         all.Add(fromage);
@@ -54,84 +56,55 @@ public class affichageCloche : MonoBehaviour
         switch (i)
         {
             case "pain":
-                pain.enabled = true;
+                // pain.enabled = true;
                 current = pain;
             break;
             case "viande":
-                viande.enabled = true;
+                // viande.enabled = true;
                 current = viande;
             break;
             case "fromage":
-                fromage.enabled = true;
+                // fromage.enabled = true;
                 current = fromage;
             break;
             case "tomate":
-                tomate.enabled = true;
+                // tomate.enabled = true;
                 current = tomate;
             break;
             case "laitue":
-                laitue.enabled = true;
+                // laitue.enabled = true;
                 current = laitue;
             break;
             case "jusCru":
-                jus.enabled = true;
+                // jus.enabled = true;
                 current = jus;
             break;
             case "viandeCrue":
-                viandeCrue.enabled = true;
+                // viandeCrue.enabled = true;
                 current = viandeCrue;
             break;
             case "laitueCrue":
-                laitueCrue.enabled = true;
+                // laitueCrue.enabled = true;
                 current = laitueCrue;
             break;
             case "painCru":
-                painCru.enabled = true;
+                // painCru.enabled = true;
                 current = painCru;
             break;
             default:
             break;
         }
-
-        Debug.Log(new Vector3(newPosX, posY, 0));
-        // clone = Instantiate(current, new Vector3(0,0, 0), Quaternion.identity, parent.transform);
-        // clone.RectTransform.localPosition = new Vector3(newPosX, posY, 0);
+        clone = Instantiate(current, new Vector3(0,0, 0), Quaternion.identity, parent.transform);
+        clone.transform.localPosition = new Vector3(newPosX, posY, 0);
+        clone.enabled = true;
+        clones.Add(clone);
+        currentNb ++;
     }
 
     public void enleverDansCloche(string name) {
-        var i = name;
-        switch (i)
-        {
-            case "pain":
-                pain.enabled = false;
-            break;
-            case "viande":
-                viande.enabled = false;
-            break;
-            case "fromage":
-                fromage.enabled = false;
-            break;
-            case "tomate":
-                tomate.enabled = false;
-            break;
-            case "laitue":
-                laitue.enabled = false;
-            break;
-            case "jusCru":
-                jus.enabled = false;
-            break;
-            case "viandeCrue":
-                viandeCrue.enabled = false;
-            break;
-            case "laitueCrue":
-                laitueCrue.enabled = false;
-            break;
-            case "painCru":
-                painCru.enabled = false;
-            break;
-            default:
-            break;
-        }
+        Destroy(clones[currentNb-1]);
+        clones.RemoveAt(currentNb-1);
+        currentNb --;
     }
 
     public void clearCloche() {
@@ -141,5 +114,11 @@ public class affichageCloche : MonoBehaviour
               a.enabled = false;
           }
       }
+      foreach (var c in clones)
+      {
+          Destroy(c);
+      }
+        clones.Clear();
+        currentNb = 0;
     }
 }
