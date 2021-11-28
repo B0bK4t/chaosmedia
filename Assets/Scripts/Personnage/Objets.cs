@@ -19,8 +19,8 @@ public class Objets : MonoBehaviour
     public GameObject main;
     public Vector3 offset;
 
-    public bool click = false;
-    public string repas;
+    [ShowOnly] public bool click = false;
+    [ShowOnly] public string repas;
 
     [Header("Canvas")]
     public RawImage viandeCrue;

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.InputSystem;
 using UnityEngine;
 
 public class Hotspot_assiette : MonoBehaviour
@@ -8,7 +9,6 @@ public class Hotspot_assiette : MonoBehaviour
     [ShowOnly] public Collider player;
     public GameObject GameManager;
     public GameObject plate;
-    private bool canInteract = true;
     private int nbIngredients = 0;
     private List<GameObject> ingredients = new List<GameObject>();
     private List<Vector3> originals = new List<Vector3>();
@@ -24,25 +24,33 @@ public class Hotspot_assiette : MonoBehaviour
     }
 
     void OnTriggerStay(Collider other) {
+        
         player = other;
-        if (other.tag == "Player" && other.GetComponent<Objets>().click && canInteract) {
-            canInteract = false;
+        // if (other.tag == "Player" && other.GetComponent<Objets>().click) {
+        if (other.tag == "Player") {
             var man = GameManager.GetComponent<GameManager>();
             if (other.GetComponent<Objets>().isCarrying && canAdd) {
-                ingredient = other.GetComponent<Objets>().ingredient;
-                GameManager.SendMessage("ajoutIngredient", player.GetComponent<Objets>().ingredient.tag);
-                    ajoutIngredient(ingredient);
-                    other.GetComponent<Objets>().isCarrying = false;
-                    player.GetComponent<Objets>().SendMessage("clear");
-                    Destroy(ingredient);
-            } else {
-                enleverIngredient();
+                other.GetComponent<Mouvement>().plateCommand = "add";
+                other.GetComponent<Mouvement>().estDansZoneAssiette = true;
+            } 
+            else {
+                other.GetComponent<Mouvement>().plateCommand = "remove";
+                other.GetComponent<Mouvement>().estDansZoneAssiette = true;
             }
         }
     }
 
-    void OnTriggerExit(Collider other) {
-        canInteract = true;
+    void OnTriggerExit() {
+        player.GetComponent<Mouvement>().estDansZoneAssiette = false;
+    }
+
+    public void ajouterDansAssiette() {
+        ingredient = player.GetComponent<Objets>().ingredient;
+        GameManager.SendMessage("ajoutIngredient", player.GetComponent<Objets>().ingredient.tag);
+        ajoutIngredient(ingredient);
+        player.GetComponent<Objets>().isCarrying = false;
+        player.GetComponent<Objets>().SendMessage("clear");
+        Destroy(ingredient);
     }
 
     void ajoutIngredient(GameObject ingredient) {

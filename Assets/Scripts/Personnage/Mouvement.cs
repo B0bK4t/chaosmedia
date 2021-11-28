@@ -13,12 +13,15 @@ public class Mouvement : MonoBehaviour
     string gameScene = "scene_beta"; 
     
     public GameManager GameManager;
+    public GameObject plate;
+    [ShowOnly] public bool estDansZoneAssiette = false;
+    [ShowOnly] public string plateCommand = "";
     private CharacterController controller;
     public PlayerInput playerInput;
     private Vector3 playerVelocity;
     private bool groundedPlayer;
     private float playerSpeed = 3f;
-    [ShowOnly] public bool peutBouger;
+    [ShowOnly] public bool peutBouger = false;
     
     private float gravityValue = -9.81f;
     private float controllerHeight = 0f;
@@ -28,9 +31,9 @@ public class Mouvement : MonoBehaviour
 
     public Vector3 move;
 
-    public bool click;
+    [ShowOnly] public bool click;
 
-    public Rigidbody rb_perso;
+    [ShowOnly] public Rigidbody rb_perso;
 
     Vector2 currentMovement;
     bool movementPressed;
@@ -75,10 +78,6 @@ public class Mouvement : MonoBehaviour
             input = playerInput.actions["Move"].ReadValue<Vector2>();
             move = new Vector3(input.x, 0, input.y);
 
-            // float click = playerInput.actions["Ouvrir"].ReadValue<float>();
-
-            this.GetComponent<Objets>().click = click;
-            
            if( peutBouger){
             controller.Move(move * Time.deltaTime * playerSpeed);
             rb_perso.freezeRotation = true;
@@ -121,24 +120,35 @@ public class Mouvement : MonoBehaviour
             }
           }
 
-          else {
-              float click = playerInput.actions["Ouvrir"].ReadValue<float>();
-                if (click == 1) {
+        //   else {
+        //       float click = playerInput.actions["Ouvrir"].ReadValue<float>();
+        //         if (click == 1) {
                     
-                }
-          }
+        //         }
+        //   }
     }
 
     public void Ouvrir(InputAction.CallbackContext context)
     {  
         click = context.performed;
+        this.GetComponent<Objets>().click = click;
+
         if (context.performed) {
+            if (estDansZoneAssiette){
+                if (plateCommand == "add") {
+                    plate.GetComponent<Hotspot_assiette>().SendMessage("ajouterDansAssiette");
+                } else if (plateCommand == "remove") {
+                    plate.GetComponent<Hotspot_assiette>().SendMessage("enleverIngredient");
+                }
+            }
             if (scene.name == "Accueil") {
                 GameManager.SendMessage("debutCuisine");
             }
             else if (scene.name == "Post_credit") {
                 GameManager.SendMessage("retourHome");
             }
+        } else {
+            this.GetComponent<Objets>().click = false;
         }
     }
 

@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
     public GameObject burgerObject;
 
     private string[] platViandeIngredients = new string[] {"viande","laitue"};
-    private float platViandeTimer = 500f;
+    private float platViandeTimer = 45f;
     public GameObject platViandeObject;
 
     private string[] brochetteIngredients = new string[] {"viande", "laitue", "tomate"};
@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour
     public GameObject saladeObject;
 
     private string[] croqueMonsieurIngredients = new string[] {"fromage", "pain", "viande"};
-    private float croqueMonsieurTimer = 500f;
+    private float croqueMonsieurTimer = 45f;
     public GameObject croqueMonsieurObject;
 
     private string[] jelloIngredients = new string[] {"jus"};
@@ -126,8 +126,8 @@ public class GameManager : MonoBehaviour
             objectsArray.Add("jello", jelloObject);
             nomsRepas.Add("Jello");
 
-            this.GetComponent<GameStart>().SendMessage("startGame");
-            // this.GetComponent<GameStart>().SendMessage("bypass");
+            // this.GetComponent<GameStart>().SendMessage("startGame");
+            this.GetComponent<GameStart>().SendMessage("bypass");
         }
     }
 
@@ -136,30 +136,21 @@ public class GameManager : MonoBehaviour
         // genererAssiette();
         choisirRepas();
         scoreText.text = "0";
+        player.GetComponent<Mouvement>().peutBouger = true;
     }
 
     void choisirRepas() {
         //Choix du repas
-        // repasChoisi = Random.Range(1, repasArray.Count);
-        randomBeta();
+        // repasChoisi = Random.Range(0, repasArray.Count);
+        // repasChoisi = Random.Range(0, 6);
+        repasChoisi = 1;
         scoreRepas = timersArray.ElementAt(repasChoisi).Value;
         timerRecette = timersArray.ElementAt(repasChoisi).Value;
         recetteTimerTotal = timerRecette;
         tempsRecetteEnCours = true;
         repasText.text = nomsRepas[repasChoisi];
+        this.GetComponent<affichageRecettes>().SendMessage("newRecette", nomsRepas[repasChoisi]);
         ingredientsChoisis.Clear();
-    }
-
-    void randomBeta() {
-        // var nb = Random.Range(1, 4);
-        // if (nb < 3)
-        // {
-        //     repasChoisi = 1;
-        // } else if (nb == 3) 
-        // {
-        //     repasChoisi = 5;
-        // }
-        repasChoisi = 1;
     }
 
     void genererAssiette() {
@@ -172,6 +163,7 @@ public class GameManager : MonoBehaviour
     }
 
     void ajoutIngredient(string ingredient) {
+        this.GetComponent<affichageRecettes>().SendMessage("checkIngredient", ingredient);
         ingredientsChoisis.Add(ingredient);
         verifierRepas();
     }
@@ -277,6 +269,8 @@ public class GameManager : MonoBehaviour
             }
 
             player.GetComponent<Objets>().SendMessage("clearHand");
+            player.GetComponent<Objets>().SendMessage("clear");
+            this.GetComponent<affichageRecettes>().SendMessage("clear");
             hotspotAssiette.GetComponent<Hotspot_assiette>().SendMessage("clearAssiette");
             scoreText.text = scoreTotal.ToString();
             prochainRepas();

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17282034, g: 0.21596503, b: 0.29790962, a: 1}
+  m_IndirectSpecularColor: {r: 0.17282064, g: 0.21596566, b: 0.2979106, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 327513}
   - component: {fileID: 327512}
   m_Layer: 5
-  m_Name: check (5)
+  m_Name: checkViande
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -583,6 +583,7 @@ GameObject:
   - component: {fileID: 46840875}
   - component: {fileID: 46840874}
   - component: {fileID: 46840876}
+  - component: {fileID: 46840877}
   m_Layer: 0
   m_Name: Gestion Jeu
   m_TagString: Untagged
@@ -1043,6 +1044,47 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &46840877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 46840869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2702a1fb6aa2be54aa2d766882595419, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameManager: {fileID: 46840869}
+  platViandeBon: {fileID: 244835996}
+  platViandeSalade: {fileID: 1036885549}
+  platViandeSteak: {fileID: 327512}
+  burgerBon: {fileID: 1956234644}
+  burgerPain: {fileID: 2114369558}
+  burgerFromage: {fileID: 1492926051}
+  burgerViande: {fileID: 424736916}
+  burgerLaitue: {fileID: 634715898}
+  burgerTomate: {fileID: 1029840863}
+  brochetteBon: {fileID: 885950412}
+  brochetteViande: {fileID: 1249241472}
+  brochetteLaitue: {fileID: 2069965772}
+  brochetteTomate: {fileID: 1593706119}
+  jelloBon: {fileID: 879288649}
+  jelloJus: {fileID: 171177055}
+  sandwichBon: {fileID: 387063950}
+  sandwichPain: {fileID: 1309174959}
+  sandwichViande: {fileID: 383865635}
+  sandwichLaitue: {fileID: 965461181}
+  sandwichTomate: {fileID: 418872681}
+  saladeBon: {fileID: 1623036264}
+  saladeFromage: {fileID: 881376324}
+  saladeLaitue: {fileID: 1934559788}
+  saladeTomate: {fileID: 563236123}
+  croqueMrBon: {fileID: 692867377}
+  croqueMrFromage: {fileID: 1271288149}
+  croqueMrViande: {fileID: 1332310511}
+  croqueMrPain: {fileID: 272516343}
 --- !u!1 &47905238
 GameObject:
   m_ObjectHideFlags: 0
@@ -2590,7 +2632,7 @@ GameObject:
   - component: {fileID: 171177056}
   - component: {fileID: 171177055}
   m_Layer: 5
-  m_Name: check
+  m_Name: checkJus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3255,7 +3297,7 @@ RectTransform:
   - {fileID: 327511}
   - {fileID: 1036885548}
   m_Father: {fileID: 1037918345}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3452,6 +3494,78 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: bffa88674daa75842a8adef953c1c18f, type: 3}
   m_PrefabInstance: {fileID: 1125912384}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &272516341
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 272516342}
+  - component: {fileID: 272516344}
+  - component: {fileID: 272516343}
+  m_Layer: 5
+  m_Name: checkPain
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &272516342
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 272516341}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 692867376}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 13, y: -457}
+  m_SizeDelta: {x: 197, y: 152}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &272516343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 272516341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 2800000, guid: 275cf2b9785bd994688847871b32aa1b, type: 3}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!222 &272516344
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 272516341}
+  m_CullTransparentMesh: 1
 --- !u!1 &281674318
 GameObject:
   m_ObjectHideFlags: 0
@@ -4590,7 +4704,7 @@ GameObject:
   - component: {fileID: 383865636}
   - component: {fileID: 383865635}
   m_Layer: 5
-  m_Name: check (6)
+  m_Name: checkViande
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4760,7 +4874,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2015.0798, y: -0.000030517578}
+  m_AnchoredPosition: {x: 27, y: -0.000030517578}
   m_SizeDelta: {x: 1988, y: 1190}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &387063950
@@ -5123,7 +5237,7 @@ GameObject:
   - component: {fileID: 418872682}
   - component: {fileID: 418872681}
   m_Layer: 5
-  m_Name: check (8)
+  m_Name: checkTomate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5288,7 +5402,7 @@ GameObject:
   - component: {fileID: 424736917}
   - component: {fileID: 424736916}
   m_Layer: 5
-  m_Name: check (6)
+  m_Name: checkViande
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6527,7 +6641,7 @@ GameObject:
   - component: {fileID: 563236124}
   - component: {fileID: 563236123}
   m_Layer: 5
-  m_Name: check (8)
+  m_Name: checkTomate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7919,7 +8033,7 @@ GameObject:
   - component: {fileID: 634715899}
   - component: {fileID: 634715898}
   m_Layer: 5
-  m_Name: check (7)
+  m_Name: checkLaitue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8616,6 +8730,81 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &692867375
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 692867376}
+  - component: {fileID: 692867378}
+  - component: {fileID: 692867377}
+  m_Layer: 5
+  m_Name: bonCroqueMr
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &692867376
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 692867375}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1271288148}
+  - {fileID: 1332310510}
+  - {fileID: 272516342}
+  m_Father: {fileID: 1037918345}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 16, y: -0.000030517578}
+  m_SizeDelta: {x: 1988, y: 1190}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &692867377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 692867375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 2800000, guid: 183d76faf2734d547b700d547c1a7452, type: 3}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!222 &692867378
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 692867375}
+  m_CullTransparentMesh: 1
 --- !u!1 &738744135 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -7640558969779515294, guid: 7ecd7e9ff522eee47858a35dfb2a1424, type: 3}
@@ -9690,11 +9879,11 @@ RectTransform:
   m_Children:
   - {fileID: 171177054}
   m_Father: {fileID: 1037918345}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 4081.0251, y: -0.000030517578}
+  m_AnchoredPosition: {x: 17, y: -0.000030517578}
   m_SizeDelta: {x: 1988, y: 1190}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &879288649
@@ -9744,7 +9933,7 @@ GameObject:
   - component: {fileID: 881376325}
   - component: {fileID: 881376324}
   m_Layer: 5
-  m_Name: check (4)
+  m_Name: checkFromage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9837,11 +10026,11 @@ RectTransform:
   - {fileID: 2069965771}
   - {fileID: 1593706118}
   m_Father: {fileID: 1037918345}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2015.0798, y: -0.000030517578}
+  m_AnchoredPosition: {x: 16, y: -0.000030517578}
   m_SizeDelta: {x: 1988, y: 1190}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &885950412
@@ -10821,7 +11010,7 @@ GameObject:
   - component: {fileID: 965461182}
   - component: {fileID: 965461181}
   m_Layer: 5
-  m_Name: check (7)
+  m_Name: checkLaitue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11848,7 +12037,7 @@ GameObject:
   - component: {fileID: 1029840864}
   - component: {fileID: 1029840863}
   m_Layer: 5
-  m_Name: check (8)
+  m_Name: checkTomate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11920,7 +12109,7 @@ GameObject:
   - component: {fileID: 1036885550}
   - component: {fileID: 1036885549}
   m_Layer: 5
-  m_Name: check (7)
+  m_Name: checkSalade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12007,12 +12196,13 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.102229215, y: 0.102229215, z: 0.102229215}
   m_Children:
+  - {fileID: 244835995}
   - {fileID: 1956234643}
   - {fileID: 885950411}
   - {fileID: 879288648}
-  - {fileID: 244835995}
   - {fileID: 387063949}
   - {fileID: 1623036263}
+  - {fileID: 692867376}
   m_Father: {fileID: 1098301508}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -14535,7 +14725,7 @@ GameObject:
   - component: {fileID: 1249241473}
   - component: {fileID: 1249241472}
   m_Layer: 5
-  m_Name: check (1)
+  m_Name: checkViande
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14813,6 +15003,78 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &1271288147
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1271288148}
+  - component: {fileID: 1271288150}
+  - component: {fileID: 1271288149}
+  m_Layer: 5
+  m_Name: checkFromage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1271288148
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1271288147}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 692867376}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 670.903, y: -457}
+  m_SizeDelta: {x: 197, y: 152}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1271288149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1271288147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 2800000, guid: 275cf2b9785bd994688847871b32aa1b, type: 3}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!222 &1271288150
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1271288147}
+  m_CullTransparentMesh: 1
 --- !u!1001 &1277728896
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15072,6 +15334,9 @@ MonoBehaviour:
   scene:
     m_Handle: 0
   GameManager: {fileID: 46840871}
+  plate: {fileID: 94818100}
+  estDansZoneAssiette: 0
+  plateCommand: 
   playerInput: {fileID: 1299025829}
   peutBouger: 1
   input: {x: 0, y: 0}
@@ -15163,6 +15428,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1407241060}
+        m_TargetAssemblyTypeName: Hotspot_station, Assembly-CSharp
+        m_MethodName: interactionJeuxBas
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 776240f4-dbd7-41ae-b298-8a594035a9ff
     m_ActionName: Player/interactionJeuxBas[/XInputControllerWindows/dpad/down]
   - m_PersistentCalls:
@@ -15180,6 +15457,18 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 31487424}
+        m_TargetAssemblyTypeName: Hotspot_station, Assembly-CSharp
+        m_MethodName: interactionJeuxHaut
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1407241060}
         m_TargetAssemblyTypeName: Hotspot_station, Assembly-CSharp
         m_MethodName: interactionJeuxHaut
         m_Mode: 0
@@ -15961,7 +16250,7 @@ GameObject:
   - component: {fileID: 1309174960}
   - component: {fileID: 1309174959}
   m_Layer: 5
-  m_Name: check (4)
+  m_Name: checkPain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16020,6 +16309,78 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1309174957}
+  m_CullTransparentMesh: 1
+--- !u!1 &1332310509
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1332310510}
+  - component: {fileID: 1332310512}
+  - component: {fileID: 1332310511}
+  m_Layer: 5
+  m_Name: checkViande
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1332310510
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1332310509}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 692867376}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -660, y: -457}
+  m_SizeDelta: {x: 197, y: 152}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1332310511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1332310509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 2800000, guid: 275cf2b9785bd994688847871b32aa1b, type: 3}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!222 &1332310512
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1332310509}
   m_CullTransparentMesh: 1
 --- !u!1 &1341219514 stripped
 GameObject:
@@ -17997,7 +18358,7 @@ GameObject:
   - component: {fileID: 1492926052}
   - component: {fileID: 1492926051}
   m_Layer: 5
-  m_Name: check (5)
+  m_Name: checkFromage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19031,7 +19392,7 @@ GameObject:
   - component: {fileID: 1593706120}
   - component: {fileID: 1593706119}
   m_Layer: 5
-  m_Name: check (3)
+  m_Name: checkTomate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19491,7 +19852,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 4081.0251, y: -0.000030517578}
+  m_AnchoredPosition: {x: 21, y: -0.000030517578}
   m_SizeDelta: {x: 1988, y: 1190}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1623036264
@@ -24194,7 +24555,7 @@ GameObject:
   - component: {fileID: 1934559789}
   - component: {fileID: 1934559788}
   m_Layer: 5
-  m_Name: check (7)
+  m_Name: checkLaitue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24709,7 +25070,7 @@ RectTransform:
   - {fileID: 634715897}
   - {fileID: 1029840862}
   m_Father: {fileID: 1037918345}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -26313,7 +26674,7 @@ GameObject:
   - component: {fileID: 2069965773}
   - component: {fileID: 2069965772}
   m_Layer: 5
-  m_Name: check (2)
+  m_Name: checkLaitue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26744,7 +27105,7 @@ GameObject:
   - component: {fileID: 2114369559}
   - component: {fileID: 2114369558}
   m_Layer: 5
-  m_Name: check (4)
+  m_Name: checkPain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
