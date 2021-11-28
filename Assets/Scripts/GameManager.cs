@@ -371,7 +371,7 @@ public class GameManager : MonoBehaviour
         var pos = disco.transform.position;
         float height;
         height = pos.y;
-        if (height > 4.254f) {
+        if (height > 2.4f) {
             height -= 0.01f;
             disco.transform.position = new Vector3(pos.x, height, pos.z);
         }
