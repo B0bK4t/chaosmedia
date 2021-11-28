@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
     public GameObject burgerObject;
 
     private string[] platViandeIngredients = new string[] {"viande","laitue"};
-    private float platViandeTimer = 45f;
+    private float platViandeTimer = 35f;
     public GameObject platViandeObject;
 
     private string[] brochetteIngredients = new string[] {"viande", "laitue", "tomate"};
@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
     public GameObject brochetteObject;
 
     private string[] sandwichIngredients = new string[] {"pain", "viande", "tomate", "laitue"};
-    private float sandwichTimer = 45f;
+    private float sandwichTimer = 60f;
     public GameObject sandwichObject;
 
     private string[] saladeIngredients = new string[] {"laitue", "tomate", "fromage"};
@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
     public GameObject croqueMonsieurObject;
 
     private string[] jelloIngredients = new string[] {"jus"};
-    private float jelloTimer = 45f;
+    private float jelloTimer = 30f;
     public GameObject jelloObject;
 
     //Recette courante
@@ -142,14 +142,13 @@ public class GameManager : MonoBehaviour
     void choisirRepas() {
         //Choix du repas
         // repasChoisi = Random.Range(0, repasArray.Count);
-        // repasChoisi = Random.Range(0, 6);
-        repasChoisi = 1;
+        repasChoisi = Random.Range(0, 6);
+        this.GetComponent<affichageRecettes>().SendMessage("newRecette", nomsRepas[repasChoisi]);
         scoreRepas = timersArray.ElementAt(repasChoisi).Value;
         timerRecette = timersArray.ElementAt(repasChoisi).Value;
         recetteTimerTotal = timerRecette;
         tempsRecetteEnCours = true;
         repasText.text = nomsRepas[repasChoisi];
-        this.GetComponent<affichageRecettes>().SendMessage("newRecette", nomsRepas[repasChoisi]);
         ingredientsChoisis.Clear();
     }
 

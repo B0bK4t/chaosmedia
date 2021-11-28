@@ -165,9 +165,10 @@ public class Mouvement : MonoBehaviour
            if (recettesMenuCanvas.activeSelf) {
                recettesMenuCanvas.SetActive(false);
                GameManager.GetComponent<GameManager>().enPause = false;
+               peutBouger = true;
            } else {
                recettesMenuCanvas.SetActive(true);       
-               GameManager.GetComponent<GameManager>().enPause = true;        
+               peutBouger = false;   
            }
         }
     }

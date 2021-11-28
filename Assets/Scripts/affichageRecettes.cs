@@ -91,7 +91,6 @@ public class affichageRecettes : MonoBehaviour
         all.Add(croqueMrViande);
         all.Add(croqueMrPain);
 
-        clear();
     }
 
     // Update is called once per frame
@@ -153,6 +152,112 @@ public class affichageRecettes : MonoBehaviour
                 break;
             }
             break;
+
+            case "Burger":
+            switch (name)
+            {
+                case "pain":
+                burgerPain.enabled = true;
+                break;
+                case "fromage":
+                burgerFromage.enabled = true;
+                break;
+                case "viande":
+                burgerViande.enabled = true;
+                break;
+                case "laitue":
+                burgerLaitue.enabled = true;
+                break;
+                case "tomate":
+                burgerTomate.enabled = true;
+                break;
+                default:
+                break;
+            }
+            break;
+
+            case "Brochette":
+            switch (name)
+            {
+                case "viande":
+                brochetteViande.enabled = true;
+                break;
+                case "laitue":
+                brochetteLaitue.enabled = true;
+                break;
+                case "tomate":
+                brochetteTomate.enabled = true;
+                break;
+                default:
+                break;
+            }
+            break;
+
+            case "Jello":
+            switch (name)
+            {
+                case "jus":
+                jelloJus.enabled = true;
+                break;
+                default:
+                break;
+            }
+            break;
+
+            case "Sandwich":
+            switch (name)
+            {
+                case "pain":
+                sandwichPain.enabled = true;
+                break;
+                case "viande":
+                sandwichViande.enabled = true;
+                break;
+                case "laitue":
+                sandwichLaitue.enabled = true;
+                break;
+                case "tomate":
+                sandwichTomate.enabled = true;
+                break;
+                default:
+                break;
+            }
+            break;
+
+            case "Salade":
+            switch (name)
+            {
+                case "fromage":
+                saladeFromage.enabled = true;
+                break;
+                case "laitue":
+                saladeLaitue.enabled = true;
+                break;
+                case "tomate":
+                saladeTomate.enabled = true;
+                break;
+                default:
+                break;
+            }
+            break;
+
+            case "Croque-monsieur":
+            switch (name)
+            {
+                case "fromage":
+                croqueMrFromage.enabled = true;
+                break;
+                case "viande":
+                croqueMrViande.enabled = true;
+                break;
+                case "pain":
+                croqueMrPain.enabled = true;
+                break;
+                default:
+                break;
+            }
+            break;
+
             default:
             break;
         }
