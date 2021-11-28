@@ -219,10 +219,10 @@ public class Hotspot_station : MonoBehaviour
                     cercle3Fini.SetActive(false);
                     cercle4Fini.SetActive(false);
                     cercle5Fini.SetActive(false);
-                    // // if (GameManager.GetComponent<GameManager>().nomsRepas[repasChoisi] == "Jello") {
-                    //     GameManager.GetComponent<GameManager>().repasEstTermine = true;
-                    //     plate.GetComponent<Hotspot_assiette>().canAdd = false;
-                    // }
+                    if (repas == "Jello") {
+                        GameManager.GetComponent<GameManager>().repasEstTermine = true;
+                        plate.GetComponent<Hotspot_assiette>().canAdd = false;
+                    }
                  }
                     if (audio != null)
                     {
