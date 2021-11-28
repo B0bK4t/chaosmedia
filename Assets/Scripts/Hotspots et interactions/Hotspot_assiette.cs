@@ -26,21 +26,31 @@ public class Hotspot_assiette : MonoBehaviour
     void OnTriggerStay(Collider other) {
         
         player = other;
-        if (other.tag == "Player" && other.GetComponent<Objets>().click) {
+        // if (other.tag == "Player" && other.GetComponent<Objets>().click) {
+        if (other.tag == "Player") {
             var man = GameManager.GetComponent<GameManager>();
             if (other.GetComponent<Objets>().isCarrying && canAdd) {
-                ingredient = other.GetComponent<Objets>().ingredient;
-                GameManager.SendMessage("ajoutIngredient", player.GetComponent<Objets>().ingredient.tag);
-                ajoutIngredient(ingredient);
-                Debug.Log("reach a");
-                other.GetComponent<Objets>().isCarrying = false;
-                other.GetComponent<Objets>().SendMessage("clear");
-                Debug.Log("reach b");
-                Destroy(ingredient);
-            } else {
-                enleverIngredient();
+                other.GetComponent<Mouvement>().plateCommand = "add";
+                other.GetComponent<Mouvement>().estDansZoneAssiette = true;
+            } 
+            else {
+                other.GetComponent<Mouvement>().plateCommand = "remove";
+                other.GetComponent<Mouvement>().estDansZoneAssiette = true;
             }
         }
+    }
+
+    void OnTriggerExit() {
+        player.GetComponent<Mouvement>().estDansZoneAssiette = false;
+    }
+
+    public void ajouterDansAssiette() {
+        ingredient = player.GetComponent<Objets>().ingredient;
+        GameManager.SendMessage("ajoutIngredient", player.GetComponent<Objets>().ingredient.tag);
+        ajoutIngredient(ingredient);
+        player.GetComponent<Objets>().isCarrying = false;
+        player.GetComponent<Objets>().SendMessage("clear");
+        Destroy(ingredient);
     }
 
     void ajoutIngredient(GameObject ingredient) {

@@ -9,9 +9,6 @@ public class Hotspot_cuisine : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-
-        Debug.Log(other.tag);
-
         if (other.tag == "Player")
         {
             camera_zoom.GetComponent<Animator>().SetBool("zoomer", true);

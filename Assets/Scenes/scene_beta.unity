@@ -15089,6 +15089,8 @@ MonoBehaviour:
   scene:
     m_Handle: 0
   GameManager: {fileID: 46840871}
+  plate: {fileID: 94818100}
+  estDansZoneAssiette: 0
   playerInput: {fileID: 1299025829}
   peutBouger: 1
   input: {x: 0, y: 0}

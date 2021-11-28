@@ -13,6 +13,9 @@ public class Mouvement : MonoBehaviour
     string gameScene = "scene_beta"; 
     
     public GameManager GameManager;
+    public GameObject plate;
+    [ShowOnly] public bool estDansZoneAssiette = false;
+    [ShowOnly] public string plateCommand = "";
     private CharacterController controller;
     public PlayerInput playerInput;
     private Vector3 playerVelocity;
@@ -28,9 +31,9 @@ public class Mouvement : MonoBehaviour
 
     public Vector3 move;
 
-    public bool click;
+    [ShowOnly] public bool click;
 
-    public Rigidbody rb_perso;
+    [ShowOnly] public Rigidbody rb_perso;
 
     Vector2 currentMovement;
     bool movementPressed;
@@ -128,8 +131,16 @@ public class Mouvement : MonoBehaviour
     public void Ouvrir(InputAction.CallbackContext context)
     {  
         click = context.performed;
+        this.GetComponent<Objets>().click = click;
+
         if (context.performed) {
-            this.GetComponent<Objets>().click = click;
+            if (estDansZoneAssiette){
+                if (plateCommand == "add") {
+                    plate.GetComponent<Hotspot_assiette>().SendMessage("ajouterDansAssiette");
+                } else if (plateCommand == "remove") {
+                    plate.GetComponent<Hotspot_assiette>().SendMessage("enleverIngredient");
+                }
+            }
             if (scene.name == "Accueil") {
                 GameManager.SendMessage("debutCuisine");
             }
