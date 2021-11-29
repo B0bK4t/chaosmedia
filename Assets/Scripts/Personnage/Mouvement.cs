@@ -118,13 +118,6 @@ public class Mouvement : MonoBehaviour
                 }
             }
           }
-
-        //   else {
-        //       float click = playerInput.actions["Ouvrir"].ReadValue<float>();
-        //         if (click == 1) {
-                    
-        //         }
-        //   }
     }
 
     public void Ouvrir(InputAction.CallbackContext context)
@@ -146,7 +139,7 @@ public class Mouvement : MonoBehaviour
                 GameManager.SendMessage("accueilIntro");
             }
             else if (scene.name == "Post_credit") {
-                GameManager.SendMessage("retourHome");
+                GameManager.SendMessage("retourHome", 2f);
             }
         } else if (scene.name == gameScene) {
             this.GetComponent<Objets>().click = false;
@@ -161,8 +154,9 @@ public class Mouvement : MonoBehaviour
                GameManager.GetComponent<GameManager>().enPause = false;
                peutBouger = true;
            } else {
-               canvasMenuCommandes.SetActive(true);       
-               peutBouger = false;   
+               canvasMenuCommandes.SetActive(true);
+               GameManager.GetComponent<GameManager>().enPause = true;
+               peutBouger = false;
            }
         }
     }
@@ -176,7 +170,8 @@ public class Mouvement : MonoBehaviour
                    GameManager.GetComponent<GameManager>().enPause = false;
                    peutBouger = true;
                } else {
-                   recettesMenuCanvas.SetActive(true);       
+                   recettesMenuCanvas.SetActive(true);     
+                   GameManager.GetComponent<GameManager>().enPause = true;  
                    peutBouger = false;   
                }
             }
@@ -188,6 +183,8 @@ public class Mouvement : MonoBehaviour
     }
 
     public void boutonHome(InputAction.CallbackContext context) {
-        
+        if (scene.name == gameScene && context.performed && GameManager.GetComponent<GameManager>().enPause) {
+            GameManager.GetComponent<GameManager>().SendMessage("retourHome", 0.01f);
+        }
     }
 }

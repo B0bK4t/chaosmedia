@@ -99,10 +99,13 @@ public class GameManager : MonoBehaviour
 
     private bool checkForDiscoLum = false;
 
-    void Start() {
+    void Awake() {
         //Scenes
         scene = SceneManager.GetActiveScene();
+        enPause = false;
+    }
 
+    void Start() {
         if (scene.name == gameScene) {
             checkForDiscoLum = true;
             fillImage = fillImage.GetComponent<Image>();
@@ -396,13 +399,14 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("Outro");
     }
 
-    public void retourHome()
+    public void retourHome(float delay)
     {
-        Invoke("retourAfterInvoke", 2f);   
+        Invoke("retourAfterInvoke", delay);   
     }
 
     void retourAfterInvoke() {
         SceneManager.LoadScene("Accueil");
+        enPause = false;
     }
 
     void bouleDisco() {

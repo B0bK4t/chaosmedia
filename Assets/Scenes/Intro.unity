@@ -345,6 +345,8 @@ MonoBehaviour:
   player: {fileID: 0}
   hotspotAssiette: {fileID: 0}
   frigo: {fileID: 0}
+  premieresLumieres: {fileID: 0}
+  lumieresDisco: {fileID: 0}
   video: {fileID: 303055143}
   burgerObject: {fileID: 0}
   platViandeObject: {fileID: 0}
@@ -710,151 +712,19 @@ MonoBehaviour:
     m_ActionId: 8f1db833-fdbd-4009-94e9-23e00d463d83
     m_ActionName: Touch/PrimaryPosition
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Hotspot_station, Assembly-CSharp
-        m_MethodName: interactionJeuxBas
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Hotspot_station, Assembly-CSharp
-        m_MethodName: interactionJeuxBas
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Hotspot_station, Assembly-CSharp
-        m_MethodName: interactionJeuxBas
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 776240f4-dbd7-41ae-b298-8a594035a9ff
     m_ActionName: Player/interactionJeuxBas[/XInputControllerWindows/dpad/down]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Hotspot_station, Assembly-CSharp
-        m_MethodName: interactionJeuxHaut
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Hotspot_station, Assembly-CSharp
-        m_MethodName: interactionJeuxHaut
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Hotspot_station, Assembly-CSharp
-        m_MethodName: interactionJeuxHaut
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 1ac066e5-c120-40d3-8403-baa70c0ed114
     m_ActionName: Player/interactionJeuxHaut[/XInputControllerWindows/dpad/up]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Hotspot_station, Assembly-CSharp
-        m_MethodName: interactionJeuxDroite
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Hotspot_station, Assembly-CSharp
-        m_MethodName: interactionJeuxDroite
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 8e6d0a77-82ca-4e29-b945-a3c87d4e3637
     m_ActionName: Player/interactionJeuxDroite[/XInputControllerWindows/dpad/right]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Hotspot_station, Assembly-CSharp
-        m_MethodName: interactionJeuxGauche
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Hotspot_station, Assembly-CSharp
-        m_MethodName: interactionJeuxGauche
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Hotspot_station, Assembly-CSharp
-        m_MethodName: interactionJeuxGauche
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: bad51680-e3f1-4ddb-b9b2-94930633b928
     m_ActionName: Player/interactionJeuxGauche[/XInputControllerWindows/dpad/left]
   - m_PersistentCalls:
@@ -889,6 +759,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 980283b4-9f67-4318-9daf-bb229a2c4a2c
     m_ActionName: Player/boutonB[/Keyboard/b]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 7b87f0b6-c06d-40a9-858d-33182b1b1a89
+    m_ActionName: Player/boutonHome[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -918,6 +792,7 @@ MonoBehaviour:
   move: {x: 0, y: 0, z: 0}
   click: 0
   rb_perso: {fileID: 0}
+  canClick: 1
   recettesMenuCanvas: {fileID: 0}
   canvasMenuCommandes: {fileID: 0}
   audio: {fileID: 311499149}
