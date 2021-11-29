@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
+
 public class Hotspot_station : MonoBehaviour
 {
     [ShowOnly] public GameObject ingredient;
@@ -66,36 +68,47 @@ public class Hotspot_station : MonoBehaviour
     private bool waitForOutput = false;
     public bool miniJeuReussi = true; //Résultat du mini-jeu, false par défaut mais true pour tester
     public GameObject audio;
+
+    //Scene
+    [Header("Général")]
+    public Scene scene;
+    string gameScene = "scene_beta";
     
     void Awake() { 
-        flecheHaut = GameObject.Find("croixHaut");
-        flecheBas = GameObject.Find("croixBas");
-        flecheGauche = GameObject.Find("croixGauche");
-        flecheDroit = GameObject.Find("croixDroit");
-        flecheIdle = GameObject.Find("croixIdle");
 
-        cercle1 = GameObject.Find("circle01");
-        cercle2 = GameObject.Find("circle02");
-        cercle3 = GameObject.Find("circle03");
-        cercle4 = GameObject.Find("circle04");
-        cercle5 = GameObject.Find("circle05");
+        //Scenes
+        scene = SceneManager.GetActiveScene();
+        
+        if (scene.name == gameScene) {
+            flecheHaut = GameObject.Find("croixHaut");
+            flecheBas = GameObject.Find("croixBas");
+            flecheGauche = GameObject.Find("croixGauche");
+            flecheDroit = GameObject.Find("croixDroit");
+            flecheIdle = GameObject.Find("croixIdle");
 
-        cercle1Fini = GameObject.Find("circle01Fini");
-        cercle2Fini = GameObject.Find("circle02Fini");
-        cercle3Fini = GameObject.Find("circle03Fini");
-        cercle4Fini = GameObject.Find("circle04Fini");
-        cercle5Fini = GameObject.Find("circle05Fini");
+            cercle1 = GameObject.Find("circle01");
+            cercle2 = GameObject.Find("circle02");
+            cercle3 = GameObject.Find("circle03");
+            cercle4 = GameObject.Find("circle04");
+            cercle5 = GameObject.Find("circle05");
 
-        player = GameObject.Find("Dona disco");
-        if (anim == GameObject.Find("Toaster").GetComponent<Animator>()) {
-            anim.SetBool("cuire", true);
-            anim.SetBool("griller", false);
-            anim.SetBool("toaster", false);
-        } else if (anim == GameObject.Find("Essoreuse_salade").GetComponent<Animator>()) {
-            anim.SetBool("essore", false);
-        } else if (anim == GameObject.Find("PlancheDecouper").GetComponent<Animator>()) {
-            anim.SetBool("mini-jeu_couper", false);
-            anim.SetBool("tranche", false);
+            cercle1Fini = GameObject.Find("circle01Fini");
+            cercle2Fini = GameObject.Find("circle02Fini");
+            cercle3Fini = GameObject.Find("circle03Fini");
+            cercle4Fini = GameObject.Find("circle04Fini");
+            cercle5Fini = GameObject.Find("circle05Fini");
+
+            player = GameObject.Find("Dona disco");
+            if (anim == GameObject.Find("Toaster").GetComponent<Animator>()) {
+                anim.SetBool("cuire", true);
+                anim.SetBool("griller", false);
+                anim.SetBool("toaster", false);
+            } else if (anim == GameObject.Find("Essoreuse_salade").GetComponent<Animator>()) {
+                anim.SetBool("essore", false);
+            } else if (anim == GameObject.Find("PlancheDecouper").GetComponent<Animator>()) {
+                anim.SetBool("mini-jeu_couper", false);
+                anim.SetBool("tranche", false);
+            }
         }
     }    
 
@@ -221,6 +234,7 @@ public class Hotspot_station : MonoBehaviour
                     cercle5Fini.SetActive(false);
                     if (repas == "Jello") {
                         GameManager.GetComponent<GameManager>().repasEstTermine = true;
+                        GameManager.GetComponent<affichageRecettes>().SendMessage("checkIngredient","jus");
                         plate.GetComponent<Hotspot_assiette>().canAdd = false;
                     }
                  }

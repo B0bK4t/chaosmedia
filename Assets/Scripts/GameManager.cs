@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject video;
     private float videoIntroTime = 32f;
+    private float videoOutroTime = 2f;
 
     //pain, viande, fromage, tomate, laitue, jus
     List<string> ingredientsChoisis = new List<string>();
@@ -98,10 +99,13 @@ public class GameManager : MonoBehaviour
 
     private bool checkForDiscoLum = false;
 
-    void Start() {
+    void Awake() {
         //Scenes
         scene = SceneManager.GetActiveScene();
+        enPause = false;
+    }
 
+    void Start() {
         if (scene.name == gameScene) {
             checkForDiscoLum = true;
             fillImage = fillImage.GetComponent<Image>();
@@ -142,8 +146,8 @@ public class GameManager : MonoBehaviour
             objectsArray.Add("jello", jelloObject);
             nomsRepas.Add("Jello");
 
-            this.GetComponent<GameStart>().SendMessage("startGame");
-            // this.GetComponent<GameStart>().SendMessage("bypass");
+            // this.GetComponent<GameStart>().SendMessage("startGame");
+            this.GetComponent<GameStart>().SendMessage("bypass");
         }
     }
 
@@ -279,6 +283,7 @@ public class GameManager : MonoBehaviour
             player.GetComponent<Objets>().SendMessage("clearHand");
             player.GetComponent<Objets>().SendMessage("clear");
             this.GetComponent<affichageRecettes>().SendMessage("clear");
+            this.GetComponent<affichageCloche>().SendMessage("clearCloche");
             hotspotAssiette.GetComponent<Hotspot_assiette>().SendMessage("clearAssiette");
             scoreText.text = scoreTotal.ToString();
             prochainRepas();
@@ -311,7 +316,7 @@ public class GameManager : MonoBehaviour
                 timerGlobal = 0;
                 tempsGlobalEnCours = false;
                 Debug.Log("fin de la partie");
-                finCuisine();
+                postOutro();
             }
             if (timerGlobal > 0) {
                 DisplayTime(timerGlobal, timerText);
@@ -352,6 +357,14 @@ public class GameManager : MonoBehaviour
                 debutCuisine();
             }
         }
+
+        if (scene.name == "Outro") {
+            if (videoOutroTime > 0) {
+                videoOutroTime -= Time.deltaTime;
+            } else {
+                finJeu();
+            }
+        }
     }
 
 
@@ -376,7 +389,7 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(gameScene);
     }
 
-    public void finCuisine()
+    public void finJeu()
     {
         SceneManager.LoadScene("Post_credit");
     }
@@ -386,9 +399,14 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("Outro");
     }
 
-    public void retourHome()
+    public void retourHome(float delay)
     {
+        Invoke("retourAfterInvoke", delay);   
+    }
+
+    void retourAfterInvoke() {
         SceneManager.LoadScene("Accueil");
+        enPause = false;
     }
 
     void bouleDisco() {
