@@ -87,6 +87,9 @@ public class affichageCloche : MonoBehaviour
             case "painCru":
                 current = painCru;
             break;
+            case "tomateCrue":
+                current = tomateCrue;
+            break;
             default:
             break;
         }
