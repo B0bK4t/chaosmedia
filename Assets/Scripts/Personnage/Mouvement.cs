@@ -189,6 +189,10 @@ public class Mouvement : MonoBehaviour
             else if (scene.name == "Intro") {
                 GameManager.GetComponent<GameManager>().SendMessage("debutCuisine");
             }
+            
+            else if (scene.name == "Credit") {
+                GameManager.GetComponent<GameManager>().SendMessage("endCredit", 0.5f);
+            }
         }
     }
 

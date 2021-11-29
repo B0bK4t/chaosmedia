@@ -393,6 +393,14 @@ public class GameManager : MonoBehaviour
 
     public void finJeu()
     {
+        SceneManager.LoadScene("Credit");
+    }
+
+    public void endCredit(float delay) {
+        Invoke("goToPostCredit", delay);
+    }
+
+    public void goToPostCredit() {
         SceneManager.LoadScene("Post_credit");
     }
 
