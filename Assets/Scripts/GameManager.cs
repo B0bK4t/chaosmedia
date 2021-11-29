@@ -76,7 +76,7 @@ public class GameManager : MonoBehaviour
     [ShowOnly] public bool canBeAdded = false;
 
     //Score global
-    private float scoreTotal = 0f;
+    [ShowOnly] public static float scoreTotal = 0f;
     private float timerGlobal = 300f;
     private float debutDisco = 60f;
     private bool tempsGlobalEnCours = false;
@@ -148,6 +148,8 @@ public class GameManager : MonoBehaviour
 
             this.GetComponent<GameStart>().SendMessage("startGame");
             // this.GetComponent<GameStart>().SendMessage("bypass");
+        } else if (scene.name == "Post_credit") {
+            scoreText.text = scoreTotal.ToString();
         }
     }
 
