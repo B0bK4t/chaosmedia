@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17282034, g: 0.21596503, b: 0.29790962, a: 1}
+  m_IndirectSpecularColor: {r: 0.17282064, g: 0.21596566, b: 0.2979106, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -603,6 +603,8 @@ MonoBehaviour:
   repas: 
   miniJeuReussi: 1
   audio: {fileID: 605377251}
+  scene:
+    m_Handle: 0
 --- !u!65 &31487425
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1793,7 +1795,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &79500285
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8260,6 +8262,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: de4be64b8da9bc145aeabc88aaaccb39, type: 2}
+    - target: {fileID: 8632055958874330854, guid: 2f143ce4f4e2bc940922028b7a348475, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.48
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f143ce4f4e2bc940922028b7a348475, type: 3}
 --- !u!4 &600917531 stripped
@@ -12791,6 +12797,8 @@ MonoBehaviour:
   repas: 
   miniJeuReussi: 1
   audio: {fileID: 948354461}
+  scene:
+    m_Handle: 0
 --- !u!1 &1003248476 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 68f496a995fdc9c47a8012bfd08eeb1f, type: 3}
@@ -12983,6 +12991,8 @@ MonoBehaviour:
   repas: 
   miniJeuReussi: 1
   audio: {fileID: 1953681619}
+  scene:
+    m_Handle: 0
 --- !u!65 &1008155497
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -19097,6 +19107,8 @@ MonoBehaviour:
   repas: 
   miniJeuReussi: 0
   audio: {fileID: 418318181}
+  scene:
+    m_Handle: 0
 --- !u!65 &1407241061
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -21619,6 +21631,8 @@ MonoBehaviour:
   repas: 
   miniJeuReussi: 1
   audio: {fileID: 311569781}
+  scene:
+    m_Handle: 0
 --- !u!65 &1591290986
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -26975,8 +26989,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1875337064}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.255, y: -0.636, z: 4.719}
-  m_LocalScale: {x: 0.84718, y: 1, z: 1}
+  m_LocalPosition: {x: 4.868, y: -0.636, z: 4.793}
+  m_LocalScale: {x: 1.90228, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1645597450}
   m_RootOrder: 12
@@ -27016,7 +27030,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1875337064}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -29573,6 +29587,8 @@ MonoBehaviour:
   repas: 
   miniJeuReussi: 0
   audio: {fileID: 623521455}
+  scene:
+    m_Handle: 0
 --- !u!65 &2039410921
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -29593,7 +29609,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2039410918}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
