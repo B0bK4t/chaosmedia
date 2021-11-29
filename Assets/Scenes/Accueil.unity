@@ -1683,6 +1683,7 @@ MonoBehaviour:
     m_Handle: 0
   player: {fileID: 0}
   hotspotAssiette: {fileID: 0}
+  frigo: {fileID: 0}
   burgerObject: {fileID: 0}
   platViandeObject: {fileID: 0}
   brochetteObject: {fileID: 0}
@@ -1702,6 +1703,7 @@ MonoBehaviour:
   disco: {fileID: 0}
   audio: {fileID: 0}
   voixFini: {fileID: 0}
+  fillImage: {fileID: 0}
 --- !u!1 &916779812
 GameObject:
   m_ObjectHideFlags: 0
@@ -4827,7 +4829,19 @@ MonoBehaviour:
     m_ActionId: 2c163173-3f76-46b4-9a8c-2451de1f4af6
     m_ActionName: Player/menuInput[/Keyboard/tab]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 980283b4-9f67-4318-9daf-bb229a2c4a2c
     m_ActionName: Player/boutonB[/Keyboard/b]
   m_NeverAutoSwitchControlSchemes: 0
@@ -4850,6 +4864,9 @@ MonoBehaviour:
   scene:
     m_Handle: 0
   GameManager: {fileID: 901579413}
+  plate: {fileID: 0}
+  estDansZoneAssiette: 0
+  plateCommand: 
   playerInput: {fileID: 0}
   peutBouger: 1
   input: {x: 0, y: 0}
@@ -4857,6 +4874,7 @@ MonoBehaviour:
   click: 0
   rb_perso: {fileID: 2106962053}
   recettesMenuCanvas: {fileID: 0}
+  canvasMenuCommandes: {fileID: 0}
   audio: {fileID: 0}
 --- !u!95 &2106962051
 Animator:

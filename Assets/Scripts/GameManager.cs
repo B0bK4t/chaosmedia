@@ -18,6 +18,9 @@ public class GameManager : MonoBehaviour
     public GameObject hotspotAssiette;
     public GameObject frigo;
 
+    public GameObject video;
+    private float videoIntroTime = 32f;
+
     //pain, viande, fromage, tomate, laitue, jus
     List<string> ingredientsChoisis = new List<string>();
     Dictionary<string, string[]> repasArray = new Dictionary<string, string[]>();
@@ -93,9 +96,10 @@ public class GameManager : MonoBehaviour
     void Start() {
         //Scenes
         scene = SceneManager.GetActiveScene();
-        fillImage = fillImage.GetComponent<Image>();
 
         if (scene.name == gameScene) {
+            fillImage = fillImage.GetComponent<Image>();
+            
             //Ajout repas
             repasArray.Add("burger", burgerIngredients);
             timersArray.Add("burger", burgerTimer);
@@ -132,8 +136,8 @@ public class GameManager : MonoBehaviour
             objectsArray.Add("jello", jelloObject);
             nomsRepas.Add("Jello");
 
-            // this.GetComponent<GameStart>().SendMessage("startGame");
-            this.GetComponent<GameStart>().SendMessage("bypass");
+            this.GetComponent<GameStart>().SendMessage("startGame");
+            // this.GetComponent<GameStart>().SendMessage("bypass");
         }
     }
 
@@ -293,8 +297,6 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        // genererAssiette();
-
         //Timer global
         if (tempsGlobalEnCours && !enPause) {
             if (timerGlobal <= debutDisco) {
@@ -348,6 +350,15 @@ public class GameManager : MonoBehaviour
 
             fillImage.fillAmount = timerRecette / recetteTimerTotal;
         }
+
+        if (scene.name == "Intro") {
+            if (videoIntroTime > 0) {
+                videoIntroTime -= Time.deltaTime;
+            } else {
+                debutCuisine();
+            }
+        }
+
     }
 
 

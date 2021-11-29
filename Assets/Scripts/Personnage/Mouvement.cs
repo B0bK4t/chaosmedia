@@ -132,7 +132,9 @@ public class Mouvement : MonoBehaviour
     public void Ouvrir(InputAction.CallbackContext context)
     {  
         click = context.performed;
-        this.GetComponent<Objets>().click = click;
+        if (scene.name == gameScene) {
+            this.GetComponent<Objets>().click = click;
+        }
 
         if (context.performed) {
             if (estDansZoneAssiette){
@@ -143,12 +145,12 @@ public class Mouvement : MonoBehaviour
                 }
             }
             if (scene.name == "Accueil") {
-                GameManager.SendMessage("debutCuisine");
+                GameManager.SendMessage("accueilIntro");
             }
             else if (scene.name == "Post_credit") {
                 GameManager.SendMessage("retourHome");
             }
-        } else {
+        } else if (scene.name == gameScene) {
             this.GetComponent<Objets>().click = false;
         }
     }
@@ -169,15 +171,21 @@ public class Mouvement : MonoBehaviour
 
     public void boutonB(InputAction.CallbackContext context)
     {  
-        if (scene.name == gameScene && context.performed) {
-           if (recettesMenuCanvas.activeSelf) {
-               recettesMenuCanvas.SetActive(false);
-               GameManager.GetComponent<GameManager>().enPause = false;
-               peutBouger = true;
-           } else {
-               recettesMenuCanvas.SetActive(true);       
-               peutBouger = false;   
-           }
+        if (context.performed) {
+            if (scene.name == gameScene) {
+               if (recettesMenuCanvas.activeSelf) {
+                   recettesMenuCanvas.SetActive(false);
+                   GameManager.GetComponent<GameManager>().enPause = false;
+                   peutBouger = true;
+               } else {
+                   recettesMenuCanvas.SetActive(true);       
+                   peutBouger = false;   
+               }
+            }
+            
+            else if (scene.name == "Intro") {
+                GameManager.GetComponent<GameManager>().SendMessage("debutCuisine");
+            }
         }
     }
 }

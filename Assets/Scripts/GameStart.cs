@@ -11,7 +11,6 @@ public class GameStart : MonoBehaviour
     public RawImage actionBig;
     public RawImage actionSmall;
 
-
     public AudioSource decompte;
     public AudioSource alarmeDebut;
     public AudioSource voixNarrateur;
