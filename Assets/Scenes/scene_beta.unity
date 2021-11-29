@@ -17070,6 +17070,7 @@ MonoBehaviour:
   move: {x: 0, y: 0, z: 0}
   click: 0
   rb_perso: {fileID: 0}
+  canClick: 1
   recettesMenuCanvas: {fileID: 1659246301}
   canvasMenuCommandes: {fileID: 1852694729}
   audio: {fileID: 1299025826}
@@ -17310,6 +17311,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 980283b4-9f67-4318-9daf-bb229a2c4a2c
     m_ActionName: Player/boutonB[/Keyboard/b]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1299025828}
+        m_TargetAssemblyTypeName: Mouvement, Assembly-CSharp
+        m_MethodName: boutonHome
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 7b87f0b6-c06d-40a9-858d-33182b1b1a89
+    m_ActionName: Player/boutonHome[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

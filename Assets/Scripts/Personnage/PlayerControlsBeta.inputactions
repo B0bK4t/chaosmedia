@@ -76,6 +76,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "Press"
+                },
+                {
+                    "name": "boutonHome",
+                    "type": "Button",
+                    "id": "7b87f0b6-c06d-40a9-858d-33182b1b1a89",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press"
                 }
             ],
             "bindings": [
@@ -362,6 +370,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "boutonB",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a48e2467-ebde-4c36-9119-51bfae344c5b",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "boutonHome",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3a3b040c-15d7-421d-8591-cc265d4ec36d",
+                    "path": "<Gamepad>/select",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "boutonHome",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

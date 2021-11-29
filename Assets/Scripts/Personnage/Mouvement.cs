@@ -42,9 +42,7 @@ public class Mouvement : MonoBehaviour
     // public Animator animPorte;
     private Animator animatorPerso;
 
-    [Header("Hotspots")]
-    // public HotSpot scriptHot;
-
+    [ShowOnly] public bool canClick = true;
     
     //Limites de jeu
     private float limiteXPos = 5.8f;
@@ -187,5 +185,9 @@ public class Mouvement : MonoBehaviour
                 GameManager.GetComponent<GameManager>().SendMessage("debutCuisine");
             }
         }
+    }
+
+    public void boutonHome(InputAction.CallbackContext context) {
+        
     }
 }

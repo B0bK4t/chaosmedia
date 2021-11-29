@@ -89,6 +89,14 @@ public class @PlayerControlsBeta : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": ""Press""
+                },
+                {
+                    ""name"": ""boutonHome"",
+                    ""type"": ""Button"",
+                    ""id"": ""7b87f0b6-c06d-40a9-858d-33182b1b1a89"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press""
                 }
             ],
             ""bindings"": [
@@ -377,6 +385,28 @@ public class @PlayerControlsBeta : IInputActionCollection, IDisposable
                     ""action"": ""boutonB"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a48e2467-ebde-4c36-9119-51bfae344c5b"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""boutonHome"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3a3b040c-15d7-421d-8591-cc265d4ec36d"",
+                    ""path"": ""<Gamepad>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""boutonHome"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -440,6 +470,7 @@ public class @PlayerControlsBeta : IInputActionCollection, IDisposable
         m_Player_interactionJeuxGauche = m_Player.FindAction("interactionJeuxGauche", throwIfNotFound: true);
         m_Player_menuInput = m_Player.FindAction("menuInput", throwIfNotFound: true);
         m_Player_boutonB = m_Player.FindAction("boutonB", throwIfNotFound: true);
+        m_Player_boutonHome = m_Player.FindAction("boutonHome", throwIfNotFound: true);
         // Touch
         m_Touch = asset.FindActionMap("Touch", throwIfNotFound: true);
         m_Touch_PrimaryContact = m_Touch.FindAction("PrimaryContact", throwIfNotFound: true);
@@ -502,6 +533,7 @@ public class @PlayerControlsBeta : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_interactionJeuxGauche;
     private readonly InputAction m_Player_menuInput;
     private readonly InputAction m_Player_boutonB;
+    private readonly InputAction m_Player_boutonHome;
     public struct PlayerActions
     {
         private @PlayerControlsBeta m_Wrapper;
@@ -515,6 +547,7 @@ public class @PlayerControlsBeta : IInputActionCollection, IDisposable
         public InputAction @interactionJeuxGauche => m_Wrapper.m_Player_interactionJeuxGauche;
         public InputAction @menuInput => m_Wrapper.m_Player_menuInput;
         public InputAction @boutonB => m_Wrapper.m_Player_boutonB;
+        public InputAction @boutonHome => m_Wrapper.m_Player_boutonHome;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -551,6 +584,9 @@ public class @PlayerControlsBeta : IInputActionCollection, IDisposable
                 @boutonB.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBoutonB;
                 @boutonB.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBoutonB;
                 @boutonB.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBoutonB;
+                @boutonHome.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBoutonHome;
+                @boutonHome.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBoutonHome;
+                @boutonHome.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBoutonHome;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -582,6 +618,9 @@ public class @PlayerControlsBeta : IInputActionCollection, IDisposable
                 @boutonB.started += instance.OnBoutonB;
                 @boutonB.performed += instance.OnBoutonB;
                 @boutonB.canceled += instance.OnBoutonB;
+                @boutonHome.started += instance.OnBoutonHome;
+                @boutonHome.performed += instance.OnBoutonHome;
+                @boutonHome.canceled += instance.OnBoutonHome;
             }
         }
     }
@@ -638,6 +677,7 @@ public class @PlayerControlsBeta : IInputActionCollection, IDisposable
         void OnInteractionJeuxGauche(InputAction.CallbackContext context);
         void OnMenuInput(InputAction.CallbackContext context);
         void OnBoutonB(InputAction.CallbackContext context);
+        void OnBoutonHome(InputAction.CallbackContext context);
     }
     public interface ITouchActions
     {

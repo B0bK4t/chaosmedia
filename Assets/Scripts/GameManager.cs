@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject video;
     private float videoIntroTime = 32f;
+    private float videoOutroTime = 2f;
 
     //pain, viande, fromage, tomate, laitue, jus
     List<string> ingredientsChoisis = new List<string>();
@@ -312,7 +313,7 @@ public class GameManager : MonoBehaviour
                 timerGlobal = 0;
                 tempsGlobalEnCours = false;
                 Debug.Log("fin de la partie");
-                finCuisine();
+                postOutro();
             }
             if (timerGlobal > 0) {
                 DisplayTime(timerGlobal, timerText);
@@ -353,6 +354,14 @@ public class GameManager : MonoBehaviour
                 debutCuisine();
             }
         }
+
+        if (scene.name == "Outro") {
+            if (videoOutroTime > 0) {
+                videoOutroTime -= Time.deltaTime;
+            } else {
+                finJeu();
+            }
+        }
     }
 
 
@@ -377,7 +386,7 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(gameScene);
     }
 
-    public void finCuisine()
+    public void finJeu()
     {
         SceneManager.LoadScene("Post_credit");
     }
@@ -389,6 +398,10 @@ public class GameManager : MonoBehaviour
 
     public void retourHome()
     {
+        Invoke("retourAfterInvoke", 2f);   
+    }
+
+    void retourAfterInvoke() {
         SceneManager.LoadScene("Accueil");
     }
 
