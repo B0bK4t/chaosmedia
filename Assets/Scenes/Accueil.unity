@@ -262,6 +262,78 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 73445200}
   m_CullTransparentMesh: 1
+--- !u!1 &84847100
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 84847101}
+  - component: {fileID: 84847103}
+  - component: {fileID: 84847102}
+  m_Layer: 5
+  m_Name: RawImage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &84847101
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 84847100}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.32686, y: 0.32686, z: 0.32686}
+  m_Children: []
+  m_Father: {fileID: 647493847}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 452.5, y: 254.8}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &84847102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 84847100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 2800000, guid: e32cb5e75d920394ba07156a57140880, type: 3}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!222 &84847103
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 84847100}
+  m_CullTransparentMesh: 1
 --- !u!1 &116338624
 GameObject:
   m_ObjectHideFlags: 0
@@ -636,8 +708,8 @@ MonoBehaviour:
   m_text: "Lorsque vous arrivez sur un poste de travail, un mini-jeu appara\xEEtra
     sur l\u2019\xE9cran. Des ic\xF4nes de mouvement s\u2019afficheront et il vous
     faudra les reproduire avec les fl\xE8ches directionnelles de la manette pour
-    compl\xE9ter le mini jeu.\r\nSi vous entrez accidentellement dans un mini-jeu,
-    cliquez sur le \u201CX\u201D pour en sortir\r."
+    compl\xE9ter le mini jeu.\r\nVous pouvez \xE9galement utiliser la poubelle pour
+    vous d\xE9barrasser des choses encombrantes."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 290c186b2b8b53d40bceb955d151c557, type: 2}
   m_sharedMaterial: {fileID: -5934819619134386991, guid: 290c186b2b8b53d40bceb955d151c557, type: 2}
@@ -672,7 +744,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 512
+  m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -1172,7 +1244,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -568, y: 3.999997}
+  m_AnchoredPosition: {x: -568, y: -10}
   m_SizeDelta: {x: 485.013, y: 80.698}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &558591433
@@ -1436,6 +1508,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1068012312}
+  - {fileID: 84847101}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1681,7 +1754,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scene:
     m_Handle: 0
-  player: {fileID: 0}
+  player: {fileID: 2106962046}
   hotspotAssiette: {fileID: 0}
   frigo: {fileID: 0}
   premieresLumieres: {fileID: 0}
@@ -3504,14 +3577,14 @@ RectTransform:
   m_GameObject: {fileID: 1631592575}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1.1282, z: 1}
   m_Children: []
   m_Father: {fileID: 1068012312}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000011683, y: 4.0000734}
+  m_AnchoredPosition: {x: 0.000011683, y: -11}
   m_SizeDelta: {x: 1808.527, y: 256}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1631592577
@@ -4227,8 +4300,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Accomplissez le plus de pl\xE2ts possibles pour augmenter votre score
-    !"
+  m_text: Accomplissez le plus de plats possibles pour augmenter votre score !
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 290c186b2b8b53d40bceb955d151c557, type: 2}
   m_sharedMaterial: {fileID: -5934819619134386991, guid: 290c186b2b8b53d40bceb955d151c557, type: 2}
@@ -4527,7 +4599,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Pour vous d\xE9placez, utiliser le joystick de la manette Xbox.\r"
+  m_text: "Pour vous d\xE9placer, utilisez le joystick de la manette Xbox.\r"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 290c186b2b8b53d40bceb955d151c557, type: 2}
   m_sharedMaterial: {fileID: -5934819619134386991, guid: 290c186b2b8b53d40bceb955d151c557, type: 2}
@@ -4804,7 +4876,19 @@ MonoBehaviour:
     m_ActionId: bad51680-e3f1-4ddb-b9b2-94930633b928
     m_ActionName: Player/interactionJeuxGauche[/XInputControllerWindows/dpad/left]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2106962050}
+        m_TargetAssemblyTypeName: Mouvement, Assembly-CSharp
+        m_MethodName: menuInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 2c163173-3f76-46b4-9a8c-2451de1f4af6
     m_ActionName: Player/menuInput[/Keyboard/tab]
   - m_PersistentCalls:
@@ -4846,7 +4930,7 @@ MonoBehaviour:
   rb_perso: {fileID: 2106962053}
   canClick: 1
   recettesMenuCanvas: {fileID: 0}
-  canvasMenuCommandes: {fileID: 0}
+  canvasMenuCommandes: {fileID: 647493843}
   audio: {fileID: 0}
 --- !u!95 &2106962051
 Animator:

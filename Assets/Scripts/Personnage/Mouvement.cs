@@ -22,6 +22,8 @@ public class Mouvement : MonoBehaviour
     private bool groundedPlayer;
     private float playerSpeed = 3f;
     [ShowOnly] public bool peutBouger = false;
+
+    private bool peutCommencer = true;
     
     private float gravityValue = -9.81f;
     private float controllerHeight = 0f;
@@ -135,7 +137,7 @@ public class Mouvement : MonoBehaviour
                     plate.GetComponent<Hotspot_assiette>().SendMessage("enleverIngredient");
                 }
             }
-            if (scene.name == "Accueil") {
+            if (scene.name == "Accueil" && peutCommencer) {
                 GameManager.SendMessage("accueilIntro");
             }
             else if (scene.name == "Post_credit") {
@@ -148,7 +150,7 @@ public class Mouvement : MonoBehaviour
 
     public void menuInput(InputAction.CallbackContext context)
     {  
-       if (scene.name == gameScene && context.performed) {
+        if (scene.name == gameScene && context.performed) {
            if (canvasMenuCommandes.activeSelf) {
                canvasMenuCommandes.SetActive(false);
                GameManager.GetComponent<GameManager>().enPause = false;
@@ -157,6 +159,14 @@ public class Mouvement : MonoBehaviour
                canvasMenuCommandes.SetActive(true);
                GameManager.GetComponent<GameManager>().enPause = true;
                peutBouger = false;
+           }
+        } else if (scene.name == "Accueil" && context.performed) {
+           if (canvasMenuCommandes.activeSelf) {
+               canvasMenuCommandes.SetActive(false);
+               peutCommencer = true;
+           } else {
+               canvasMenuCommandes.SetActive(true);
+               peutCommencer = false;
            }
         }
     }
