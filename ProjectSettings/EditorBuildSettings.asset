@@ -15,9 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/scene_beta.unity
     guid: 3de65da5eb5159e498820d12c6ddf193
   - enabled: 1
-    path: Assets/Scenes/Post_credit.unity
-    guid: e4b61a2b38e889148b3dd457c00677b0
-  - enabled: 1
     path: Assets/Scenes/Outro.unity
     guid: 67657d417113b0c49bf617efc05cd764
+  - enabled: 1
+    path: Assets/Scenes/Post_credit.unity
+    guid: e4b61a2b38e889148b3dd457c00677b0
   m_configObjects: {}
