@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject player;
     public GameObject hotspotAssiette;
+    public GameObject frigo;
 
     //pain, viande, fromage, tomate, laitue, jus
     List<string> ingredientsChoisis = new List<string>();
@@ -146,9 +147,9 @@ public class GameManager : MonoBehaviour
 
     void choisirRepas() {
         //Choix du repas
-        // repasChoisi = Random.Range(0, repasArray.Count);
-        repasChoisi = Random.Range(0, 6);
+        repasChoisi = Random.Range(0, repasArray.Count);
         this.GetComponent<affichageRecettes>().SendMessage("newRecette", nomsRepas[repasChoisi]);
+        frigo.GetComponent<Hotspot_station>().repas = nomsRepas[repasChoisi];
         scoreRepas = timersArray.ElementAt(repasChoisi).Value;
         timerRecette = timersArray.ElementAt(repasChoisi).Value;
         recetteTimerTotal = timerRecette;
