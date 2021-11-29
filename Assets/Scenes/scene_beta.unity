@@ -2024,7 +2024,7 @@ MonoBehaviour:
   offset: {x: 0, y: 0, z: 0}
   canAdd: 1
   audio: {fileID: 2124338124}
-  anim: {fileID: 0}
+  anim: {fileID: 347009575}
 --- !u!65 &94818103
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12766,7 +12766,7 @@ MonoBehaviour:
   ingredientNeeded: viandeCrue
   ingredientOutput: {fileID: 1003248476}
   offset: {x: 0, y: 0, z: 0}
-  anim: {fileID: 0}
+  anim: {fileID: 1392008110}
   GameManager: {fileID: 0}
   plate: {fileID: 0}
   repas: 
@@ -18754,7 +18754,7 @@ MonoBehaviour:
   ingredientNeeded: tomateCrue
   ingredientOutput: {fileID: 93603211}
   offset: {x: 0, y: 0, z: 0}
-  anim: {fileID: 0}
+  anim: {fileID: 418318183}
   GameManager: {fileID: 0}
   plate: {fileID: 0}
   repas: 
@@ -21276,7 +21276,7 @@ MonoBehaviour:
   ingredientNeeded: laitueCrue
   ingredientOutput: {fileID: 1211095104}
   offset: {x: 0, y: 0, z: 0}
-  anim: {fileID: 0}
+  anim: {fileID: 311569784}
   GameManager: {fileID: 0}
   plate: {fileID: 0}
   repas: 
@@ -28938,8 +28938,8 @@ MonoBehaviour:
   ingredientOutput: {fileID: 1601765838}
   offset: {x: 0, y: 0, z: 0}
   anim: {fileID: 623521456}
-  GameManager: {fileID: 0}
-  plate: {fileID: 0}
+  GameManager: {fileID: 46840869}
+  plate: {fileID: 94818100}
   repas: 
   miniJeuReussi: 0
   audio: {fileID: 623521455}

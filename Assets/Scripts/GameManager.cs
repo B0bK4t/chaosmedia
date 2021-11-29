@@ -363,7 +363,7 @@ public class GameManager : MonoBehaviour
     public void accueilIntro()
     {
         SceneManager.LoadScene("Intro");
-        delaiIntro();
+        // delaiIntro();
     }
 
     public void debutCuisine()

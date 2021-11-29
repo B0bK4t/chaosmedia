@@ -18,6 +18,7 @@ public class Hotspot_assiette : MonoBehaviour
     public Vector3 offset;
     [ShowOnly] public bool canAdd = true;
     public GameObject audio;
+    [Header("Cloche")]
     public Animator anim;
 
     void Awake() {
