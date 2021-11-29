@@ -154,10 +154,10 @@ public class GameManager : MonoBehaviour
     }
 
     void debut() {
+        scoreTotal = 0f;
+        scoreText.text = scoreTotal.ToString();
         tempsGlobalEnCours = true;
-        // genererAssiette();
         choisirRepas();
-        scoreText.text = "0";
         player.GetComponent<Mouvement>().peutBouger = true;
     }
 
