@@ -68,6 +68,7 @@ public class Hotspot_station : MonoBehaviour
     private bool waitForOutput = false;
     public bool miniJeuReussi = true; //Résultat du mini-jeu, false par défaut mais true pour tester
     public GameObject audio;
+    private GameObject barreRecette;
 
     //Scene
     [Header("Général")]
@@ -98,6 +99,8 @@ public class Hotspot_station : MonoBehaviour
             cercle4Fini = GameObject.Find("circle04Fini");
             cercle5Fini = GameObject.Find("circle05Fini");
 
+            barreRecette = GameObject.Find("barreRecette");
+
             player = GameObject.Find("Dona disco");
             if (anim == GameObject.Find("Toaster").GetComponent<Animator>()) {
                 anim.SetBool("cuire", true);
@@ -126,6 +129,7 @@ public class Hotspot_station : MonoBehaviour
         cercle4Fini.SetActive(false);
         cercle5Fini.SetActive(false);
 
+        barreRecette.SetActive(false);
     }
     
 
@@ -224,6 +228,7 @@ public class Hotspot_station : MonoBehaviour
                  }
                   else if(this.gameObject.tag == "Hotspot planche"){
                     jeuTomate = false;
+                    
                  }
                  else if(this.gameObject.tag == "Hotspot frigo"){
                     jeuJus = false;
@@ -232,6 +237,8 @@ public class Hotspot_station : MonoBehaviour
                     cercle3Fini.SetActive(false);
                     cercle4Fini.SetActive(false);
                     cercle5Fini.SetActive(false);
+
+                    barreRecette.SetActive(false);
                     if (repas == "Jello") {
                         GameManager.GetComponent<GameManager>().repasEstTermine = true;
                         GameManager.GetComponent<affichageRecettes>().SendMessage("checkIngredient","jus");
@@ -307,6 +314,7 @@ public class Hotspot_station : MonoBehaviour
             partie2fromage = false;
         }
         else if( partie1jus && partie2jus ){
+            barreRecette.SetActive(true);
             Invoke("Premier", 1);
             Invoke("Deuxieme", 2);
             Invoke("Troisieme", 3);
