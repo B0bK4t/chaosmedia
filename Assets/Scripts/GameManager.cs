@@ -142,8 +142,8 @@ public class GameManager : MonoBehaviour
             objectsArray.Add("jello", jelloObject);
             nomsRepas.Add("Jello");
 
-            this.GetComponent<GameStart>().SendMessage("startGame");
-            // this.GetComponent<GameStart>().SendMessage("bypass");
+            // this.GetComponent<GameStart>().SendMessage("startGame");
+            this.GetComponent<GameStart>().SendMessage("bypass");
         }
     }
 
@@ -279,6 +279,7 @@ public class GameManager : MonoBehaviour
             player.GetComponent<Objets>().SendMessage("clearHand");
             player.GetComponent<Objets>().SendMessage("clear");
             this.GetComponent<affichageRecettes>().SendMessage("clear");
+            this.GetComponent<affichageCloche>().SendMessage("clearCloche");
             hotspotAssiette.GetComponent<Hotspot_assiette>().SendMessage("clearAssiette");
             scoreText.text = scoreTotal.ToString();
             prochainRepas();

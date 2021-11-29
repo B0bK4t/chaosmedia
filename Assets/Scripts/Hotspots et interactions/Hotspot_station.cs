@@ -221,6 +221,7 @@ public class Hotspot_station : MonoBehaviour
                     cercle5Fini.SetActive(false);
                     if (repas == "Jello") {
                         GameManager.GetComponent<GameManager>().repasEstTermine = true;
+                        GameManager.GetComponent<affichageRecettes>().SendMessage("checkIngredient","jus");
                         plate.GetComponent<Hotspot_assiette>().canAdd = false;
                     }
                  }
