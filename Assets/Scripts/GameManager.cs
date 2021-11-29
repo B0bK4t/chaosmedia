@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 
-
 public class GameManager : MonoBehaviour
 {
     //Scene
@@ -17,6 +16,10 @@ public class GameManager : MonoBehaviour
     public GameObject player;
     public GameObject hotspotAssiette;
     public GameObject frigo;
+
+    [Header("Lights")]
+    public GameObject premieresLumieres;
+    public GameObject lumieresDisco;
 
     public GameObject video;
     private float videoIntroTime = 32f;
@@ -74,7 +77,7 @@ public class GameManager : MonoBehaviour
     //Score global
     private float scoreTotal = 0f;
     private float timerGlobal = 300f;
-    private float debutDisco = 60f;
+    private float debutDisco = 60;
     private bool tempsGlobalEnCours = false;
     [Header("Score et timer")]
     [ShowOnly] public bool enPause = false;
@@ -93,11 +96,14 @@ public class GameManager : MonoBehaviour
     private float timeAmt = 10;
     private float timeTest;
 
+    private bool checkForDiscoLum = false;
+
     void Start() {
         //Scenes
         scene = SceneManager.GetActiveScene();
 
         if (scene.name == gameScene) {
+            checkForDiscoLum = true;
             fillImage = fillImage.GetComponent<Image>();
             
             //Ajout repas
@@ -160,15 +166,6 @@ public class GameManager : MonoBehaviour
         tempsRecetteEnCours = true;
         repasText.text = nomsRepas[repasChoisi];
         ingredientsChoisis.Clear();
-    }
-
-    void genererAssiette() {
-        int type = Random.Range(1, 6);
-        if (type == 5) {
-            // Debug.Log("vinyle");
-        } else {
-            // Debug.Log("regulière");
-        }
     }
 
     void ajoutIngredient(string ingredient) {
@@ -302,6 +299,9 @@ public class GameManager : MonoBehaviour
             if (timerGlobal <= debutDisco) {
                 discoMultiplicateur = 3f;
                 bouleDisco();
+                if (checkForDiscoLum) {
+                    switchLights();
+                }
             }
             if (timerGlobal > 0)
             {
@@ -313,15 +313,9 @@ public class GameManager : MonoBehaviour
                 Debug.Log("fin de la partie");
                 finCuisine();
             }
-
-
             if (timerGlobal > 0) {
                 DisplayTime(timerGlobal, timerText);
-
-
             }
-
-
         }
 
         if (timerGlobal < 5f && voixAppel == false)
@@ -358,7 +352,6 @@ public class GameManager : MonoBehaviour
                 debutCuisine();
             }
         }
-
     }
 
 
@@ -402,10 +395,16 @@ public class GameManager : MonoBehaviour
         var pos = disco.transform.position;
         float height;
         height = pos.y;
-        if (height > 2.4f) {
+        if (height > 2.5f) {
             height -= 0.01f;
             disco.transform.position = new Vector3(pos.x, height, pos.z);
         }
+    }
+    
+    void switchLights() {
+        checkForDiscoLum = false;
+        lumieresDisco.SetActive(true);
+        premieresLumieres.SetActive(false);
     }
 
 }
