@@ -78,7 +78,7 @@ public class GameManager : MonoBehaviour
     //Score global
     private float scoreTotal = 0f;
     private float timerGlobal = 300f;
-    private float debutDisco = 60;
+    private float debutDisco = 60f;
     private bool tempsGlobalEnCours = false;
     [Header("Score et timer")]
     [ShowOnly] public bool enPause = false;
@@ -146,8 +146,8 @@ public class GameManager : MonoBehaviour
             objectsArray.Add("jello", jelloObject);
             nomsRepas.Add("Jello");
 
-            // this.GetComponent<GameStart>().SendMessage("startGame");
-            this.GetComponent<GameStart>().SendMessage("bypass");
+            this.GetComponent<GameStart>().SendMessage("startGame");
+            // this.GetComponent<GameStart>().SendMessage("bypass");
         }
     }
 
